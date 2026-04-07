@@ -18,7 +18,6 @@
             line-height: 1.5;
         }
 
-        /* Green banner */
         .green-banner {
             background: linear-gradient(135deg, #1a5f1a, #2d7a2d);
             color: #ffd700;
@@ -39,7 +38,6 @@
             color: #fff3c9;
         }
 
-        /* Event details bar */
         .event-details {
             background: #2c3e2f;
             color: #ffd700;
@@ -60,7 +58,6 @@
             font-size: 0.9rem;
         }
 
-        /* Poll section */
         .poll-section {
             background: #e67e22;
             padding: 1.5rem;
@@ -108,7 +105,6 @@
             padding: 2rem;
         }
 
-        /* Department headings */
         .dept {
             background: #2c3e2f;
             color: #ffd700;
@@ -125,7 +121,7 @@
 
         .class-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 1rem;
             margin-bottom: 2rem;
         }
@@ -136,6 +132,8 @@
             padding: 1rem;
             border-radius: 8px;
             box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
         }
 
         .class-title {
@@ -174,19 +172,26 @@
         .awards {
             font-size: 0.75rem;
             color: #555;
-            margin-top: 0.4rem;
+            margin: 0.4rem 0;
             padding-top: 0.3rem;
             border-top: 1px dashed #ddd;
         }
 
-        .special-award {
-            background: #ffd700;
-            color: #2c3e2f;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
+        .worksheet-btn {
+            background: #2c3e2f;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            margin-top: 0.75rem;
             border-radius: 20px;
-            display: inline-block;
-            margin-top: 0.3rem;
+            font-size: 0.7rem;
+            cursor: pointer;
+            transition: background 0.2s;
+            align-self: flex-start;
+        }
+
+        .worksheet-btn:hover {
+            background: #e67e22;
         }
 
         .footer {
@@ -212,20 +217,17 @@
 </head>
 <body>
 
-    <!-- Green banner -->
     <div class="green-banner">
         <h1>🌾 GUSTAVUS ALASKA HARVEST FESTIVAL 🌾</h1>
         <p>Celebrating community, harvest, and Alaska's bounty</p>
     </div>
 
-    <!-- Event date and location -->
     <div class="event-details">
         <span>📅 Sept 19, 2026</span>
         <span>📍 Gustavus Community Center</span>
         <span>🕛 Noon – 5:00 PM</span>
     </div>
 
-    <!-- Poll section with button -->
     <div class="poll-section">
         <h3>🗳️ CHOOSE THE 2026 FESTIVAL THEME! 🗳️</h3>
         <div class="poll-deadline">⏰ Voting deadline: <strong>August 1, 2026</strong></div>
@@ -234,8 +236,6 @@
     </div>
 
     <div class="container">
-
-        <!-- Schedule -->
         <div style="background: #fff3e0; padding: 1rem; margin-bottom: 2rem; border-radius: 10px; text-align: center;">
             <h3>📋 Festival Schedule</h3>
             <p><strong>9:00 – 11:00 AM:</strong> Drop off entries (animals must be registered by Sept 17)</p>
@@ -251,50 +251,59 @@
 
         <!-- DEPT A: ANIMALS -->
         <div class="dept">🐓 DEPT A: ANIMALS</div>
-        <div class="class-grid">
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 1</span> Rabbit</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon | Grand & Reserve Champion rabbit ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 2</span> Cavy</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 3</span> Chicken</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon | Grand & Reserve Champion chicken ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 4</span> Quail</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 5</span> Other Poultry</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 6</span> Other Livestock</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 7</span> Dozen Eggs</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 8</span> Cage Decor</span><span class="points">25 pts</span></div><div class="awards">🏆 Special award for festival theme | Sticker only</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 9</span> Tanned Rabbit Skin</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 10</span> Other Animal Products</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 11</span> Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="awards">🐔 Fastest chicken ribbon | 🐇 Fastest rabbit ribbon | 🏆 Fastest Critter award</div></div>
+        <div class="class-grid" id="deptA">
+            <!-- Class 1 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 1</span> Rabbit</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon | Grand & Reserve Champion rabbit ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Rabbit', '50 pts', '🏅 Sticker & ribbon | Grand & Reserve Champion rabbit ribbon')">📄 Judging Worksheet</button></div>
+            <!-- Class 2 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 2</span> Cavy</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Cavy', '50 pts', '🏅 Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <!-- Class 3 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 3</span> Chicken</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon | Grand & Reserve Champion chicken ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Chicken', '50 pts', '🏅 Sticker & ribbon | Grand & Reserve Champion chicken ribbon')">📄 Judging Worksheet</button></div>
+            <!-- Class 4 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 4</span> Quail</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Quail', '50 pts', '🏅 Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <!-- Class 5 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 5</span> Other Poultry</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Other Poultry', '50 pts', '🏅 Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <!-- Class 6 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 6</span> Other Livestock</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Other Livestock', '50 pts', '🏅 Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <!-- Class 7 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 7</span> Dozen Eggs</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Dozen Eggs', '50 pts', '🏅 Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <!-- Class 8 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 8</span> Cage Decor</span><span class="points">25 pts</span></div><div class="awards">🏆 Special award for festival theme | Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('Cage Decor', '25 pts', '🏆 Special award for festival theme | Sticker only')">📄 Judging Worksheet</button></div>
+            <!-- Class 9 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 9</span> Tanned Rabbit Skin</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('Tanned Rabbit Skin', '25 pts', '⭐ Sticker only')">📄 Judging Worksheet</button></div>
+            <!-- Class 10 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 10</span> Other Animal Products</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('Other Animal Products', '25 pts', '⭐ Sticker only')">📄 Judging Worksheet</button></div>
+            <!-- Class 11 -->
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 11</span> Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="awards">🐔 Fastest chicken ribbon | 🐇 Fastest rabbit ribbon | 🏆 Fastest Critter award</div><button class="worksheet-btn" onclick="openWorksheet('Chicken & Rabbit Race', '25 pts', 'Fastest chicken ribbon | Fastest rabbit ribbon | Fastest Critter award')">📄 Judging Worksheet</button></div>
         </div>
 
         <!-- DEPT B: GARDEN -->
         <div class="dept">🥕 DEPT B: GARDEN</div>
-        <div class="class-grid">
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 12</span> Bountiful Basket</span><span class="points">100 pts</span></div><div class="awards">🏅 Sticker, ribbon & special award</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 13</span> Best Carrot</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 14</span> Best Beets</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 15</span> Flower Arrangement</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 16</span> Largest Cabbage</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 17</span> Largest Potato</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 18</span> Zucchini 500</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 19</span> Most Unusual</span><span class="points">25 pts</span></div><div class="awards">🏆 Judges' Choice & Audience Choice awards</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 20</span> Vegetable Sculpture</span><span class="points">25 pts</span></div><div class="awards">🏆 Judges' Choice & Audience Choice awards</div></div>
+        <div class="class-grid" id="deptB">
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 12</span> Bountiful Basket</span><span class="points">100 pts</span></div><div class="awards">🏅 Sticker, ribbon & special award</div><button class="worksheet-btn" onclick="openWorksheet('Bountiful Basket', '100 pts', 'Sticker, ribbon & special award')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 13</span> Best Carrot</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Best Carrot', '50 pts', 'Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 14</span> Best Beets</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Best Beets', '50 pts', 'Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 15</span> Flower Arrangement</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('Flower Arrangement', '50 pts', 'Sticker & ribbon')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 16</span> Largest Cabbage</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div><button class="worksheet-btn" onclick="openWorksheet('Largest Cabbage', '25 pts', 'First place ribbon for the heaviest')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 17</span> Largest Potato</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div><button class="worksheet-btn" onclick="openWorksheet('Largest Potato', '25 pts', 'First place ribbon for the heaviest')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 18</span> Zucchini 500</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div><button class="worksheet-btn" onclick="openWorksheet('Zucchini 500', '25 pts', 'First place ribbon for the heaviest')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 19</span> Most Unusual</span><span class="points">25 pts</span></div><div class="awards">🏆 Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('Most Unusual', '25 pts', 'Judges\' Choice & Audience Choice awards')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 20</span> Vegetable Sculpture</span><span class="points">25 pts</span></div><div class="awards">🏆 Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('Vegetable Sculpture', '25 pts', 'Judges\' Choice & Audience Choice awards')">📄 Judging Worksheet</button></div>
         </div>
 
         <!-- DEPT C: STILL LIFE -->
         <div class="dept">🎨 DEPT C: STILL LIFE</div>
-        <div class="class-grid">
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 21</span> Fine Art</span><span class="points">25 pts</span></div><div class="awards">🎨 Harvest festival theme | Judges' Choice & Audience Choice awards</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 22</span> Textile Art</span><span class="points">25 pts</span></div><div class="awards">🧵 Harvest festival theme | Judges' Choice & Audience Choice awards</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 23</span> Craft / Other</span><span class="points">25 pts</span></div><div class="awards">✂️ Harvest festival theme | Judges' Choice & Audience Choice awards</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 24</span> Baking</span><span class="points">25 pts</span></div><div class="awards">🍪 Sticker & award</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 25</span> Canning</span><span class="points">25 pts</span></div><div class="awards">🥫 Sticker & award</div></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 26</span> Other Still Life</span><span class="points">25 pts</span></div><div class="awards">🏷️ Sticker & award</div></div>
+        <div class="class-grid" id="deptC">
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 21</span> Fine Art</span><span class="points">25 pts</span></div><div class="awards">🎨 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('Fine Art', '25 pts', 'Harvest festival theme | Judges\' Choice & Audience Choice awards')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 22</span> Textile Art</span><span class="points">25 pts</span></div><div class="awards">🧵 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('Textile Art', '25 pts', 'Harvest festival theme | Judges\' Choice & Audience Choice awards')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 23</span> Craft / Other</span><span class="points">25 pts</span></div><div class="awards">✂️ Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('Craft / Other', '25 pts', 'Harvest festival theme | Judges\' Choice & Audience Choice awards')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 24</span> Baking</span><span class="points">25 pts</span></div><div class="awards">🍪 Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('Baking', '25 pts', 'Sticker & award')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 25</span> Canning</span><span class="points">25 pts</span></div><div class="awards">🥫 Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('Canning', '25 pts', 'Sticker & award')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 26</span> Other Still Life</span><span class="points">25 pts</span></div><div class="awards">🏷️ Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('Other Still Life', '25 pts', 'Sticker & award')">📄 Judging Worksheet</button></div>
         </div>
 
-        <!-- Animal health notice -->
         <div style="background: #fff3e0; border-left: 6px solid #e67e22; padding: 1rem; margin: 2rem 0; border-radius: 8px;">
             <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
         </div>
-
     </div>
 
     <div class="footer">
@@ -302,6 +311,156 @@
         <p style="font-size: 0.8rem; margin-top: 0.5rem;">One entry per class per person | Judges' decisions are final</p>
         <p style="font-size: 0.7rem; margin-top: 0.5rem;">Register animals by Sept 17 • Drop off Sept 19, 9-11 AM • Gustavus Community Center</p>
     </div>
+
+    <script>
+        function openWorksheet(className, points, awards) {
+            // Create a new window
+            const win = window.open('', '_blank', 'width=800,height=900,scrollbars=yes,resizable=yes');
+            
+            // Generate the worksheet HTML
+            win.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Judging Worksheet - ${className}</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            line-height: 1.6;
+                            padding: 20px;
+                            max-width: 800px;
+                            margin: 0 auto;
+                            background: white;
+                        }
+                        .worksheet-header {
+                            text-align: center;
+                            border-bottom: 2px solid #e67e22;
+                            padding-bottom: 10px;
+                            margin-bottom: 20px;
+                        }
+                        h1 {
+                            color: #2c3e2f;
+                            margin-bottom: 5px;
+                        }
+                        .class-details {
+                            background: #fef5e7;
+                            padding: 15px;
+                            border-radius: 8px;
+                            margin: 20px 0;
+                        }
+                        .criteria-table {
+                            width: 100%;
+                            border-collapse: collapse;
+                            margin: 20px 0;
+                        }
+                        .criteria-table th, .criteria-table td {
+                            border: 1px solid #ddd;
+                            padding: 10px;
+                            text-align: left;
+                        }
+                        .criteria-table th {
+                            background: #2c3e2f;
+                            color: #ffd700;
+                        }
+                        .score-line {
+                            margin: 15px 0;
+                            padding: 10px;
+                            border-bottom: 1px solid #eee;
+                        }
+                        .total-score {
+                            font-size: 1.2em;
+                            font-weight: bold;
+                            margin: 20px 0;
+                            padding: 10px;
+                            background: #f0f0f0;
+                            text-align: right;
+                        }
+                        .signature-line {
+                            margin-top: 40px;
+                            padding-top: 20px;
+                            border-top: 1px solid #333;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+                        .print-btn {
+                            background: #e67e22;
+                            color: white;
+                            border: none;
+                            padding: 10px 20px;
+                            font-size: 16px;
+                            cursor: pointer;
+                            margin-bottom: 20px;
+                            border-radius: 5px;
+                        }
+                        .print-btn:hover {
+                            background: #d35400;
+                        }
+                        @media print {
+                            .print-btn {
+                                display: none;
+                            }
+                            body {
+                                padding: 0;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    <button class="print-btn" onclick="window.print()">🖨️ Print This Worksheet</button>
+                    
+                    <div class="worksheet-header">
+                        <h1>Gustavus Alaska Harvest Festival</h1>
+                        <h2>Judging Worksheet</h2>
+                    </div>
+                    
+                    <div class="class-details">
+                        <p><strong>Class:</strong> ${className}</p>
+                        <p><strong>Points Possible:</strong> ${points}</p>
+                        <p><strong>Awards:</strong> ${awards}</p>
+                    </div>
+                    
+                    <h3>Entry Information</h3>
+                    <div class="score-line">
+                        <label><strong>Entry Number/Contestant Name:</strong> _______________________________</label>
+                    </div>
+                    
+                    <h3>Judging Criteria</h3>
+                    <table class="criteria-table">
+                        <thead>
+                            <tr><th>Criteria</th><th>Points Possible</th><th>Points Awarded</th><th>Judge's Notes</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Overall presentation / condition</td><td>10</td><td>______</td><td>_________________</td></tr>
+                            <tr><td>Adherence to class standards</td><td>10</td><td>______</td><td>_________________</td></tr>
+                            <tr><td>Quality / craftsmanship</td><td>10</td><td>______</td><td>_________________</td></tr>
+                            <tr><td>Creativity / uniqueness</td><td>10</td><td>______</td><td>_________________</td></tr>
+                            <tr><td>Appropriateness for harvest festival</td><td>10</td><td>______</td><td>_________________</td></tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="total-score">
+                        <strong>Total Score (out of 50):</strong> _____________
+                    </div>
+                    
+                    <div class="score-line">
+                        <label><strong>Additional Comments:</strong></label><br>
+                        <textarea rows="4" style="width:100%; margin-top:5px;"></textarea>
+                    </div>
+                    
+                    <div class="signature-line">
+                        <span><strong>Judge's Signature:</strong> _________________</span>
+                        <span><strong>Date:</strong> _____________</span>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 40px; font-size: 0.8em; color: #888;">
+                        Gustavus Alaska Harvest Festival • Sept 19, 2026
+                    </p>
+                </body>
+                </html>
+            `);
+            win.document.close();
+        }
+    </script>
 
 </body>
 </html>
