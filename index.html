@@ -269,7 +269,6 @@
         <!-- DEPT A: ANIMALS -->
         <div class="dept">🐓 DEPT A: ANIMALS</div>
         
-        <!-- Animal Health Notice - placed right here under Dept A -->
         <div class="health-notice">
             <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
         </div>
@@ -285,7 +284,7 @@
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 8</span> Cage Decor</span><span class="points">25 pts</span></div><div class="awards">🏆 Special award for festival theme | Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('cage-decor')">📄 Judging Worksheet</button></div>
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 9</span> Tanned Rabbit Skin</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('rabbit-skin')">📄 Judging Worksheet</button></div>
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 10</span> Other Animal Products</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('animal-products')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 11</span> Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="awards">🐔 Fastest chicken ribbon | 🐇 Fastest rabbit ribbon | 🏆 Fastest Critter award</div><button class="worksheet-btn" onclick="openWorksheet('race')">📄 Race Information</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 11</span> Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="awards">🐔 Fastest chicken/rooster ribbon | 🐇 Fastest rabbit ribbon | 🏆 Fastest Critter award</div><button class="worksheet-btn" onclick="openWorksheet('race')">📄 Race Information</button></div>
         </div>
 
         <!-- DEPT B: GARDEN -->
@@ -305,15 +304,14 @@
         <!-- DEPT C: STILL LIFE -->
         <div class="dept">🎨 DEPT C: STILL LIFE</div>
         <div class="class-grid" id="deptC">
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 21</span> Fine Art</span><span class="points">25 pts</span></div><div class="awards">🎨 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 22</span> Textile Art</span><span class="points">25 pts</span></div><div class="awards">🧵 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 23</span> Craft / Other</span><span class="points">25 pts</span></div><div class="awards">✂️ Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 21</span> Fine Art</span><span class="points">25 pts + 5 bonus</span></div><div class="awards">🎨 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('fine-art')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 22</span> Textile Art</span><span class="points">25 pts + 5 bonus</span></div><div class="awards">🧵 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('textile-art')">📄 Judging Worksheet</button></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 23</span> Craft / Other</span><span class="points">25 pts + 5 bonus</span></div><div class="awards">✂️ Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('craft-art')">📄 Judging Worksheet</button></div>
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 24</span> Baking</span><span class="points">25 pts</span></div><div class="awards">🍪 Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 25</span> Canning</span><span class="points">25 pts</span></div><div class="awards">🥫 Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 26</span> Other Still Life</span><span class="points">25 pts</span></div><div class="awards">🏷️ Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
         </div>
 
-        <!-- Best in Show note -->
         <div class="best-in-show">
             <strong>🏆 BEST IN SHOW & RUNNER UP 🏆</strong><br>
             Points from all classes will be totaled across the festival. Best in Show and Runner Up will be announced at the awards ceremony at the end of the festival!
@@ -473,7 +471,7 @@
                 },
                 race: {
                     title: "Chicken & Rabbit Race (Class 11)",
-                    points: "25",
+                    points: 25,
                     isRace: true,
                     content: `
                         <h3>Race Format</h3>
@@ -481,16 +479,17 @@
                         
                         <h4>Rules:</h4>
                         <ul>
-                            <li>Three concentric circles: small inner circle (release point) and large outer circle (finish line)</li>
+                            <li>Two concentric circles: small inner circle (release point) and large outer circle (finish line)</li>
                             <li>First animal past the outer circle wins</li>
-                            <li>Female animals and male animals run separately to avoid babies</li>
-                            <li>Final showdown between fastest chicken and fastest rabbit</li>
+                            <li>Female chickens (hens) and roosters run separately to avoid issues</li>
+                            <li>Female rabbits and male rabbits run separately</li>
+                            <li>Final showdown between fastest chicken/rooster and fastest rabbit</li>
                         </ul>
                         
                         <h4>Awards:</h4>
                         <ul>
-                            <li>Fastest female chicken: 20 pts</li>
-                            <li>Fastest male chicken: 20 pts</li>
+                            <li>Fastest hen (female chicken): 20 pts</li>
+                            <li>Fastest rooster (male chicken): 20 pts</li>
                             <li>Fastest female rabbit: 20 pts</li>
                             <li>Fastest male rabbit: 20 pts</li>
                             <li>Fastest Critter overall: 25 pts + prize</li>
@@ -617,6 +616,45 @@
                         "Festival participants can vote - their choice gets boosted to 25 points total"
                     ]
                 },
+                "fine-art": {
+                    title: "Fine Art (Class 21)",
+                    points: 25,
+                    hasBonus: true,
+                    criteria: [
+                        "Overall presentation / visual appeal (5 pts)",
+                        "Craftsmanship / technique (5 pts)",
+                        "Creativity / originality (5 pts)",
+                        "Adherence to harvest festival theme (5 pts)",
+                        "Overall impact (5 pts)",
+                        "Bonus: Extra points for exceptional theme integration (+5 pts)"
+                    ]
+                },
+                "textile-art": {
+                    title: "Textile Art (Class 22)",
+                    points: 25,
+                    hasBonus: true,
+                    criteria: [
+                        "Overall presentation / visual appeal (5 pts)",
+                        "Craftsmanship / technique (5 pts)",
+                        "Creativity / originality (5 pts)",
+                        "Adherence to harvest festival theme (5 pts)",
+                        "Overall impact (5 pts)",
+                        "Bonus: Extra points for exceptional theme integration (+5 pts)"
+                    ]
+                },
+                "craft-art": {
+                    title: "Craft / Other (Class 23)",
+                    points: 25,
+                    hasBonus: true,
+                    criteria: [
+                        "Overall presentation / visual appeal (5 pts)",
+                        "Craftsmanship / technique (5 pts)",
+                        "Creativity / originality (5 pts)",
+                        "Adherence to harvest festival theme (5 pts)",
+                        "Overall impact (5 pts)",
+                        "Bonus: Extra points for exceptional theme integration (+5 pts)"
+                    ]
+                },
                 "still-life-default": {
                     title: "Still Life Class",
                     points: 25,
@@ -658,7 +696,7 @@
                 });
                 criteriaHtml += `</tbody></table>`;
                 if (data.hasBonus) {
-                    criteriaHtml += `<p style="margin-top:10px;"><strong>Bonus points applied:</strong> _____________ (max +5)</p>`;
+                    criteriaHtml += `<p style="margin-top:10px;"><strong>Bonus points applied (max +5):</strong> _____________</p>`;
                 }
                 if (data.hasAudienceVote) {
                     criteriaHtml += `
@@ -674,6 +712,10 @@
             }
             
             let content = data.content || '';
+            let displayPoints = data.points;
+            if (data.hasBonus && !data.isRace && !data.isWeightClass) {
+                displayPoints = data.points + " + 5 bonus";
+            }
             
             win.document.write(`
                 <!DOCTYPE html>
@@ -764,7 +806,7 @@
                     
                     <div class="class-details">
                         <p><strong>Class:</strong> ${data.title}</p>
-                        <p><strong>Points Possible:</strong> ${data.points}${(data.isRace || data.isWeightClass) ? '' : ' points'}</p>
+                        <p><strong>Points Possible:</strong> ${displayPoints}${(data.isRace || data.isWeightClass) ? '' : ' points'}</p>
                     </div>
                     
                     <h3>Entry Information</h3>
@@ -778,7 +820,7 @@
                     
                     ${!data.isRace && !data.isWeightClass && !data.content && data.criteria ? `
                     <div class="total-score">
-                        <strong>Total Score (out of ${data.points}):</strong> _____________
+                        <strong>Total Score (out of ${data.points}${data.hasBonus ? ' + bonus' : ''}):</strong> _____________
                     </div>
                     
                     <div class="score-line">
