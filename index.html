@@ -194,6 +194,23 @@
             background: #e67e22;
         }
 
+        .health-notice {
+            background: #fff3e0;
+            border-left: 6px solid #e67e22;
+            padding: 1rem;
+            margin: 1rem 0 2rem 0;
+            border-radius: 8px;
+        }
+
+        .best-in-show {
+            background: #ffd700;
+            border-left: 6px solid #e67e22;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+
         .footer {
             text-align: center;
             padding: 2rem;
@@ -251,6 +268,12 @@
 
         <!-- DEPT A: ANIMALS -->
         <div class="dept">🐓 DEPT A: ANIMALS</div>
+        
+        <!-- Animal Health Notice - placed right here under Dept A -->
+        <div class="health-notice">
+            <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
+        </div>
+        
         <div class="class-grid" id="deptA">
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 1</span> Rabbit</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon | Grand & Reserve Champion rabbit ribbon</div><button class="worksheet-btn" onclick="openWorksheet('rabbit')">📄 Judging Worksheet</button></div>
             <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 2</span> Cavy</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('cavy')">📄 Judging Worksheet</button></div>
@@ -291,14 +314,11 @@
         </div>
 
         <!-- Best in Show note -->
-        <div style="background: #ffd700; border-left: 6px solid #e67e22; padding: 1rem; margin: 2rem 0; border-radius: 8px; text-align: center;">
+        <div class="best-in-show">
             <strong>🏆 BEST IN SHOW & RUNNER UP 🏆</strong><br>
             Points from all classes will be totaled across the festival. Best in Show and Runner Up will be announced at the awards ceremony at the end of the festival!
         </div>
 
-        <div style="background: #fff3e0; border-left: 6px solid #e67e22; padding: 1rem; margin: 2rem 0; border-radius: 8px;">
-            <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
-        </div>
     </div>
 
     <div class="footer">
@@ -310,101 +330,100 @@
     <script>
         function openWorksheet(classType) {
             const worksheets = {
-                // DEPT A: ANIMALS
                 rabbit: {
                     title: "Rabbit (Class 1)",
                     points: 50,
                     criteria: [
-                        "Clear eye and nose / no discharge",
-                        "Clean ears / well shaped / no frost bite or holes",
-                        "Even teeth",
-                        "Clean vent and tail / no discharge or poop",
-                        "Clean feet / fully furred foot / trimmed nail / no missing toes",
-                        "Straight spine / even carriage / hips and shoulders same width",
-                        "Clean brushed fur (both back and belly)",
-                        "Fur pattern/texture is even and appropriate to breed / no bald patches or uneven fur",
-                        "Body type appropriate for breed/type - meat rabbits have commercial body type, pets fit closest ARBA show standard for breed",
-                        "Friendly temperament / easily handled"
+                        "Clear eye and nose / no discharge (5 pts)",
+                        "Clean ears / well shaped / no frost bite or holes (5 pts)",
+                        "Even teeth (5 pts)",
+                        "Clean vent and tail / no discharge or poop (5 pts)",
+                        "Clean feet / fully furred foot / trimmed nail / no missing toes (5 pts)",
+                        "Straight spine / even carriage / hips and shoulders same width (5 pts)",
+                        "Clean brushed fur (both back and belly) (5 pts)",
+                        "Fur pattern/texture is even and appropriate to breed / no bald patches or uneven fur (5 pts)",
+                        "Body type appropriate for breed/type (5 pts)",
+                        "Friendly temperament / easily handled (5 pts)"
                     ]
                 },
                 cavy: {
                     title: "Cavy (Class 2)",
                     points: 50,
                     criteria: [
-                        "Clear eye and nose / no discharge",
-                        "Clean well shaped ears",
-                        "Even teeth",
-                        "Clean vent and no poop",
-                        "Straight spine / even carriage",
-                        "Correct weight",
-                        "Clean feet / trimmed nail / no missing toes",
-                        "Clean brushed fur",
-                        "Body type appropriate for breed/type",
-                        "Friendly temperament / easily handled"
+                        "Clear eye and nose / no discharge (5 pts)",
+                        "Clean well shaped ears (5 pts)",
+                        "Even teeth (5 pts)",
+                        "Clean vent and no poop (5 pts)",
+                        "Straight spine / even carriage (5 pts)",
+                        "Correct weight (5 pts)",
+                        "Clean feet / trimmed nail / no missing toes (5 pts)",
+                        "Clean brushed fur (5 pts)",
+                        "Body type appropriate for breed/type (5 pts)",
+                        "Friendly temperament / easily handled (5 pts)"
                     ]
                 },
                 chicken: {
                     title: "Chicken (Class 3)",
                     points: 50,
                     criteria: [
-                        "Clear eyes",
-                        "Clean beak",
-                        "Wattles and comb appropriately shaped for breed / no scarring or frostbite",
-                        "Clean feet / no missing toes",
-                        "Clean vent",
-                        "Clean feathers",
-                        "Even wings",
-                        "Solid carriage",
-                        "Appropriate body and color for breed/type",
-                        "Easily handled"
+                        "Clear eyes (5 pts)",
+                        "Clean beak (5 pts)",
+                        "Wattles and comb appropriately shaped for breed / no scarring or frostbite (5 pts)",
+                        "Clean feet / no missing toes (5 pts)",
+                        "Clean vent (5 pts)",
+                        "Clean feathers (5 pts)",
+                        "Even wings (5 pts)",
+                        "Solid carriage (5 pts)",
+                        "Appropriate body and color for breed/type (5 pts)",
+                        "Easily handled (5 pts)"
                     ]
                 },
                 quail: {
                     title: "Quail (Class 4)",
                     points: 50,
                     criteria: [
-                        "Clear eyes",
-                        "Clean beak",
-                        "Clean feet / no missing toes",
-                        "Clean vent",
-                        "Clean feathers",
-                        "Appropriate color for breed",
-                        "Even wings",
-                        "Solid carriage",
-                        "Appropriate body for breed/type",
-                        "Easily handled"
+                        "Clear eyes (5 pts)",
+                        "Clean beak (5 pts)",
+                        "Clean feet / no missing toes (5 pts)",
+                        "Clean vent (5 pts)",
+                        "Clean feathers (5 pts)",
+                        "Appropriate color for breed (5 pts)",
+                        "Even wings (5 pts)",
+                        "Solid carriage (5 pts)",
+                        "Appropriate body for breed/type (5 pts)",
+                        "Easily handled (5 pts)"
                     ]
                 },
                 "other-poultry": {
                     title: "Other Poultry (Class 5)",
                     points: 50,
                     criteria: [
-                        "Clear eyes",
-                        "Clean beak",
-                        "Clean feet / no missing toes",
-                        "Clean vent",
-                        "Clean feathers",
-                        "Appropriate color for breed",
-                        "Even wings",
-                        "Solid carriage",
-                        "Appropriate body for breed/type",
-                        "Easily handled"
+                        "Clear eyes (5 pts)",
+                        "Clean beak (5 pts)",
+                        "Clean feet / no missing toes (5 pts)",
+                        "Clean vent (5 pts)",
+                        "Clean feathers (5 pts)",
+                        "Appropriate color for breed (5 pts)",
+                        "Even wings (5 pts)",
+                        "Solid carriage (5 pts)",
+                        "Appropriate body for breed/type (5 pts)",
+                        "Easily handled (5 pts)"
                     ]
                 },
                 "other-livestock": {
                     title: "Other Livestock (Class 6)",
                     points: 50,
                     criteria: [
-                        "Clear eyes",
-                        "Clean beak or nose",
-                        "Clean feet / no missing toes",
-                        "Clean vent",
-                        "Clean feathers or fur",
-                        "Appropriate color for breed",
-                        "Solid carriage",
-                        "Other important thing for type of livestock (e.g., udder for goat)",
-                        "Appropriate body for breed/type",
-                        "Easily handled"
+                        "Clear eyes (5 pts)",
+                        "Clean beak or nose (5 pts)",
+                        "Clean feet / no missing toes (5 pts)",
+                        "Clean vent (5 pts)",
+                        "Clean feathers or fur (5 pts)",
+                        "Appropriate color for breed (5 pts)",
+                        "Solid carriage (5 pts)",
+                        "Other important thing for type of livestock (e.g., udder for goat) (5 pts)",
+                        "Appropriate body for breed/type (5 pts)",
+                        "Easily handled (5 pts)"
                     ]
                 },
                 eggs: {
@@ -480,13 +499,12 @@
                         <p><strong>Note:</strong> All participants receive 15 participation points.</p>
                     `
                 },
-                // DEPT B: GARDEN
                 basket: {
                     title: "Bountiful Basket (Class 12)",
                     points: 100,
                     criteria: [
-                        "Heaviest weight - 25 pts for heaviest, minus 1 pt for each lower weight",
-                        "Number of types of vegetables, flowers, or animal products - 25 pts for most varieties, minus 1 pt for each fewer",
+                        "Heaviest weight - 25 pts for heaviest, minus 1 pt for each lower weight (25 pts max)",
+                        "Number of types of vegetables, flowers, or animal products - 25 pts for most varieties, minus 1 pt for each fewer (25 pts max)",
                         "Decorative appeal (20 pts)",
                         "Quality of vegetables - nice examples of their type, not moldy or weird shaped (10 pts)",
                         "Trimming of vegetables so they look clean (10 pts)",
@@ -584,7 +602,7 @@
                     points: 25,
                     hasAudienceVote: true,
                     criteria: [
-                        "All participants get 15 points",
+                        "All participants get 15 base points",
                         "Judge awards 25 points to the most unusual vegetable",
                         "Festival participants can vote - their choice gets boosted to 25 points total"
                     ]
@@ -594,12 +612,11 @@
                     points: 25,
                     hasAudienceVote: true,
                     criteria: [
-                        "All participants get 15 points",
+                        "All participants get 15 base points",
                         "Judge awards 25 points to the best sculpture",
                         "Festival participants can vote - their choice gets boosted to 25 points total"
                     ]
                 },
-                // DEPT C: STILL LIFE (default template)
                 "still-life-default": {
                     title: "Still Life Class",
                     points: 25,
@@ -625,10 +642,10 @@
             let criteriaHtml = '';
             if (data.criteria) {
                 criteriaHtml = `
-                    <h3>Judging Criteria (out of ${data.points} points)</h3>
+                    <h3>Judging Criteria</h3>
                     <table class="criteria-table">
                         <thead>
-                            <tr><th>Criteria</th><th>Points Possible</th><th>Points Awarded</th><th>Judge's Notes</th</tr>
+                            <tr><th>Criteria</th><th>Points Possible</th><th>Points Awarded</th><th>Judge's Notes</th></tr>
                         </thead>
                         <tbody>
                 `;
@@ -636,7 +653,7 @@
                     const ptsMatch = criterion.match(/(\d+)\s*pts?/i);
                     const pts = ptsMatch ? ptsMatch[1] : '—';
                     criteriaHtml += `
-                        <tr><td>${criterion}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                        <tr><td>${criterion.replace(/\(\d+\s*pts?\)/i, '').trim()}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td>
                     `;
                 });
                 criteriaHtml += `</tbody></table>`;
@@ -747,7 +764,7 @@
                     
                     <div class="class-details">
                         <p><strong>Class:</strong> ${data.title}</p>
-                        <p><strong>Points Possible:</strong> ${data.points}${data.isRace || data.isWeightClass ? '' : ' pts'}</p>
+                        <p><strong>Points Possible:</strong> ${data.points}${(data.isRace || data.isWeightClass) ? '' : ' points'}</p>
                     </div>
                     
                     <h3>Entry Information</h3>
@@ -759,7 +776,7 @@
                     
                     ${content ? `<div class="class-details">${content}</div>` : ''}
                     
-                    ${!data.isRace && !data.isWeightClass && !data.content ? `
+                    ${!data.isRace && !data.isWeightClass && !data.content && data.criteria ? `
                     <div class="total-score">
                         <strong>Total Score (out of ${data.points}):</strong> _____________
                     </div>
