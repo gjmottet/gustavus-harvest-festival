@@ -1,10 +1,232 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Gustavus Harvest Festival</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gustavus Alaska Harvest Festival</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #fef5e7;
+            color: #2c3e2f;
+            line-height: 1.5;
+        }
+
+        /* Green banner */
+        .green-banner {
+            background: linear-gradient(135deg, #1a5f1a, #2d7a2d);
+            color: #ffd700;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 5px solid #ffd700;
+        }
+
+        .green-banner h1 {
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .green-banner p {
+            font-size: 1rem;
+            color: #fff3c9;
+        }
+
+        .vote-banner {
+            background: #e67e22;
+            color: white;
+            text-align: center;
+            padding: 0.75rem;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Department headings */
+        .dept {
+            background: #2c3e2f;
+            color: #ffd700;
+            padding: 1rem;
+            margin: 2rem 0 1rem 0;
+            border-radius: 10px;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .dept:first-of-type {
+            margin-top: 0;
+        }
+
+        /* Class cards grid */
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Individual class card */
+        .class-card {
+            background: white;
+            border-left: 8px solid #e67e22;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .class-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 4px 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .class-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: #2c3e2f;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .class-name {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .class-number {
+            background: #e67e22;
+            color: white;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .points {
+            color: #e67e22;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .special-award {
+            background: #ffd700;
+            color: #2c3e2f;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+            display: inline-block;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e2f;
+            color: #ffd700;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 700px) {
+            .green-banner h1 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 1rem;
+            }
+            .dept {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Gustavus Harvest Festival</h1>
-    <p>This is the index.html file. If you can see this, it's working!</p>
+
+    <!-- Green banner -->
+    <div class="green-banner">
+        <h1>🌾 GUSTAVUS ALASKA HARVEST FESTIVAL 🌾</h1>
+        <p>Celebrating community, harvest, and Alaska's bounty</p>
+    </div>
+
+    <!-- Vote banner -->
+    <div class="vote-banner">
+        🗳️ VOTE ON THE 2026 THEME! 🗳️ — Cast your ballot at the information booth
+    </div>
+
+    <div class="container">
+
+        <!-- Exhibition classes introduction -->
+        <p style="font-size: 1.2rem; margin-bottom: 1rem; text-align: center;">
+            🏆 <strong>EXHIBITION CLASSES</strong> 🏆<br>
+            One entry per class per person
+        </p>
+
+        <!-- DEPT A: ANIMALS -->
+        <div class="dept">🐓 DEPT A: ANIMALS</div>
+        <div class="class-grid">
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 1</span> Rabbit</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 2</span> Cavy</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 3</span> Chicken</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 4</span> Quail</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 5</span> Other Poultry</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 6</span> Other Livestock</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 7</span> Dozen Eggs</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 8</span> Cage Decor</span><span class="points">25 pts</span></div><div class="special-award">🏆 Special award for theme</div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 9</span> Tanned Rabbit Skin</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 10</span> Other Animal Products</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 11</span> Chicken and Rabbit Race</span><span class="points">25 pts</span></div></div>
+        </div>
+
+        <!-- Dept B: Garden -->
+        <div class="dept">🥕 DEPT B: GARDEN</div>
+        <div class="class-grid">
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 12</span> Bountiful Basket</span><span class="points">100 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 13</span> Best Carrot</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 14</span> Best Beets</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 15</span> Flower Arrangement</span><span class="points">50 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 16</span> Largest Cabbage</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 17</span> Largest Potato</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 18</span> Zucchini 500</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 19</span> Most Unusual</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 20</span> Vegetable Sculpture</span><span class="points">25 pts</span></div></div>
+        </div>
+
+        <!-- Dept C: Still Life -->
+        <div class="dept">🎨 DEPT C: STILL LIFE</div>
+        <div class="class-grid">
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 21</span> Fine Art (harvest theme)</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 22</span> Textile Art</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 23</span> Craft / Other</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 24</span> Baking</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 25</span> Canning</span><span class="points">25 pts</span></div></div>
+            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 26</span> Other Still Life</span><span class="points">25 pts</span></div></div>
+        </div>
+
+        <!-- Animal health notice -->
+        <div style="background: #fff3e0; border-left: 6px solid #e67e22; padding: 1rem; margin: 2rem 0; border-radius: 8px;">
+            <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>🌿 Gustavus Alaska Harvest Festival — Celebrating our community's harvest 🌿</p>
+        <p style="font-size: 0.8rem; margin-top: 0.5rem;">One entry per class per person | Judges' decisions are final</p>
+    </div>
+
 </body>
 </html>
