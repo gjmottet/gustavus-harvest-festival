@@ -65,38 +65,10 @@
             border-bottom: 3px solid #ffd700;
         }
 
-        .poll-section h3 {
-            color: white;
-            margin-bottom: 0.5rem;
-        }
-
         .poll-deadline {
             color: #fff3c9;
             font-weight: bold;
             margin-bottom: 1rem;
-        }
-
-        .poll-button {
-            display: inline-block;
-            background: #ffd700;
-            color: #2c3e2f;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0.5rem 0;
-            transition: transform 0.2s;
-        }
-
-        .poll-button:hover {
-            transform: scale(1.05);
-            background: #ffe44d;
-        }
-
-        .results-note {
-            color: #fff3c9;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
         }
 
         .container {
@@ -246,10 +218,25 @@
     </div>
 
     <div class="poll-section">
-        <h3>🗳️ CHOOSE THE 2026 FESTIVAL THEME! 🗳️</h3>
-        <div class="poll-deadline">⏰ Voting deadline: <strong>August 1, 2026</strong></div>
-        <a href="https://strawpoll.com/XmZRQ06o3gd" target="_blank" class="poll-button">🎪 CLICK HERE TO VOTE 🎪</a>
-        <div class="results-note">Results will be announced on this website and on festival flyers after August 1</div>
+        <div style="background: #fff3e0; border-radius: 16px; padding: 1.5rem; max-width: 700px; margin: 0 auto; text-align: center; border: 2px solid #ffd700;">
+            <h3 style="color: #2c3e2f; margin-bottom: 1rem;">🗳️ PLEASE VOTE FOR YOUR FAVORITE THEME 🗳️</h3>
+            <p style="color: #2c3e2f; font-size: 1rem; margin-bottom: 1rem;">
+                for this year's Harvest Festival at the<br>
+                <strong>Seed Library at the Gustavus Public Library</strong> or at <strong>ToshCo</strong>
+            </p>
+            <div style="background: #e67e22; padding: 0.75rem; border-radius: 12px; margin: 1rem 0;">
+                <p style="color: white; font-weight: bold; margin: 0;">This year's possible themes are:</p>
+            </div>
+            <p style="font-size: 1.2rem; font-weight: bold; color: #2c3e2f; margin: 0.5rem 0;">
+                🌾 Rustic Homestead &nbsp;&nbsp;|&nbsp;&nbsp; 🌊 Shoreline Harvest &nbsp;&nbsp;|&nbsp;&nbsp; 🍂 Autumn Elegance
+            </p>
+            <p style="color: #555; margin-top: 1rem; font-size: 0.9rem;">
+                ⭐ <strong>1 vote per person</strong> — thank you! ⭐
+            </p>
+            <div class="poll-deadline" style="margin-top: 1rem; color: #2c3e2f;">
+                ⏰ Voting deadline: <strong>August 1, 2026</strong>
+            </div>
+        </div>
     </div>
 
     <div class="container">
@@ -691,7 +678,7 @@
                     const ptsMatch = criterion.match(/(\d+)\s*pts?/i);
                     const pts = ptsMatch ? ptsMatch[1] : '—';
                     criteriaHtml += `
-                        <tr><td>${criterion.replace(/\(\d+\s*pts?\)/i, '').trim()}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td>
+                        <tr><td>${criterion.replace(/\(\d+\s*pts?\)/i, '').trim()}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>
                     `;
                 });
                 criteriaHtml += `</tbody></table>`;
