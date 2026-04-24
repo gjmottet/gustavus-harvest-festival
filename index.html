@@ -3,742 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gustavus Alaska Harvest Festival</title>
+    <title>Geneva's Trading Post - Alaskan Art & Rabbitry</title>
+    <meta name="description" content="Geneva's Trading Post: Alaskan fiber art, rabbitry, and farm stand in Gustavus & Fairbanks. Hand-knit wildlife potholders, Champagne d'Argent rabbits, local produce.">
+    <meta name="keywords" content="Alaska, Gustavus, Fairbanks, knitting, fiber art, rabbitry, Champagne d'Argent, Silver Fox, farm stand, quail eggs, potholders, handmade, local produce">
+    <meta name="author" content="Geneva's Trading Post">
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts for a beautiful, pretty typography on mission card -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-            background: #fef5e7;
-            color: #2c3e2f;
-            line-height: 1.5;
-        }
-
-        .green-banner {
-            background: linear-gradient(135deg, #1a5f1a, #2d7a2d);
-            color: #ffd700;
+        /* Homepage-specific styles */
+        .business-name {
             text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 5px solid #ffd700;
-        }
-
-        .green-banner h1 {
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .green-banner p {
-            font-size: 1rem;
-            color: #fff3c9;
-        }
-
-        .event-details {
-            background: #2c3e2f;
-            color: #ffd700;
-            text-align: center;
-            padding: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            font-weight: bold;
-        }
-
-        .event-details span {
-            background: #e67e22;
+            padding: 1.5rem;
+            background: #2c3e50;
             color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 30px;
-            font-size: 0.9rem;
+            margin: 0;
         }
-
-        /* ENTRY FORM CARD (now moved below vote section) */
-        .entry-card {
-            background: white;
-            margin: 2rem auto;
-            max-width: 1100px;
-            border-radius: 24px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+        
+        .business-name h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            color: white;
+        }
+        
+        .business-name p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0 0;
+            color: #ecf0f1;
+        }
+        
+        .banner-container {
+            width: 100%;
             overflow: hidden;
-            border: 1px solid #ffd700;
+            margin: 0 auto;
         }
-        .entry-header {
-            background: #2c3e2f;
-            color: #ffd700;
+        
+        .banner-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        nav {
+            background: #34495e;
             padding: 1.2rem;
             text-align: center;
+            border-bottom: 3px solid #3498db;
         }
-        .entry-header h2 {
-            margin: 0;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
-        .entry-header p {
-            margin-top: 0.3rem;
-            font-size: 0.9rem;
-            color: #fff3c9;
-        }
-        .entry-form-content {
-            padding: 1.8rem;
-        }
-        .form-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        .form-group {
-            flex: 1;
-            min-width: 200px;
-        }
-        .form-group label {
-            display: block;
-            font-weight: bold;
-            color: #2c3e2f;
-            margin-bottom: 0.4rem;
-            font-size: 0.85rem;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 0.7rem;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            font-size: 0.9rem;
-            transition: 0.2s;
-        }
-        .form-group input:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #e67e22;
-            box-shadow: 0 0 0 2px #ffe0b3;
-        }
-        .exhibits-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: #fffef7;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        .exhibits-table th, .exhibits-table td {
-            border: 1px solid #e2dccd;
-            padding: 10px 12px;
-            text-align: left;
-            vertical-align: top;
-        }
-        .exhibits-table th {
-            background: #e67e22;
+        
+        nav a {
             color: white;
-            font-weight: 600;
-            font-size: 0.85rem;
-        }
-        .exhibits-table td {
-            font-size: 0.85rem;
-        }
-        .exhibits-table input, .exhibits-table select {
-            width: 100%;
-            padding: 6px 8px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 0.8rem;
-        }
-        .add-row-btn {
-            background: #2c3e2f;
-            color: white;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            margin-top: 0.5rem;
-            transition: 0.2s;
-        }
-        .add-row-btn:hover {
-            background: #e67e22;
-        }
-        .submit-entry {
-            background: #e67e22;
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            border-radius: 40px;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: 0.2s;
+            padding: 0.7rem 1.2rem;
+            border-radius: 5px;
+            display: inline-block;
+            transition: all 0.3s ease;
         }
-        .submit-entry:hover {
-            background: #d35400;
-            transform: translateY(-2px);
+        
+        nav a:hover {
+            background: #3498db;
+            transform: translateY(-3px);
         }
-        .pdf-download-btn {
-            background: #2c3e2f;
-            color: #ffd700;
-            border: 2px solid #ffd700;
-            padding: 0.7rem 1.8rem;
-            font-size: 0.9rem;
-            font-weight: bold;
-            border-radius: 40px;
-            cursor: pointer;
-            margin-left: 1rem;
-            transition: 0.2s;
-        }
-        .pdf-download-btn:hover {
-            background: #1a2a1f;
-            transform: translateY(-2px);
-        }
-        .button-group {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .poll-section {
-            background: #e67e22;
-            padding: 1.5rem;
+        
+        .welcome-section {
             text-align: center;
-            border-bottom: 3px solid #ffd700;
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
-        .poll-deadline {
-            color: #fff3c9;
-            font-weight: bold;
+        
+        .welcome-section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        
+        .welcome-section p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            color: #34495e;
+        }
+        
+        .rabbit-feature {
+            text-align: center;
             padding: 2rem;
-        }
-
-        .dept {
-            background: #2c3e2f;
-            color: #ffd700;
-            padding: 1rem;
-            margin: 2rem 0 1rem 0;
+            background: #f8f9fa;
             border-radius: 10px;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        
+        .rabbit-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
+
+        /* ===== NEW MISSION CARD (between bunny picture & sitemap boxes) ===== */
+        .mission-card {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .mission-inner {
+            background: linear-gradient(135deg, #fff9ef 0%, #fff5e6 100%);
+            border-radius: 32px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15), 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid rgba(230, 190, 120, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(2px);
+        }
+        
+        .mission-inner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 28px 40px -14px rgba(0,0,0,0.2);
+            border-color: #d4af6a;
+        }
+        
+        /* decorative little flair */
+        .mission-inner::before {
+            content: "✨";
             font-size: 1.8rem;
+            position: absolute;
+            top: -15px;
+            left: 30px;
+            opacity: 0.7;
+            font-family: monospace;
+        }
+        
+        .mission-inner::after {
+            content: "🌱";
+            font-size: 1.8rem;
+            position: absolute;
+            bottom: -15px;
+            right: 30px;
+            opacity: 0.7;
+        }
+        
+        .mission-label {
+            display: inline-block;
+            background: #8B4513;
+            color: #fef3e2;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 600;
             letter-spacing: 1px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
         }
-        .dept:first-of-type {
-            margin-top: 0;
+        
+        .mission-statement {
+            font-family: 'Playfair Display', 'Georgia', serif;
+            font-size: 1.75rem;
+            line-height: 1.45;
+            font-weight: 500;
+            color: #2c2418;
+            margin: 0;
+            text-shadow: 0 1px 0 rgba(255,255,200,0.5);
+            letter-spacing: -0.2px;
         }
-
-        .class-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+        
+        .mission-statement strong {
+            font-weight: 700;
+            color: #8B4513;
+            background: linear-gradient(120deg, #fce9c4 0%, #fce9c4 40%, transparent 60%);
+            padding: 0 0.2rem;
         }
-
-        .class-card {
-            background: white;
-            border-left: 8px solid #e67e22;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .class-title {
-            font-weight: bold;
-            font-size: 1rem;
-            color: #2c3e2f;
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .class-name {
+        
+        .mission-footer {
+            margin-top: 1.5rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.9rem;
+            color: #7f5e3a;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
-
-        .class-number {
-            background: #e67e22;
-            color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
+        
+        .mission-footer span {
+            background: rgba(139,69,19,0.1);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 500;
         }
-
-        .points {
-            color: #e67e22;
-            font-weight: bold;
-            font-size: 0.85rem;
+        
+        /* page links (site map) style - keeping original design but refined */
+        .page-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-
-        .awards {
-            font-size: 0.75rem;
-            color: #555;
-            margin: 0.4rem 0;
-            padding-top: 0.3rem;
-            border-top: 1px dashed #ddd;
-        }
-
-        .worksheet-btn {
-            background: #2c3e2f;
-            color: white;
-            border: none;
-            padding: 0.4rem 0.8rem;
-            margin-top: 0.75rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            cursor: pointer;
-            transition: background 0.2s;
-            align-self: flex-start;
-        }
-
-        .worksheet-btn:hover {
-            background: #e67e22;
-        }
-
-        .health-notice {
-            background: #fff3e0;
-            border-left: 6px solid #e67e22;
-            padding: 1rem;
-            margin: 1rem 0 2rem 0;
-            border-radius: 8px;
-        }
-
-        .best-in-show {
-            background: #ffd700;
-            border-left: 6px solid #e67e22;
-            padding: 1rem;
-            margin: 2rem 0;
-            border-radius: 8px;
+        
+        .link-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
             text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
         }
-
-        .footer {
+        
+        .link-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .link-card h3 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .link-card p {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Rich color buttons */
+        .alaska-art-btn {
+            background: #2980b9;
+        }
+        
+        .alaska-art-btn:hover {
+            background: #21618c;
+        }
+        
+        .rabbitry-btn {
+            background: #8B4513;
+        }
+        
+        .rabbitry-btn:hover {
+            background: #6E2C00;
+        }
+        
+        .farm-btn {
+            background: #27ae60;
+        }
+        
+        .farm-btn:hover {
+            background: #219955;
+        }
+        
+        .fantasy-btn {
+            background: #9b59b6;
+        }
+        
+        .fantasy-btn:hover {
+            background: #8e44ad;
+        }
+        
+        .contact-btn {
+            background: #2c3e50;
+        }
+        
+        .contact-btn:hover {
+            background: #1a252f;
+        }
+        
+        /* Sunflower Image Section */
+        .sunflower-section {
             text-align: center;
             padding: 2rem;
-            background: #2c3e2f;
-            color: #ffd700;
-            margin-top: 2rem;
+            max-width: 800px;
+            margin: 2rem auto;
         }
-
-        @media (max-width: 700px) {
-            .green-banner h1 {
-                font-size: 1.5rem;
+        
+        .sunflower-image {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #2c3e50;
+            color: white;
+            margin-top: 3rem;
+        }
+        
+        /* Visitor badge styling */
+        .visitor-badge {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .visitor-badge img {
+            vertical-align: middle;
+        }
+        
+        /* Section spacing fix: ensure natural flow between rabbit feature and mission card */
+        .rabbit-feature {
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            nav a {
+                display: block;
+                margin: 0.5rem auto;
+                width: 80%;
+                max-width: 250px;
+                font-size: 1rem;
             }
-            .container {
-                padding: 1rem;
+            
+            .business-name h1 {
+                font-size: 2.2rem;
             }
-            .dept {
-                font-size: 1.4rem;
+            
+            .banner-image {
+                height: 200px;
             }
-            .exhibits-table th, .exhibits-table td {
-                font-size: 0.7rem;
-                padding: 6px;
+            
+            .page-links {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
             }
-            .button-group {
-                flex-direction: column;
+            
+            .mission-statement {
+                font-size: 1.35rem;
+                line-height: 1.4;
             }
-            .pdf-download-btn {
-                margin-left: 0;
-                text-align: center;
+            
+            .mission-inner {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mission-statement {
+                font-size: 1.2rem;
+            }
+            .mission-footer span {
+                font-size: 0.75rem;
             }
         }
     </style>
 </head>
 <body>
-
-    <div class="green-banner">
-        <h1>🌾 GUSTAVUS ALASKA HARVEST FESTIVAL 🌾</h1>
-        <p>Celebrating community, harvest, and Alaska's bounty</p>
+    <!-- Business Name Header -->
+    <header class="business-name">
+        <h1>Geneva's Trading Post</h1>
+        <p>Alaskan Fiber Art & Rabbitry</p>
+    </header>
+    
+    <!-- Banner Image -->
+    <div class="banner-container">
+        <img src="images/manyhalibuts_rsz.jpg" alt="Collection of Halibut Hot Pads" class="banner-image">
     </div>
-
-    <div class="event-details">
-        <span>📅 Sept 19, 2026</span>
-        <span>📍 Gustavus Community Center</span>
-        <span>🕛 Noon – 5:00 PM</span>
-    </div>
-
-    <!-- ========== THEME VOTING SECTION (MOVED ABOVE ENTRY FORM) ========= -->
-    <div class="poll-section">
-        <div style="background: #fff3e0; border-radius: 16px; padding: 1.5rem; max-width: 700px; margin: 0 auto; text-align: center; border: 2px solid #ffd700;">
-            <h3 style="color: #2c3e2f; margin-bottom: 1rem;">🗳️ PLEASE VOTE FOR YOUR FAVORITE THEME 🗳️</h3>
-            <p style="color: #2c3e2f; font-size: 1rem; margin-bottom: 1rem;">
-                for this year's Harvest Festival at the<br>
-                <strong>Seed Library at the Gustavus Public Library</strong>
-            </p>
-            <div style="background: #e67e22; padding: 0.75rem; border-radius: 12px; margin: 1rem 0;">
-                <p style="color: white; font-weight: bold; margin: 0;">This year's possible themes are:</p>
-            </div>
-            <p style="font-size: 1.2rem; font-weight: bold; color: #2c3e2f; margin: 0.5rem 0;">
-                🌾 Rustic Homestead &nbsp;&nbsp;|&nbsp;&nbsp; 🌊 Shoreline Harvest &nbsp;&nbsp;|&nbsp;&nbsp; 🍂 Autumn Elegance
-            </p>
-            <p style="color: #555; margin-top: 1rem; font-size: 0.9rem;">
-                ⭐ <strong>1 vote per person</strong> — thank you! ⭐
-            </p>
-            <div class="poll-deadline" style="margin-top: 1rem; color: #2c3e2f;">
-                ⏰ Voting deadline: <strong>May 9, 2026 at 2:30pm</strong><br>
-                Results announced at the end of 2nd Saturday Market
-            </div>
-        </div>
-    </div>
-
-    <!-- ========== ENTRY FORM CARD (MOVED BELOW VOTE SECTION) ========= -->
-    <div class="entry-card" id="entryFormCard">
-        <div class="entry-header">
-            <h2>📝 2026 HARVEST FESTIVAL EXHIBITOR ENTRY FORM</h2>
-            <p>Please fill out one form per exhibitor | Deadline: September 17, 2026 (animals must be pre-registered)</p>
-        </div>
-        <div class="entry-form-content">
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Full Name *</label>
-                    <input type="text" id="exhibitorName" placeholder="e.g., Geneva M.">
+    
+    <!-- Navigation Menu - Points to fantasy-ball.html but displays "Fantasy Art" -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="alaska-textiles.html">Alaskan Textile Art</a>
+        <a href="rabbitry.html">My Rabbitry</a>
+        <a href="farm-stand.html">Farm Stand</a>
+        <a href="fantasy-ball.html">Fantasy Art</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    
+    <main>
+        <!-- Welcome Message -->
+        <section class="welcome-section">
+            <h2>Welcome to My Alaskan World</h2>
+            <p>I'm Geneva, an Alaskan artist creating wildlife-inspired textile art in Fairbanks and Gustavus. Each piece is handcrafted with attention to detail, from halibut hot pads to beaded fingerless gloves. Alongside my fiber art, I raise happy, healthy rabbits here in the Last Frontier.</p>
+        </section>
+        
+        <!-- Rabbit Feature (Bunny picture + description) -->
+        <section class="rabbit-feature">
+            <h2>Meet Lucille</h2>
+            <p>One of the wonderful rabbits from our rabbitry</p>
+            <img src="images/LucilleTall.jpg" alt="Lucille the Rabbit" class="rabbit-image">
+            <p><em>Lucille is just one of our happy bunnies. Visit the Rabbitry page to meet them all!</em></p>
+        </section>
+        
+        <!-- *** NEW MISSION STATEMENT CARD *** -->
+        <!-- Positioned exactly between bunny picture section and the site map boxes (page-links) -->
+        <div class="mission-card">
+            <div class="mission-inner">
+                <div class="mission-label">✦ Our Northern Ethos ✦</div>
+                <div class="mission-statement">
+                    "Geneva's Trading Post turns rabbit manure into <strong>garden gold</strong> and rabbit pelts into <strong>heirlooms</strong> — and brings garden starts from our greenhouse to yours. We are a diverse, experimental micro-farm that believes in <strong>sharing what we learn</strong> to make gardening in Gustavus better for all."
                 </div>
-                <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" id="exhibitorEmail" placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                    <label>Phone Number *</label>
-                    <input type="tel" id="exhibitorPhone" placeholder="(907) 555-1234">
+                <div class="mission-footer">
+                    <span>🐇 From soil to soul</span>
+                    <span>🌻 Cultivating community</span>
+                    <span>📖 Rooted in Gustavus</span>
                 </div>
             </div>
-            <div class="form-row">
-                <div class="form-group">
-                    <label>Mailing Address / Gustavus Area</label>
-                    <input type="text" id="exhibitorAddress" placeholder="e.g., PO Box or street">
-                </div>
-                <div class="form-group">
-                    <label>Emergency Contact (for animal entries)</label>
-                    <input type="text" id="emergencyContact" placeholder="Name & phone">
-                </div>
+        </div>
+        
+        <!-- Site Map Boxes (Page Links Grid) -->
+        <div class="page-links">
+            <!-- Alaskan Textiles Card -->
+            <div class="link-card">
+                <h3>Alaskan Textile Art</h3>
+                <p>Hand-knit wildlife potholders, wearable art, and functional pieces inspired by Alaska's nature. Award-winning designs.</p>
+                <a href="alaska-textiles.html" class="btn alaska-art-btn">View Gallery</a>
             </div>
             
-            <label style="font-weight: bold; margin-top: 0.5rem; display: block;">📋 Exhibits Entry List (add each entry in its own row)</label>
-            <table class="exhibits-table" id="exhibitsTable">
-                <thead>
-                    <tr>
-                        <th>Dept (A/B/C)</th>
-                        <th>Class #</th>
-                        <th>Exhibit Number<br>(auto-assigned)</th>
-                        <th>Description of Exhibit</th>
-                        <th>Points (Official Use)</th>
-                        <th style="width: 30px"></th>
-                    </tr>
-                </thead>
-                <tbody id="exhibitsTbody">
-                    <tr class="exhibit-row">
-                        <td><select class="deptSelect"><option value="A">A - Animals</option><option value="B">B - Garden</option><option value="C">C - Still Life</option></select></td>
-                        <td><input type="text" class="classNum" placeholder="e.g., 1, 14" style="min-width: 70px;"></td>
-                        <td><input type="text" class="exhibitNum" placeholder="Auto" readonly style="background:#f9f2e0;"></td>
-                        <td><input type="text" class="description" placeholder="e.g., Champagne rabbit, carrot bunch"></td>
-                        <td><input type="text" class="pointsOfficial" placeholder="Judge use only" readonly style="background:#f9f2e0;"></td>
-                        <td><button type="button" class="removeRowBtn" style="background:#c0392b; color:white; border:none; border-radius:20px; padding:4px 8px; cursor:pointer;">✖</button></td>
-                    </tr>
-                </tbody>
-            </table>
-            <button type="button" class="add-row-btn" id="addExhibitBtn">➕ Add Another Exhibit</button>
-            
-            <div class="button-group">
-                <button class="pdf-download-btn" id="downloadPdfBtn">📎 Download as PDF Form (Static)</button>
-                <button class="submit-entry" id="previewEntryBtn">📄 Preview & Print Entry Form</button>
+            <!-- Rabbitry Card -->
+            <div class="link-card">
+                <h3>My Rabbitry</h3>
+                <p>Meet our rabbit family! Raised with care in Alaska, each bunny has its own personality and charm.</p>
+                <a href="rabbitry.html" class="btn rabbitry-btn">Meet the Bunnies</a>
             </div>
-            <p style="font-size: 0.7rem; color: #7f5e3a; margin-top: 1rem;">* Required fields | Please bring printed copy to drop-off (Sept 19, 9-11am). One entry per class per person.</p>
-        </div>
-    </div>
-
-    <div class="container">
-        <div style="background: #fff3e0; padding: 1rem; margin-bottom: 2rem; border-radius: 10px; text-align: center;">
-            <h3>📋 Festival Schedule</h3>
-            <p><strong>9:00 – 11:00 AM:</strong> Drop off entries (animals must be registered by Sept 17)</p>
-            <p><strong>11:00 AM – Noon:</strong> Judging</p>
-            <p><strong>Noon – 5:00 PM:</strong> Festival open to public</p>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem;">🐾 <strong>Register animals by Sept 17</strong> so we can get show cages set up</p>
-        </div>
-
-        <p style="font-size: 1.2rem; margin-bottom: 1rem; text-align: center;">
-            🏆 <strong>EXHIBITION CLASSES</strong> 🏆<br>
-            One entry per class per person
-        </p>
-
-        <!-- DEPT A: ANIMALS -->
-        <div class="dept">🐓 DEPT A: ANIMALS</div>
-        <div class="health-notice">
-            <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
-        </div>
-        <div class="class-grid" id="deptA">
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 1</span> Rabbit</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon | Grand & Reserve Champion rabbit ribbon</div><button class="worksheet-btn" onclick="openWorksheet('rabbit')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 2</span> Cavy</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('cavy')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 3</span> Chicken</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon | Grand & Reserve Champion chicken ribbon</div><button class="worksheet-btn" onclick="openWorksheet('chicken')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 4</span> Quail</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('quail')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 5</span> Other Poultry</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('other-poultry')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 6</span> Other Livestock</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('other-livestock')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 7</span> Dozen Eggs</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('eggs')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 8</span> Cage Decor</span><span class="points">25 pts</span></div><div class="awards">🏆 Special award for festival theme | Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('cage-decor')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 9</span> Tanned Rabbit Skin</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('rabbit-skin')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 10</span> Other Animal Products</span><span class="points">25 pts</span></div><div class="awards">⭐ Sticker only</div><button class="worksheet-btn" onclick="openWorksheet('animal-products')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 11</span> Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="awards">🐔 Fastest chicken/rooster ribbon | 🐇 Fastest rabbit ribbon | 🏆 Fastest Critter award</div><button class="worksheet-btn" onclick="openWorksheet('race')">📄 Race Information</button></div>
-        </div>
-
-        <!-- DEPT B: GARDEN with new Best Kale Class 15 -->
-        <div class="dept">🥕 DEPT B: GARDEN</div>
-        <div class="class-grid" id="deptB">
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 12</span> Bountiful Basket</span><span class="points">100 pts</span></div><div class="awards">🏅 Sticker, ribbon & special award</div><button class="worksheet-btn" onclick="openWorksheet('basket')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 13</span> Best Carrot</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('carrot')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 14</span> Best Beets</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('beet')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 15</span> Best Kale</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('kale')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 16</span> Flower Arrangement</span><span class="points">50 pts</span></div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('flower')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 17</span> Largest Cabbage</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div><button class="worksheet-btn" onclick="openWorksheet('cabbage')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 18</span> Largest Potato</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div><button class="worksheet-btn" onclick="openWorksheet('potato')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 19</span> Zucchini 500</span><span class="points">25 pts</span></div><div class="awards">🥇 First place ribbon for the heaviest</div><button class="worksheet-btn" onclick="openWorksheet('zucchini')">📄 Race Information</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 20</span> Most Unusual</span><span class="points">25 pts</span></div><div class="awards">🏆 Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('unusual')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 21</span> Vegetable Sculpture</span><span class="points">25 pts</span></div><div class="awards">🏆 Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('sculpture')">📄 Judging Worksheet</button></div>
-        </div>
-
-        <!-- DEPT C: STILL LIFE (shifted) -->
-        <div class="dept">🎨 DEPT C: STILL LIFE</div>
-        <div class="class-grid" id="deptC">
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 22</span> Fine Art</span><span class="points">25 pts + 5 bonus</span></div><div class="awards">🎨 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('fine-art')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 23</span> Textile Art</span><span class="points">25 pts + 5 bonus</span></div><div class="awards">🧵 Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('textile-art')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 24</span> Craft / Other</span><span class="points">25 pts + 5 bonus</span></div><div class="awards">✂️ Harvest festival theme | Judges' Choice & Audience Choice awards</div><button class="worksheet-btn" onclick="openWorksheet('craft-art')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 25</span> Baking</span><span class="points">25 pts</span></div><div class="awards">🍪 Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 26</span> Canning</span><span class="points">25 pts</span></div><div class="awards">🥫 Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
-            <div class="class-card"><div class="class-title"><span class="class-name"><span class="class-number">Class 27</span> Other Still Life</span><span class="points">25 pts</span></div><div class="awards">🏷️ Sticker & award</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Judging Worksheet</button></div>
-        </div>
-
-        <div class="best-in-show">
-            <strong>🏆 BEST IN SHOW & RUNNER UP 🏆</strong><br>
-            Points from all classes will be totaled across the festival. Best in Show and Runner Up will be announced at the awards ceremony at the end of the festival!
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>🌿 Gustavus Alaska Harvest Festival — Celebrating our community's harvest 🌿</p>
-        <p style="font-size: 0.8rem; margin-top: 0.5rem;">One entry per class per person | Judges' decisions are final</p>
-        <p style="font-size: 0.7rem; margin-top: 0.5rem;">Register animals by Sept 17 • Drop off Sept 19, 9-11 AM • Gustavus Community Center</p>
-    </div>
-
-    <script>
-        // Dynamic row management
-        const tbody = document.getElementById('exhibitsTbody');
-        const addBtn = document.getElementById('addExhibitBtn');
-        
-        function addExhibitRow() {
-            const newRow = document.createElement('tr');
-            newRow.className = 'exhibit-row';
-            newRow.innerHTML = `
-                <td><select class="deptSelect"><option value="A">A - Animals</option><option value="B">B - Garden</option><option value="C">C - Still Life</option></select></td>
-                <td><input type="text" class="classNum" placeholder="e.g., 1, 14" style="min-width: 70px;"></td>
-                <td><input type="text" class="exhibitNum" placeholder="Auto" readonly style="background:#f9f2e0;"></td>
-                <td><input type="text" class="description" placeholder="Describe your exhibit"></td>
-                <td><input type="text" class="pointsOfficial" placeholder="Judge use only" readonly style="background:#f9f2e0;"></td>
-                <td><button type="button" class="removeRowBtn" style="background:#c0392b; color:white; border:none; border-radius:20px; padding:4px 8px; cursor:pointer;">✖</button></td>
-            `;
-            tbody.appendChild(newRow);
-            attachRemoveEvent(newRow);
-            updateExhibitNumbers();
-        }
-        
-        function attachRemoveEvent(row) {
-            const btn = row.querySelector('.removeRowBtn');
-            if(btn) {
-                btn.addEventListener('click', function() {
-                    if(tbody.children.length > 1) {
-                        row.remove();
-                        updateExhibitNumbers();
-                    } else {
-                        alert("You need at least one exhibit row.");
-                    }
-                });
-            }
-        }
-        
-        function updateExhibitNumbers() {
-            const rows = document.querySelectorAll('#exhibitsTbody .exhibit-row');
-            rows.forEach((row, idx) => {
-                const exhibitNumInput = row.querySelector('.exhibitNum');
-                if(exhibitNumInput) exhibitNumInput.value = `E${idx+1}`;
-            });
-        }
-        
-        addBtn.addEventListener('click', addExhibitRow);
-        document.querySelectorAll('.removeRowBtn').forEach(btn => attachRemoveEvent(btn.closest('tr')));
-        updateExhibitNumbers();
-        
-        // Preview & print (interactive version)
-        document.getElementById('previewEntryBtn').addEventListener('click', function() {
-            const name = document.getElementById('exhibitorName').value || "[Not provided]";
-            const email = document.getElementById('exhibitorEmail').value;
-            const phone = document.getElementById('exhibitorPhone').value || "[Not provided]";
-            const address = document.getElementById('exhibitorAddress').value;
-            const emergency = document.getElementById('emergencyContact').value;
             
-            let exhibitsHtml = '<table border="1" cellpadding="5" style="width:100%; border-collapse:collapse;"><thead><tr><th>Dept</th><th>Class #</th><th>Exhibit #</th><th>Description</th><th>Points (official)</th></tr></thead><tbody>';
-            const rows = document.querySelectorAll('#exhibitsTbody .exhibit-row');
-            rows.forEach(row => {
-                const dept = row.querySelector('.deptSelect').value;
-                const classNum = row.querySelector('.classNum').value || '—';
-                const exhibitNum = row.querySelector('.exhibitNum').value;
-                const desc = row.querySelector('.description').value || '—';
-                exhibitsHtml += `<tr><td>${dept}</td><td>${classNum}</td><td>${exhibitNum}</td><td>${desc}</td><td>________</td></tr>`;
-            });
-            exhibitsHtml += '</tbody></table>';
+            <!-- Farm Stand Card -->
+            <div class="link-card">
+                <h3>Farm Stand</h3>
+                <p>Fresh local produce, rabbit meat, eggs, and other homestead goods available seasonally in Fairbanks.</p>
+                <a href="farm-stand.html" class="btn farm-btn">Visit Farm Stand</a>
+            </div>
             
-            const printWindow = window.open('', '_blank', 'width=800,height=900,scrollbars=yes');
-            printWindow.document.write(`
-                <!DOCTYPE html><html><head><title>Harvest Festival Entry Form</title><style>body{font-family:sans-serif; padding:2rem;} .header{text-align:center;border-bottom:2px solid #e67e22;} table{width:100%;border-collapse:collapse; margin-top:1rem;} th,td{border:1px solid #aaa;padding:8px;}</style></head>
-                <body><div class="header"><h2>Gustavus Harvest Festival Entry Form</h2><p>Sept 19, 2026 | Gustavus Community Center</p></div>
-                <h3>Exhibitor Info</h3><p><strong>Name:</strong> ${name}<br><strong>Email:</strong> ${email || '—'}<br><strong>Phone:</strong> ${phone}<br><strong>Address:</strong> ${address || '—'}<br><strong>Emergency Contact:</strong> ${emergency || '—'}</p>
-                <h3>Exhibits</h3>${exhibitsHtml}
-                <p><em>I confirm that each entry is my own work/produce and follows festival rules (one entry per class).</em><br>Signature: ___________________________ Date: ___________</p>
-                <p style="margin-top:2rem;">Please bring this printed copy to drop-off (9-11am, Sept 19).</p>
-                </body></html>
-            `);
-            printWindow.document.close();
-            printWindow.print();
-        });
+            <!-- Fantasy Art Card - Points to fantasy-ball.html but says "Fantasy Art" -->
+            <div class="link-card">
+                <h3>Fantasy Art Specials</h3>
+                <p>Dragon potholders, cosplay accessories, and magical creations for Fantasy Fairbanks events.</p>
+                <a href="fantasy-ball.html" class="btn fantasy-btn">View Fantasy Art</a>
+            </div>
+            
+            <!-- Contact Card -->
+            <div class="link-card">
+                <h3>Contact & Commissions</h3>
+                <p>Based in Fairbanks (winter) and Gustavus (summer). Available for custom commissions and local markets.</p>
+                <a href="contact.html" class="btn contact-btn">Get in Touch</a>
+            </div>
+        </div>
         
-        // DOWNLOAD AS STATIC PDF FORM (creates a clean, printer-friendly, non-interactive PDF-ready version)
-        document.getElementById('downloadPdfBtn').addEventListener('click', function() {
-            const name = document.getElementById('exhibitorName').value || '_________________________';
-            const email = document.getElementById('exhibitorEmail').value || '_________________________';
-            const phone = document.getElementById('exhibitorPhone').value || '_________________________';
-            const address = document.getElementById('exhibitorAddress').value || '_________________________';
-            const emergency = document.getElementById('emergencyContact').value || '_________________________';
-            
-            let exhibitsRows = '';
-            const rows = document.querySelectorAll('#exhibitsTbody .exhibit-row');
-            rows.forEach((row, idx) => {
-                const dept = row.querySelector('.deptSelect').value;
-                const classNum = row.querySelector('.classNum').value || '_______';
-                const desc = row.querySelector('.description').value || '_________________________';
-                exhibitsRows += `<tr><td>${idx+1}</td><td>${dept}</td><td>${classNum}</td><td>${desc}</td><td>_________</td><td>_________</td></tr>`;
-            });
-            
-            const staticFormHtml = `
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Gustavus Harvest Festival - Entry Form (Static PDF)</title>
-                    <style>
-                        body { font-family: 'Times New Roman', serif; margin: 0.75in; background: white; color: black; }
-                        .header { text-align: center; margin-bottom: 1.5rem; border-bottom: 2px solid #2c3e2f; padding-bottom: 0.5rem; }
-                        h1 { font-size: 1.8rem; margin: 0; }
-                        h2 { font-size: 1.3rem; margin: 0.2rem 0; color: #2c3e2f; }
-                        .info-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin: 1.5rem 0; }
-                        .info-field { flex: 1; min-width: 200px; border-bottom: 1px solid #000; margin-bottom: 0.8rem; padding-bottom: 0.2rem; }
-                        .info-label { font-weight: bold; font-size: 0.85rem; }
-                        table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
-                        th, td { border: 1px solid #000; padding: 8px; text-align: left; vertical-align: top; }
-                        th { background: #e67e22; color: white; }
-                        .signature { margin-top: 2rem; display: flex; justify-content: space-between; }
-                        .footer-note { font-size: 0.7rem; text-align: center; margin-top: 2rem; }
-                        @media print {
-                            body { margin: 0.5in; }
-                            .no-print { display: none; }
-                        }
-                    </style>
-                </head>
-                <body>
-                    <div class="header">
-                        <h1>🌾 Gustavus Alaska Harvest Festival 🌾</h1>
-                        <h2>Exhibitor Entry Form (Static)</h2>
-                        <p>September 19, 2026 • Gustavus Community Center • 9:00 AM Drop-off</p>
-                    </div>
-                    
-                    <div class="info-grid">
-                        <div class="info-field"><span class="info-label">Exhibitor Name:</span><br>${name}</div>
-                        <div class="info-field"><span class="info-label">Email:</span><br>${email}</div>
-                        <div class="info-field"><span class="info-label">Phone:</span><br>${phone}</div>
-                        <div class="info-field"><span class="info-label">Address:</span><br>${address}</div>
-                        <div class="info-field"><span class="info-label">Emergency Contact:</span><br>${emergency}</div>
-                    </div>
-                    
-                    <h3>Exhibits Entry List</h3>
-                    <table>
-                        <thead>
-                            <tr><th>#</th><th>Dept</th><th>Class #</th><th>Description of Exhibit</th><th>Points (Judge)</th><th>For Office Use</th></tr>
-                        </thead>
-                        <tbody>
-                            ${exhibitsRows || '<table><td colspan="6">No exhibits listed</td></tr>'}
-                        </tbody>
-                    </table>
-                    
-                    <div class="signature">
-                        <span>Exhibitor Signature: _________________________</span>
-                        <span>Date: ___________</span>
-                    </div>
-                    <p><em>I confirm that each entry follows festival rules (one entry per class per person). Animals must be registered by Sept 17.</em></p>
-                    <div class="footer-note">
-                        Please print this form and bring to drop-off (Sept 19, 9-11am) | Judges' decisions final
-                    </div>
-                </body>
-                </html>
-            `;
-            
-            const pdfWindow = window.open('', '_blank', 'width=800,height=900,scrollbars=yes');
-            pdfWindow.document.write(staticFormHtml);
-            pdfWindow.document.close();
-            pdfWindow.print();  // This triggers the print dialog -> "Save as PDF" option
-        });
-        
-        // ========== WORKSHEETS (preserved from original) ==========
-        const worksheetsLib = {
-            rabbit: { title: "Rabbit (Class 1)", points: 50, criteria: ["Clear eye/nose (5 pts)","Clean ears (5 pts)","Even teeth (5 pts)","Clean vent (5 pts)","Clean feet (5 pts)","Straight spine (5 pts)","Clean fur (5 pts)","Even fur pattern (5 pts)","Body type (5 pts)","Friendly (5 pts)"] },
-            cavy: { title: "Cavy (Class 2)", points: 50, criteria: ["Clear eye/nose (5 pts)","Clean ears (5 pts)","Even teeth (5 pts)","Clean vent (5 pts)","Straight spine (5 pts)","Correct weight (5 pts)","Clean feet (5 pts)","Clean fur (5 pts)","Body type (5 pts)","Friendly (5 pts)"] },
-            chicken: { title: "Chicken (Class 3)", points: 50, criteria: ["Clear eyes (5 pts)","Clean beak (5 pts)","Wattles/combs (5 pts)","Clean feet (5 pts)","Clean vent (5 pts)","Clean feathers (5 pts)","Even wings (5 pts)","Solid carriage (5 pts)","Breed type (5 pts)","Handled easily (5 pts)"] },
-            quail: { title: "Quail (Class 4)", points: 50, criteria: ["Clear eyes (5 pts)","Clean beak (5 pts)","Clean feet (5 pts)","Clean vent (5 pts)","Clean feathers (5 pts)","Color (5 pts)","Even wings (5 pts)","Carriage (5 pts)","Body type (5 pts)","Handled (5 pts)"] },
-            "other-poultry": { title: "Other Poultry (Class 5)", points: 50, criteria: ["Clear eyes (5 pts)","Clean beak (5 pts)","Clean feet (5 pts)","Clean vent (5 pts)","Clean feathers (5 pts)","Color (5 pts)","Even wings (5 pts)","Carriage (5 pts)","Body type (5 pts)","Handled (5 pts)"] },
-            "other-livestock": { title: "Other Livestock (Class 6)", points: 50, criteria: ["Clear eyes (5 pts)","Clean nose/beak (5 pts)","Clean feet (5 pts)","Clean vent (5 pts)","Clean fur/feathers (5 pts)","Color (5 pts)","Carriage (5 pts)","Condition (5 pts)","Body type (5 pts)","Handled (5 pts)"] },
-            eggs: { title: "Dozen Eggs (Class 7)", points: 50, criteria: ["Even color (10 pts)","Uniform shape (10 pts)","Proper egg shape (10 pts)","Uniform size (10 pts)","Clean (10 pts)"] },
-            "cage-decor": { title: "Cage Decor (Class 8)", points: 25, criteria: ["Animal safety (5 pts)","Viewer safety (5 pts)","Water (5 pts)","Creativity (5 pts)","Theme (5 pts)"], hasBonus: true },
-            "rabbit-skin": { title: "Rabbit Skin (Class 9)", points: 25, criteria: ["Clean fur (5 pts)","Soft leather (5 pts)","Tanning (5 pts)","Whole pelt (5 pts)","Prime quality (5 pts)"] },
-            "animal-products": { title: "Animal Products (Class 10)", points: 25, criteria: ["Functional (5 pts)","Made from animal (5 pts)","Creativity (5 pts)","Craftsmanship (5 pts)"] },
-            basket: { title: "Bountiful Basket (Class 12)", points: 100, criteria: ["Heaviest weight (25 pts)","Varieties (25 pts)","Decorative (20 pts)","Quality (10 pts)","Trimming (10 pts)","Creativity (10 pts)"] },
-            carrot: { title: "Best Carrot (Class 13)", points: 50, note: "One carrot tasted", criteria: ["Uniform size (10)","Uniform shape (10)","Color (5)","Clean/trimmed (10)","Greens (5)","Crunch (5)","Flavor (5)"] },
-            beet: { title: "Best Beets (Class 14)", points: 50, note: "One beet tasted", criteria: ["Uniform size (10)","Uniform shape (10)","Color (5)","Clean/trimmed (10)","Greens (5)","Texture (5)","Flavor (5)"] },
-            kale: { title: "Best Kale (Class 15)", points: 50, note: "One leaf sampled", criteria: ["Color/freshness (10)","Crispness (10)","Uniform size (10)","Clean/pest-free (10)","Trimmed stems (5)","Texture & flavor (5)"] },
-            flower: { title: "Flower Arrangement (Class 16)", points: 50, criteria: ["Trimmed (10)","Fresh (10)","Centerpiece (10)","Appropriate size (10)","Creativity (10)"] },
-            cabbage: { title: "Largest Cabbage (Class 17)", points: 25, isWeight: true },
-            potato: { title: "Largest Potato (Class 18)", points: 25, isWeight: true },
-            zucchini: { title: "Zucchini 500 (Class 19)", points: 25, isRace: true },
-            unusual: { title: "Most Unusual (Class 20)", points: 25, hasAudience: true },
-            sculpture: { title: "Vegetable Sculpture (Class 21)", points: 25, hasAudience: true },
-            "fine-art": { title: "Fine Art (Class 22)", points: 25, hasBonus: true, criteria: ["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"] },
-            "textile-art": { title: "Textile Art (Class 23)", points: 25, hasBonus: true, criteria: ["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"] },
-            "craft-art": { title: "Craft (Class 24)", points: 25, hasBonus: true, criteria: ["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"] },
-            "still-life-default": { title: "Still Life Class", points: 25, criteria: ["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"] },
-            race: { title: "Chicken & Rabbit Race", points: 25, isRace: true, content: "<p>Race format: two circles, fastest wins.</p>" }
-        };
-        window.openWorksheet = function(type) {
-            const d = worksheetsLib[type];
-            if(!d){ alert("Guide coming soon"); return; }
-            const w = window.open('','_blank','width=700,height=800');
-            let html = `<h2>${d.title}</h2><p>Points: ${d.points}</p>`;
-            if(d.criteria) {
-                html += `<table border="1" cellpadding="5"><tr><th>Criteria</th><th>Awarded</th></tr>`;
-                d.criteria.forEach(c => { html += `<tr><td>${c}</td><td>______</td></tr>`; });
-                html += `</table>`;
-                if(d.hasBonus) html += `<p>Bonus (+5): ______</p>`;
-                if(d.note) html += `<p><em>${d.note}</em></p>`;
-            }
-            if(d.content) html += d.content;
-            html += `<hr><p>Judge Signature: ___________</p>`;
-            w.document.write(html);
-            w.document.close();
-        };
-    </script>
+        <!-- Sunflower Image Section -->
+        <section class="sunflower-section">
+            <h2>From Our Garden</h2>
+            <p>A beautiful sunflower from our Gustavus farm stand</p>
+            <img src="images/Sunflower.jpg" alt="Sunflower from Gustavus Garden" class="sunflower-image">
+            <p><em>Growing beauty and bounty in the Alaskan summer</em></p>
+        </section>
+    </main>
+    
+    <footer>
+        <p>© 2024 Geneva's Trading Post | Fairbanks & Gustavus, Alaska</p>
+        <p>Handcrafted with care in the Last Frontier</p>
+        <div class="visitor-badge">
+            <span>👋 Visitors: </span>
+            <img src="https://visitor-badge.laobi.icu/badge?page_id=genevas-tradingpost" alt="Visitor count">
+        </div>
+    </footer>
 </body>
 </html>
+
