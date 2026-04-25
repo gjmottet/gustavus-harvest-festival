@@ -1,5 +1,3 @@
-Here is the fully updated HTML code for the Harvest Festival website. It restores the missing classes, adds judging criteria and award rules, and adjusts the layout as you requested.
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -338,12 +336,12 @@ Here is the fully updated HTML code for the Harvest Festival website. It restore
     </div>
 </div>
 
-<!-- ========== FESTIVAL SCHEDULE (moved between theme and entry form) ========= -->
+<!-- ========== FESTIVAL SCHEDULE ========== -->
 <div class="schedule-card">
     <h3>📋 FESTIVAL SCHEDULE & ACTIVITIES</h3>
     <p><strong>9:00 – 11:00 AM</strong> — Exhibitor drop-off & Animal Health Check-In</p>
     <p><strong>12:00 PM</strong> — Opening Ceremony & Welcome</p>
-    <p><strong>12:30 – 3:30 PM</strong> — Judging of all classes (Animals, Garden, Still Life, Baking, Jams, Canning)</p>
+    <p><strong>12:30 – 3:30 PM</strong> — Judging of all classes (Animals, Garden, Still Life)</p>
     <p><strong>1:00 – 4:00 PM</strong> — Chicken & Rabbit Race, Zucchini 500</p>
     <p><strong>4:30 PM</strong> — Awards Presentation: Class Ribbons, Special Rosettes, Best in Show</p>
     <p><strong>5:00 PM</strong> — Festival Concludes</p>
@@ -372,7 +370,7 @@ Here is the fully updated HTML code for the Harvest Festival website. It restore
             <tbody id="exhibitsTbody">
                 <tr class="exhibit-row">
                     <td class="exhibit-number">1</td>
-                    <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option><option value="D: Baking">D: Baking</option><option value="E: Jams & Jellies">E: Jams & Jellies</option><option value="F: Canning">F: Canning</option><option value="G: Other Still Life">G: Other Still Life</option></select></td>
+                    <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td>
                     <td><input type="text" class="classNum" placeholder="e.g., 12"></td>
                     <td><input type="text" class="description" placeholder="Describe your entry"></td>
                     <td>________</td>
@@ -389,29 +387,29 @@ Here is the fully updated HTML code for the Harvest Festival website. It restore
     </div>
 </div>
 
-<!-- ========== DEPARTMENTS (including BAKING, JAMS, CANNING, OTHER STILL LIFE) ========= -->
+<!-- ========== DEPARTMENTS ========== -->
 <div class="container">
-    <!-- DEPT A: ANIMALS same as before -->
+    <!-- DEPT A: ANIMALS -->
     <div class="dept">🐓 DEPT A: ANIMALS</div>
     <div class="health-notice"><strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.</div>
     <div class="class-grid">
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 1 Rabbit</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker | Special: Best Rabbit rosette</div><button class="worksheet-btn" onclick="openWorksheet('rabbit')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 2 Cavy</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker</div><button class="worksheet-btn" onclick="openWorksheet('cavy')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 3 Chicken</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker | Special: Best Chicken rosette</div><button class="worksheet-btn" onclick="openWorksheet('chicken')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 1 Rabbit</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker | Rosette: Grand Champion Rabbit / Reserve Champion Rabbit</div><button class="worksheet-btn" onclick="openWorksheet('rabbit')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 2 Cavy (Guinea Pig)</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker</div><button class="worksheet-btn" onclick="openWorksheet('cavy')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 3 Chicken</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker | Rosette: Grand Champion Chicken / Reserve Champion Chicken</div><button class="worksheet-btn" onclick="openWorksheet('chicken')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 4 Quail</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker</div><button class="worksheet-btn" onclick="openWorksheet('quail')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 5 Other Poultry</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker</div><button class="worksheet-btn" onclick="openWorksheet('other-poultry')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 6 Other Livestock</span><span class="points">50 pts</span></div><div class="awards">🏅 Ribbon & sticker</div><button class="worksheet-btn" onclick="openWorksheet('other-livestock')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 7 Dozen Eggs</span><span class="points">50 pts</span></div><div class="awards">🥚 Best in class | counts toward chicken champion</div><button class="worksheet-btn" onclick="openWorksheet('eggs')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 8 Cage Decor</span><span class="points">25 pts + bonus</span></div><div class="awards">🎨 Enter once per animal | counts for Grand Champion combo</div><button class="worksheet-btn" onclick="openWorksheet('cage-decor')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 9 Tanned Rabbit Skin</span><span class="points">25 pts</span></div><div class="awards">🏅 Part of Rabbit Grand Champion rosette</div><button class="worksheet-btn" onclick="openWorksheet('rabbit-skin')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 10 Animal Products</span><span class="points">25 pts</span></div><div class="awards">🏅 Ribbon</div><button class="worksheet-btn" onclick="openWorksheet('animal-products')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 7 Dozen Eggs</span><span class="points">50 pts</span></div><div class="awards">🥚 Best in class | counts toward Chicken Champion</div><button class="worksheet-btn" onclick="openWorksheet('eggs')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 8 Cage Decor</span><span class="points">25 pts + bonus</span></div><div class="awards">🎨 Enter once per animal | counts for Grand Champion (Rabbit or Chicken)</div><button class="worksheet-btn" onclick="openWorksheet('cage-decor')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 9 Tanned Rabbit Skin</span><span class="points">25 pts</span></div><div class="awards">🏅 Part of Rabbit Grand Champion / Reserve Champion</div><button class="worksheet-btn" onclick="openWorksheet('rabbit-skin')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 10 Other Animal Products</span><span class="points">25 pts</span></div><div class="awards">🏅 Ribbon</div><button class="worksheet-btn" onclick="openWorksheet('animal-products')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 11 Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="awards">🐔 Fastest chicken | 🐇 Fastest rabbit</div><button class="worksheet-btn" onclick="openWorksheet('race')">📄 Race Info</button></div>
     </div>
 
     <!-- DEPT B: GARDEN -->
     <div class="dept">🥕 DEPT B: GARDEN</div>
     <div class="class-grid">
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 12 Bountiful Basket</span><span class="points">100 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('basket')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 12 Bountiful Basket</span><span class="points">100 pts</span></div><div class="awards">🏅 Sticker, ribbon & special award</div><button class="worksheet-btn" onclick="openWorksheet('basket')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 13 Best Carrot</span><span class="points">50 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('carrot')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 14 Best Beets</span><span class="points">50 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('beet')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 15 Best Kale</span><span class="points">50 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('kale')">📄 Worksheet</button></div>
@@ -419,56 +417,33 @@ Here is the fully updated HTML code for the Harvest Festival website. It restore
         <div class="class-card"><div class="class-title"><span class="class-name">Class 17 Largest Cabbage</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('cabbage')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 18 Largest Potato</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('potato')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 19 Zucchini 500</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('zucchini')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 20 Most Unusual</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('unusual')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 21 Veg Sculpture</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('sculpture')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 20 Most Unusual Vegetable</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('unusual')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 21 Vegetable Sculpture</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('sculpture')">📄 Worksheet</button></div>
     </div>
 
-    <!-- DEPT C: STILL LIFE (original 3) -->
-    <div class="dept">🎨 DEPT C: STILL LIFE (Art & Craft)</div>
+    <!-- DEPT C: STILL LIFE (original classes + 4 new classes: Baking, Jams & Jellies, Canning, Other Still Life) -->
+    <div class="dept">🎨 DEPT C: STILL LIFE (Art, Craft, Baking & Preserves)</div>
     <div class="class-grid">
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 22 Fine Art</span><span class="points">25+5</span></div><button class="worksheet-btn" onclick="openWorksheet('fine-art')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 23 Textile Art</span><span class="points">25+5</span></div><button class="worksheet-btn" onclick="openWorksheet('textile-art')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 24 Craft/Other</span><span class="points">25+5</span></div><button class="worksheet-btn" onclick="openWorksheet('craft-art')">📄 Worksheet</button></div>
-    </div>
-
-    <!-- NEW DEPT D: BAKING (25 pts) -->
-    <div class="dept">🍪 DEPT D: BAKING (25 pts each)</div>
-    <div class="class-grid">
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 25 Quick Bread</span><span class="points">25 pts</span></div><div class="awards">🥖 Blue/Red/White sticker + ribbon</div><button class="worksheet-btn" onclick="openWorksheet('baking')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 26 Yeast Bread</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('baking')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 27 Pies (fruit/savory)</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('baking')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 28 Cookies/Bars</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('baking')">📄 Worksheet</button></div>
-    </div>
-
-    <!-- DEPT E: JAMS & JELLIES (25 pts) -->
-    <div class="dept">🍓 DEPT E: JAMS & JELLIES (25 pts)</div>
-    <div class="class-grid">
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 29 Berry Jam</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('jams')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 30 Fruit Jelly</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('jams')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 31 Marmalade</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('jams')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 32 Specialty Preserve</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('jams')">📄 Worksheet</button></div>
-    </div>
-
-    <!-- DEPT F: CANNING (25 pts) -->
-    <div class="dept">🥫 DEPT F: CANNED GOODS (25 pts)</div>
-    <div class="class-grid">
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 33 Pickled Vegetables</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('canning')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 34 Canned Fruits</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('canning')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 35 Canned Tomatoes/Sauce</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('canning')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 36 Relish & Chutney</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('canning')">📄 Worksheet</button></div>
-    </div>
-
-    <!-- DEPT G: OTHER STILL LIFE (25 pts) -->
-    <div class="dept">🖼️ DEPT G: OTHER STILL LIFE (25 pts)</div>
-    <div class="class-grid">
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 37 Photography</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 38 Woodworking</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 39 Jewelry/Metalwork</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 40 Nature Crafts</span><span class="points">25 pts</span></div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Worksheet</button></div>
+        <!-- Original Still Life classes -->
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 22 Fine Art</span><span class="points">25 pts + 5 bonus</span></div><div class="awards">🎨 Harvest theme | Judges' Choice</div><button class="worksheet-btn" onclick="openWorksheet('fine-art')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 23 Textile Art</span><span class="points">25 pts + bonus</span></div><div class="awards">🧵 Quilting, weaving, felting</div><button class="worksheet-btn" onclick="openWorksheet('textile-art')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 24 Craft / Other</span><span class="points">25 pts + bonus</span></div><div class="awards">✨ pottery, wood, jewelry</div><button class="worksheet-btn" onclick="openWorksheet('craft-art')">📄 Worksheet</button></div>
+        
+        <!-- NEW CLASS 25: BAKING (25 pts) -->
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 25 Baking</span><span class="points">25 pts</span></div><div class="awards">🍞 Breads, pies, cookies, bars</div><button class="worksheet-btn" onclick="openWorksheet('baking')">📄 Worksheet</button></div>
+        
+        <!-- NEW CLASS 26: JAMS & JELLIES (25 pts) -->
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 26 Jams & Jellies</span><span class="points">25 pts</span></div><div class="awards">🍓 Berry jam, jelly, marmalade</div><button class="worksheet-btn" onclick="openWorksheet('jams')">📄 Worksheet</button></div>
+        
+        <!-- NEW CLASS 27: CANNING (25 pts) -->
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 27 Canning</span><span class="points">25 pts</span></div><div class="awards">🥫 Pickles, fruits, tomatoes, relish</div><button class="worksheet-btn" onclick="openWorksheet('canning')">📄 Worksheet</button></div>
+        
+        <!-- NEW CLASS 28: OTHER STILL LIFE (25 pts) -->
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 28 Other Still Life</span><span class="points">25 pts</span></div><div class="awards">📷 Photography, woodworking, jewelry, nature crafts</div><button class="worksheet-btn" onclick="openWorksheet('still-life-default')">📄 Worksheet</button></div>
     </div>
 </div>
 
-<!-- JUDGING CRITERIA & AWARD RULES -->
+<!-- JUDGING CRITERIA & AWARD RULES (with all 5 Rosette awards) -->
 <div class="judging-rule-card">
     <h3>🏆 OFFICIAL JUDGING & AWARD STRUCTURE</h3>
     <p><strong>Sticker Awards (per exhibit):</strong><br>
@@ -477,35 +452,56 @@ Here is the fully updated HTML code for the Harvest Festival website. It restore
     ⬜ <strong>White Sticker</strong> = 70–79% — Good<br>
     🟢 <strong>Green Sticker</strong> = below 70% — Participation</p>
     <p><strong>Class Ribbons:</strong> Highest score in each class earns First Place ribbon. Second and Third place ribbons awarded at judges' discretion based on quality.</p>
-    <p><strong>SPECIAL AWARDS & GRAND CHAMPION ROSETTES:</strong><br>
-    🐇 <strong>Grand Champion Rabbit</strong> — combined highest total points from Rabbit (Class 1) + Cage Decor (Class 8, if entered with rabbit) + Tanned Rabbit Skin (Class 9).<br>
-    🐔 <strong>Grand Champion Chicken</strong> — combined highest points from Chicken (Class 3) + Eggs (Class 7) + Cage Decor (Class 8, if paired with chicken).<br>
-    🌟 <strong>Best in Show</strong> — awarded to the exhibitor with the highest overall cumulative points across ALL their entries (all departments).</p>
-    <p><em>Note: Cage Decor can be entered once per animal — points apply toward respective species grand champion.</em></p>
+    
+    <p><strong>🏅 ROSETTE AWARDS (all rosettes):</strong><br>
+    🐇 <strong>Grand Champion Rabbit Rosette</strong> — highest combined total points from Rabbit (Class 1) + Cage Decor (Class 8, if entered with that rabbit) + Tanned Rabbit Skin (Class 9).<br>
+    🐇 <strong>Reserve Champion Rabbit Rosette</strong> — second highest combined total points from Rabbit + Cage Decor + Rabbit Skin.<br>
+    🐔 <strong>Grand Champion Chicken Rosette</strong> — highest combined total points from Chicken (Class 3) + Eggs (Class 7) + Cage Decor (Class 8, if paired with that chicken).<br>
+    🐔 <strong>Reserve Champion Chicken Rosette</strong> — second highest combined total points from Chicken + Eggs + Cage Decor.<br>
+    🌟 <strong>Best in Show Rosette</strong> — awarded to the exhibitor with the highest overall cumulative points across ALL their entries (any department).</p>
+    
+    <p><em>Note: Cage Decor can be entered once per animal — points apply toward respective species Grand Champion and Reserve Champion calculations.</em></p>
 </div>
 
 <script>
-    // dynamic rows similar to original
+    // Dynamic table row management
     const tbody = document.getElementById('exhibitsTbody');
     const addBtn = document.getElementById('addExhibitBtn');
+    
     function updateExhibitNumbers() {
         document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((row, idx) => {
             const numCell = row.querySelector('.exhibit-number');
             if (numCell) numCell.innerText = idx + 1;
         });
     }
+    
     function attachRemoveEvent(row) {
         const btn = row.querySelector('.removeRowBtn');
-        if (btn) btn.onclick = () => { if (tbody.children.length > 1) { row.remove(); updateExhibitNumbers(); } else alert("At least one exhibit row required."); };
+        if (btn) btn.onclick = () => { 
+            if (tbody.children.length > 1) { 
+                row.remove(); 
+                updateExhibitNumbers(); 
+            } else alert("At least one exhibit row required."); 
+        };
     }
+    
     function createExhibitRow() {
-        const tr = document.createElement('tr'); tr.className = 'exhibit-row';
-        tr.innerHTML = `<td class="exhibit-number">${tbody.children.length+1}</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option><option value="D: Baking">D: Baking</option><option value="E: Jams & Jellies">E: Jams & Jellies</option><option value="F: Canning">F: Canning</option><option value="G: Other Still Life">G: Other Still Life</option></select></td><td><input type="text" class="classNum" placeholder="Class #"></td><td><input type="text" class="description" placeholder="Exhibit description"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td>`;
-        attachRemoveEvent(tr); return tr;
+        const tr = document.createElement('tr'); 
+        tr.className = 'exhibit-row';
+        tr.innerHTML = `<td class="exhibit-number">${tbody.children.length+1}</td>
+                        <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td>
+                        <td><input type="text" class="classNum" placeholder="Class #"></td>
+                        <td><input type="text" class="description" placeholder="Exhibit description"></td>
+                        <td>_________</td>
+                        <td><button type="button" class="removeRowBtn">✖ Remove</button></td>`;
+        attachRemoveEvent(tr); 
+        return tr;
     }
+    
     addBtn.addEventListener('click', () => { tbody.appendChild(createExhibitRow()); updateExhibitNumbers(); });
     document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach(r => attachRemoveEvent(r));
-
+    
+    // Preview & Print
     document.getElementById('previewEntryBtn').addEventListener('click', () => {
         const name = document.getElementById('exhibitorName').value || '______';
         const email = document.getElementById('exhibitorEmail').value || '______';
@@ -520,41 +516,71 @@ Here is the fully updated HTML code for the Harvest Festival website. It restore
             rowsHtml += `<tr><td>${idx+1}</td><td>${dept}</td><td>${cls}</td><td>${desc}</td><td>_________</td><td>_________</td></tr>`;
         });
         const printWin = window.open('', '_blank');
-        printWin.document.write(`<html><head><title>Entry Form</title><style>table,th,td{border:1px solid black;border-collapse:collapse;padding:6px;}</style></head><body><h2>Gustavus Harvest Festival Entry</h2><p>${name}<br>${email} | ${phone}<br>${address}<br>Emergency: ${emergency}</p><h3>Exhibits</h3><table><thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge</th><th>Office</th></tr></thead><tbody>${rowsHtml}</tbody></table><p>I confirm one entry per class except Cage Decor per animal.</p></body></html>`);
-        printWin.document.close(); printWin.print();
+        printWin.document.write(`<html><head><title>Entry Form</title><style>table,th,td{border:1px solid black;border-collapse:collapse;padding:6px;}</style></head><body><h2>Gustavus Harvest Festival Entry</h2><p>${name}<br>${email} | ${phone}<br>${address}<br>Emergency: ${emergency}</p><h3>Exhibits</h3><table border="1"><thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge</th><th>Office</th></tr></thead><tbody>${rowsHtml}</tbody></table><p>I confirm one entry per class except Cage Decor per animal.</p></body></html>`);
+        printWin.document.close(); 
+        printWin.print();
     });
+    
+    // Static PDF download
     document.getElementById('downloadPdfBtn').addEventListener('click', () => {
         const name = document.getElementById('exhibitorName').value || '_______________';
-        let rows = ''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i) => { rows += `<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||'___'}</td><td>${r.querySelector('.description').value||'___'}</td><td>____</td><td>____</td></tr>`; });
-        const pdfWin = window.open('','_blank'); pdfWin.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Festival Entry</h2><p>Exhibitor: ${name}</p><table><thead><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th><th>Judge</th><th>Office</th></tr></thead><tbody>${rows}</tbody></table><p>Signature: ______________</p></body></html>`); pdfWin.document.close(); pdfWin.print();
+        let rows = ''; 
+        document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i) => { 
+            rows += `<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||'___'}</td><td>${r.querySelector('.description').value||'___'}</td><td>____</td><td>____</td></tr>`; 
+        });
+        const pdfWin = window.open('','_blank'); 
+        pdfWin.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Festival Entry</h2><p>Exhibitor: ${name}</p><table border="1"><thead><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th><th>Judge</th><th>Office</th></tr></thead><tbody>${rows}</tbody></table><p>Signature: ______________</p></body></html>`); 
+        pdfWin.document.close(); 
+        pdfWin.print();
     });
-    // worksheets library (includes baking/jams/canning generic)
+    
+    // Worksheets library (includes new classes)
     const ws = {
-        rabbit:{title:"Rabbit",points:50,criteria:["Clear eye/nose","Clean ears","Even teeth","Clean vent","Clean feet","Straight spine","Clean fur","Fur pattern","Body type","Friendly"]},
-        chicken:{title:"Chicken",points:50,criteria:["Clear eyes","Clean beak","Wattles/combs","Clean feet","Clean vent","Clean feathers","Even wings","Carriage","Breed type","Handled"]},
-        cage_decor:{title:"Cage Decor",points:25,criteria:["Animal safety","Viewer safety","Water","Creativity","Theme"]},
-        basket:{title:"Bountiful Basket",points:100,criteria:["Weight","Varieties","Decorative","Quality","Trimming","Creativity"]},
-        carrot:{title:"Best Carrot",points:50,criteria:["Uniform size","Uniform shape","Color","Clean/trimmed","Greens","Crunch","Flavor"]},
-        beet:{title:"Best Beets",points:50,criteria:["Uniform size","Shape","Color","Clean/trimmed","Greens","Texture","Flavor"]},
-        kale:{title:"Best Kale",points:50,criteria:["Color/freshness","Crispness","Uniform bunch","Clean/pest-free","Trimmed stems","Texture/flavor"]},
-        baking:{title:"Baking Class",points:25,criteria:["Appearance (5)","Texture (5)","Flavor (10)","Proper baking technique (5)"]},
-        jams:{title:"Jams & Jellies",points:25,criteria:["Set (5)","Color & clarity (5)","Flavor (10)","Label/lid seal (5)"]},
-        canning:{title:"Canned Goods",points:25,criteria:["Seal integrity (5)","Color & product (5)","Flavor (10)","Cleanliness (5)"]},
-        "still-life-default":{title:"Still Life Class",points:25,criteria:["Presentation","Technique","Creativity","Theme","Impact"]}
+        rabbit:{title:"Rabbit (Class 1)",points:50,criteria:["Clear eye/nose (5)","Clean ears (5)","Even teeth (5)","Clean vent (5)","Clean feet (5)","Straight spine (5)","Clean fur (5)","Fur pattern (5)","Body type (5)","Friendly (5)"]},
+        chicken:{title:"Chicken (Class 3)",points:50,criteria:["Clear eyes (5)","Clean beak (5)","Wattles/combs (5)","Clean feet (5)","Clean vent (5)","Clean feathers (5)","Even wings (5)","Carriage (5)","Breed type (5)","Handled (5)"]},
+        cavy:{title:"Cavy (Class 2)",points:50,criteria:["Clear eyes (5)","Clean ears (5)","Even teeth (5)","Clean vent (5)","Straight spine (5)","Weight (5)","Clean feet (5)","Clean fur (5)","Body type (5)","Friendly (5)"]},
+        "other-poultry":{title:"Other Poultry",points:50,criteria:["Clear eyes","Clean beak","Clean feet","Clean vent","Clean feathers","Color","Even wings","Carriage","Body type","Handled"]},
+        "other-livestock":{title:"Other Livestock",points:50,criteria:["Clear eyes","Clean nose","Clean feet","Clean vent","Clean coat","Color","Carriage","Condition","Body type","Handled"]},
+        eggs:{title:"Dozen Eggs (Class 7)",points:50,criteria:["Even color (10)","Uniform shape (10)","Proper shape (10)","Uniform size (10)","Clean (10)"]},
+        "cage-decor":{title:"Cage Decor (Class 8)",points:25,criteria:["Animal safety (5)","Viewer safety (5)","Water (5)","Creativity (5)","Theme (5)"], hasBonus:true},
+        "rabbit-skin":{title:"Rabbit Skin (Class 9)",points:25,criteria:["Clean fur (5)","Soft leather (5)","Tanning (5)","Whole pelt (5)","Prime quality (5)"]},
+        "animal-products":{title:"Animal Products (Class 10)",points:25,criteria:["Functional (5)","Made from animal (5)","Creativity (5)","Craftsmanship (5)"]},
+        basket:{title:"Bountiful Basket (Class 12)",points:100,criteria:["Heaviest weight (25)","Varieties (25)","Decorative (20)","Quality (10)","Trimming (10)","Creativity (10)"]},
+        carrot:{title:"Best Carrot (Class 13)",points:50,criteria:["Uniform size (10)","Uniform shape (10)","Color (5)","Clean/trimmed (10)","Greens (5)","Crunch (5)","Flavor (5)"]},
+        beet:{title:"Best Beets (Class 14)",points:50,criteria:["Uniform size (10)","Shape (10)","Color (5)","Clean/trimmed (10)","Greens (5)","Texture (5)","Flavor (5)"]},
+        kale:{title:"Best Kale (Class 15)",points:50,criteria:["Color/freshness (10)","Crispness (10)","Uniform bunch (10)","Clean/pest-free (10)","Trimmed stems (5)","Texture/flavor (5)"]},
+        flower:{title:"Flower Arrangement (Class 16)",points:50,criteria:["Trimmed (10)","Fresh (10)","Centerpiece (10)","Size (10)","Creativity (10)"]},
+        cabbage:{title:"Largest Cabbage",points:25,isWeight:true},
+        potato:{title:"Largest Potato",points:25,isWeight:true},
+        zucchini:{title:"Zucchini 500",points:25,isRace:true},
+        unusual:{title:"Most Unusual",points:25,hasAudience:true},
+        sculpture:{title:"Vegetable Sculpture",points:25,hasAudience:true},
+        "fine-art":{title:"Fine Art (Class 22)",points:25,criteria:["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"], hasBonus:true},
+        "textile-art":{title:"Textile Art (Class 23)",points:25,criteria:["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"], hasBonus:true},
+        "craft-art":{title:"Craft/Other (Class 24)",points:25,criteria:["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"], hasBonus:true},
+        baking:{title:"Baking (Class 25)",points:25,criteria:["Appearance (5)","Texture (5)","Flavor (10)","Proper technique (5)"]},
+        jams:{title:"Jams & Jellies (Class 26)",points:25,criteria:["Set (5)","Color/clarity (5)","Flavor (10)","Label/seal (5)"]},
+        canning:{title:"Canning (Class 27)",points:25,criteria:["Seal integrity (5)","Color/appearance (5)","Flavor (10)","Cleanliness (5)"]},
+        "still-life-default":{title:"Other Still Life (Class 28)",points:25,criteria:["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"]},
+        race:{title:"Chicken & Rabbit Race",points:25,isRace:true,content:"<p>Two circles; fastest wins.</p>"}
     };
-    window.openWorksheet = (t) => {
-        let data = ws[t] || ws["still-life-default"];
-        if(t==='cage-decor') data = ws.cage_decor;
-        if(t==='baking') data = ws.baking;
-        if(t==='jams') data = ws.jams;
-        if(t==='canning') data = ws.canning;
-        let html = `<h2>${data.title} Worksheet</h2><p>Total pts: ${data.points}</p><table border="1"><tr><th>Criteria</th><th>Awarded</th></tr>`;
-        data.criteria.forEach(c=>{html+=`<tr><td>${c}</td><td>______</td></tr>`;});
-        html+=`</table><p>Score ___ / ${data.points} → Sticker: 🟦 Blue(90-100%) 🟥 Red(80-89%) ⬜ White(70-79%) 🟢 Green(<70%)</p><p>Judge signature: _________</p>`;
-        let win=window.open('','_blank','width=700,height=600'); win.document.write(`<html><head><title>Judge Worksheet</title><style>body{font-family:sans-serif;padding:1rem;}</style></head><body>${html}</body></html>`); win.document.close();
+    
+    window.openWorksheet = (type) => {
+        let data = ws[type] || ws["still-life-default"];
+        if(type === 'cage-decor') data = ws["cage-decor"];
+        let html = `<h2>📋 ${data.title} Worksheet</h2><p><strong>Total Points:</strong> ${data.points}</p>`;
+        if(data.criteria) {
+            html += `<table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><tr><th>Criteria</th><th>Awarded</th></tr>`;
+            data.criteria.forEach(c => { html += `<tr><td>${c}</td><td>______</td></tr>`; });
+            html += `</table>`;
+            if(data.hasBonus) html += `<p>⭐ Bonus (+5 max): ________</p>`;
+        }
+        if(data.content) html += `<div>${data.content}</div>`;
+        html += `<hr><p>Score: ___ / ${data.points} → Sticker: 🟦 Blue(90-100%) 🟥 Red(80-89%) ⬜ White(70-79%) 🟢 Green(<70%)</p><p>Judge Signature: __________________</p>`;
+        let win = window.open('','_blank','width=750,height=700');
+        win.document.write(`<html><head><title>${data.title} Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;}</style></head><body>${html}</body></html>`);
+        win.document.close();
     };
 </script>
 </body>
 </html>
-```
-
