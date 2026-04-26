@@ -385,7 +385,13 @@
         <table class="exhibits-table" id="exhibitsTable">
             <thead><tr><th>#</th><th>Department</th><th>Class #</th><th>Description / Exhibit Title</th><th>Judge Use</th><th></th></tr></thead>
             <tbody id="exhibitsTbody">
-                <tr class="exhibit-row"><td class="exhibit-number">1</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td><td><input type="text" class="classNum" placeholder="e.g., 12"></td><td><input type="text" class="description" placeholder="Describe your entry"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td></tr>
+                <tr class="exhibit-row"><td class="exhibit-number">1</td>
+                    <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td>
+                    <td><input type="text" class="classNum" placeholder="e.g., 12"></td>
+                    <td><input type="text" class="description" placeholder="Describe your entry"></td>
+                    <td>_________</td>
+                    <td><button type="button" class="removeRowBtn">✖ Remove</button></td>
+                </tr>
             </tbody>
         </table>
         <button type="button" class="add-row-btn" id="addExhibitBtn">➕ Add Another Exhibit</button>
@@ -398,9 +404,8 @@
     </div>
 </div>
 
-<!-- ========== DEPARTMENTS (3-column cards with blurbs) ========= -->
+<!-- ========== DEPARTMENTS ========== -->
 <div class="container">
-    <!-- DEPT A: ANIMALS (Class 8 = Showmanship) -->
     <div class="dept">🐓 DEPT A: ANIMALS</div>
     <div class="health-notice"><strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.</div>
     <div class="class-grid">
@@ -418,7 +423,6 @@
         <div class="class-card"><div class="class-title"><span class="class-name">Class 12 Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="class-blurb">🏁 Fastest chicken / rabbit in two-circle race. 1st, 2nd, 3rd place ribbons.</div><div class="awards">🥇🥈🥉 Ribbons only (no stickers)</div><button class="worksheet-btn" onclick="openWorksheet('race')">📄 Race Info</button></div>
     </div>
 
-    <!-- DEPT B: GARDEN (Classes 13-22) -->
     <div class="dept">🥕 DEPT B: GARDEN</div>
     <div class="class-grid">
         <div class="class-card"><div class="class-title"><span class="class-name">Class 13 Bountiful Basket</span><span class="points">100 pts</span></div><div class="class-blurb">🧺 Weight, variety, decorative appeal, quality.</div><button class="worksheet-btn" onclick="openWorksheet('basket')">📄 Worksheet</button></div>
@@ -433,7 +437,6 @@
         <div class="class-card"><div class="class-title"><span class="class-name">Class 22 Vegetable Sculpture</span><span class="points">25 pts</span></div><div class="class-blurb">🗿 Creative veggie art. 5 judging criteria.</div><button class="worksheet-btn" onclick="openWorksheet('sculpture')">📄 Worksheet</button></div>
     </div>
 
-    <!-- DEPT C: STILL LIFE (Classes 23-29) -->
     <div class="dept">🎨 DEPT C: STILL LIFE (Art, Baking, Preserves)</div>
     <div class="class-grid">
         <div class="class-card"><div class="class-title"><span class="class-name">Class 23 Fine Art</span><span class="points">25+5</span></div><div class="class-blurb">🎨 Painting, drawing, harvest theme.</div><button class="worksheet-btn" onclick="openWorksheet('fine-art')">📄 Worksheet</button></div>
@@ -476,10 +479,10 @@
     function newRow() { let tr=document.createElement('tr'); tr.className='exhibit-row'; tr.innerHTML=`<td class="exhibit-number">${tbody.children.length+1}</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td><td><input type="text" class="classNum" placeholder="Class #"></td><td><input type="text" class="description" placeholder="Exhibit description"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td>`; attachRemove(tr); return tr; }
     addBtn.onclick = () => { tbody.appendChild(newRow()); updateNumbers(); };
     document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach(r=>attachRemove(r));
-    document.getElementById('previewEntryBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'___'; let html=`<html><head><title>Entry</title><style>table,td,th{border:1px solid black;}</style></head><body><h2>Entry</h2><p>${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Desc</th></tr>`; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ html+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value}</td><td>${r.querySelector('.description').value}</td>`; }); html+=`</table><p>Signature: _______</p></body></html>`; let w=window.open('','_blank'); w.document.write(html); w.print(); };
-    document.getElementById('downloadPdfBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'______'; let rows=''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ rows+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||''}</td><td>${r.querySelector('.description').value||''}</td>`; }); let w=window.open('','_blank'); w.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Entry</h2><p>Exhibitor: ${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>${rows}</table><p>Signature: ______________</p></body></html>`); w.document.close(); w.print(); };
+    document.getElementById('previewEntryBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'___'; let html=`<html><head><title>Entry</title><style>table,td,th{border:1px solid black;}</style></head><body><h2>Entry</h2><p>${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Desc</th></tr>`; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ html+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value}</td><td>${r.querySelector('.description').value}</td></tr>`; }); html+=`</table><p>Signature: _______</p></body></html>`; let w=window.open('','_blank'); w.document.write(html); w.print(); };
+    document.getElementById('downloadPdfBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'______'; let rows=''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ rows+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||''}</td><td>${r.querySelector('.description').value||''}</td></tr>`; }); let w=window.open('','_blank'); w.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Entry</h2><p>Exhibitor: ${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>${rows}</table><p>Signature: ______________</p></body></html>`); w.document.close(); w.print(); };
     
-    // Printable Blank Entry Form (popup worksheet style)
+    // Printable Blank Entry Form
     document.getElementById('blankFormBtn').onclick = () => {
         let blankHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Blank Entry Form - Gustavus Harvest Festival</title><style>body{font-family:'Times New Roman',serif; margin:0.6in;} h1,h2{text-align:center;} table{width:100%; border-collapse:collapse; margin:1rem 0;} th,td{border:1px solid black; padding:8px; vertical-align:top;} .info-line{margin:0.5rem 0;} .signature{margin-top:2rem; display:flex; justify-content:space-between;}</style></head><body><h1>🌾 GUSTAVUS HARVEST FESTIVAL 🌾</h1><h2>EXHIBITOR ENTRY FORM (Blank)</h2><p style="text-align:center">Saturday, September 19, 2026 • Drop-off 9–11am • Gustavus Community Center</p><hr><div class="info-line"><strong>Exhibitor Name:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Email:</strong> _________________________</div><div class="info-line"><strong>Phone:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Address:</strong> _________________________</div><div class="info-line"><strong>Emergency Contact:</strong> _________________________________</div><h3>Exhibits Entry List</h3><table><thead><tr><th>#</th><th>Dept (A/B/C)</th><th>Class #</th><th>Description of Exhibit</th><th>Judge Use</th></tr></thead><tbody>`;
         for(let i=1;i<=8;i++) blankHtml += `<tr><td>${i}</td><td>______</td><td>______</td><td>_________________________</td><td>______</td></tr>`;
@@ -490,13 +493,13 @@
         win.print();
     };
 
-    // Worksheet builder with 4 columns: Criteria, Possible Pts, Earned Pts, Notes + Judge Comments
+    // WORKSHEET BUILDER — "Possible Pts" column now displays the numeric value from each criteria string
     function buildWorksheet(title, totalPts, criteriaList, hasBonus = false) {
         let html = `<h2>📋 ${title}</h2><p><strong>Total Points Possible: ${totalPts}</strong></p><table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead><tbody>`;
         criteriaList.forEach(c => { 
-            let ptsMatch = c.match(/(\d+)$/); 
+            let ptsMatch = c.match(/\((\d+)\)/); 
             let pts = ptsMatch ? ptsMatch[1] : '—'; 
-            let name = c.replace(/\s*\(\d+\)$/, '').trim(); 
+            let name = c.replace(/\s*\(\d+\)/, '').trim(); 
             html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>`; 
         });
         html += `</tbody></table>`;
@@ -506,7 +509,7 @@
     }
     
     window.openWorksheet = (type) => {
-        let data = {
+        const data = {
             rabbit: {title:"Rabbit (Class 1)", pts:50, criteria:["Clear eye/nose (5)","Clean ears/shape (5)","Even teeth (5)","Clean vent (5)","Clean feet/fur (5)","Straight spine (5)","Clean brushed fur (5)","Fur pattern/even (5)","Body type (5)","Friendly temperament (5)"]},
             chicken:{title:"Chicken (Class 3)", pts:50, criteria:["Clear eyes (5)","Clean beak (5)","Wattles/combs (5)","Clean feet (5)","Clean vent (5)","Clean feathers (5)","Even wings (5)","Solid carriage (5)","Breed type (5)","Handled easily (5)"]},
             cavy:{title:"Cavy (Class 2)", pts:50, criteria:["Clear eyes (5)","Clean ears (5)","Even teeth (5)","Clean vent (5)","Straight spine (5)","Correct weight (5)","Clean feet (5)","Clean fur (5)","Body type (5)","Friendly (5)"]},
