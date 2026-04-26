@@ -194,6 +194,21 @@
             gap: 1rem;
             margin-top: 1.5rem;
         }
+        .blank-form-btn {
+            background: #2c3e2f;
+            color: #ffd700;
+            border: 2px solid #ffd700;
+            padding: 0.7rem 1.8rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            border-radius: 40px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .blank-form-btn:hover {
+            background: #1a2a1f;
+            transform: translateY(-2px);
+        }
 
         .poll-section {
             background: #e67e22;
@@ -227,7 +242,6 @@
             margin: 2rem 0 1rem 0;
             display: inline-block;
         }
-        /* 3-column grid for class cards */
         .class-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -376,6 +390,7 @@
         </table>
         <button type="button" class="add-row-btn" id="addExhibitBtn">➕ Add Another Exhibit</button>
         <div class="button-group">
+            <button class="blank-form-btn" id="blankFormBtn">🖨️ Printable Blank Entry Form (Popup)</button>
             <button class="pdf-download-btn" id="downloadPdfBtn">📎 Save as PDF Form (static)</button>
             <button class="submit-entry" id="previewEntryBtn">📄 Preview & Print Entry Form</button>
         </div>
@@ -383,44 +398,9 @@
     </div>
 </div>
 
-<!-- Static Printable Entry Form (blank 1-page) -->
-<div class="entry-card" style="margin-top: 0;">
-    <div class="entry-header">
-        <h2>🖨️ PRINTABLE BLANK ENTRY FORM (One Page)</h2>
-        <p>Fill out by hand — bring to drop-off</p>
-    </div>
-    <div class="form-panel">
-        <div style="border: 1px solid #ccb38c; padding: 1rem; border-radius: 20px;">
-            <h3 style="text-align:center;">🌾 GUSTAVUS HARVEST FESTIVAL — EXHIBITOR ENTRY FORM 🌾</h3>
-            <p style="text-align:center;">September 19, 2026 • Drop-off 9-11am • Gustavus Community Center</p>
-            <hr>
-            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin: 1rem 0;">
-                <div style="flex:1;"><strong>Exhibitor Name:</strong> _________________________</div>
-                <div style="flex:1;"><strong>Email:</strong> _________________________</div>
-                <div style="flex:1;"><strong>Phone:</strong> _________________________</div>
-                <div style="flex:1;"><strong>Address:</strong> _________________________</div>
-                <div style="flex:1;"><strong>Emergency Contact:</strong> _________________________</div>
-            </div>
-            <table style="width:100%; border-collapse: collapse; margin: 1rem 0;" border="1">
-                <thead><tr><th>#</th><th>Dept (A/B/C)</th><th>Class #</th><th>Description of Exhibit</th><th>For Judge</th></tr></thead>
-                <tbody>
-                    <tr><td>1</td><td>______</td><td>______</td><td>_________________</td><td></td></tr>
-                    <tr><td>2</td><td>______</td><td>______</td><td>_________________</td><td></td></tr>
-                    <tr><td>3</td><td>______</td><td>______</td><td>_________________</td><td></td></tr>
-                    <tr><td>4</td><td>______</td><td>______</td><td>_________________</td><td></td></tr>
-                    <tr><td>5</td><td>______</td><td>______</td><td>_________________</td><td></td></tr>
-                    <tr><td>6</td><td>______</td><td>______</td><td>_________________</td><td></td></tr>
-                </tbody>
-            </table>
-            <p><strong>Exhibitor Signature:</strong> _________________________ <span style="margin-left: 2rem;"><strong>Date:</strong> ___________</span></p>
-            <p style="font-size:0.7rem;">Rules: One entry per class per person. Cage Decor & Showmanship allowed once per animal.</p>
-        </div>
-    </div>
-</div>
-
 <!-- ========== DEPARTMENTS (3-column cards with blurbs) ========= -->
 <div class="container">
-    <!-- DEPT A: ANIMALS (Class 8 = Showmanship, shift from original) -->
+    <!-- DEPT A: ANIMALS (Class 8 = Showmanship) -->
     <div class="dept">🐓 DEPT A: ANIMALS</div>
     <div class="health-notice"><strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.</div>
     <div class="class-grid">
@@ -466,7 +446,7 @@
     </div>
 </div>
 
-<!-- JUDGING CRITERIA with points stickers -->
+<!-- JUDGING CRITERIA WITH FULL ROSETTE AWARDS -->
 <div class="judging-rule-card">
     <h3>🏆 OFFICIAL JUDGING & STICKER THRESHOLDS</h3>
     <p><strong>Sticker Awards by Points:</strong><br>
@@ -474,7 +454,15 @@
     🟥 <strong>Red Sticker</strong> — 100pt: 80-89 | 50pt: 40-44 | 25pt: 20-21<br>
     ⬜ <strong>White Sticker</strong> — 100pt: 70-79 | 50pt: 35-39 | 25pt: 16-19<br>
     🟢 <strong>Green Sticker</strong> — 100pt: ≤69 | 50pt: ≤34 | 25pt: ≤15</p>
-    <p><strong>Rosette Awards (all rosettes):</strong> Grand Champion Rabbit, Reserve Champion Rabbit, Grand Champion Chicken, Reserve Champion Chicken, Best in Show (overall points). Showmanship and Cage Decor add to totals per animal.</p>
+    
+    <p><strong>🏅 ROSETTE AWARDS (all rosettes):</strong><br>
+    🐇 <strong>Grand Champion Rabbit Rosette</strong> — highest combined total points from Rabbit (Class 1) + Cage Decor (Class 9, if entered with that rabbit) + Tanned Rabbit Skin (Class 10).<br>
+    🐇 <strong>Reserve Champion Rabbit Rosette</strong> — second highest combined total points from Rabbit + Cage Decor + Rabbit Skin.<br>
+    🐔 <strong>Grand Champion Chicken Rosette</strong> — highest combined total points from Chicken (Class 3) + Eggs (Class 7) + Cage Decor (Class 9, if paired with that chicken).<br>
+    🐔 <strong>Reserve Champion Chicken Rosette</strong> — second highest combined total points from Chicken + Eggs + Cage Decor.<br>
+    🌟 <strong>Best in Show Rosette</strong> — awarded to the exhibitor with the highest overall cumulative points across ALL their entries (any department).</p>
+    
+    <p><em>Note: Cage Decor and Showmanship can be entered once per animal — points apply toward respective species Grand Champion and Reserve Champion calculations. Showmanship points add to exhibitor's total for Best in Show but not to species champion combos.</em></p>
 </div>
 
 <script>
@@ -486,25 +474,37 @@
     function newRow() { let tr=document.createElement('tr'); tr.className='exhibit-row'; tr.innerHTML=`<td class="exhibit-number">${tbody.children.length+1}</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td><td><input type="text" class="classNum" placeholder="Class #"></td><td><input type="text" class="description" placeholder="Exhibit description"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td>`; attachRemove(tr); return tr; }
     addBtn.onclick = () => { tbody.appendChild(newRow()); updateNumbers(); };
     document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach(r=>attachRemove(r));
-    document.getElementById('previewEntryBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'___'; let html=`<html><head><title>Entry</title><style>table,td,th{border:1px solid black;}</style></head><body><h2>Entry</h2><p>${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Desc</th></tr>`; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ html+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value}</td><td>${r.querySelector('.description').value}</td></tr>`; }); html+=`</table><p>Signature: _______</p></body></html>`; let w=window.open('','_blank'); w.document.write(html); w.print(); };
-    document.getElementById('downloadPdfBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'______'; let rows=''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ rows+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||''}</td><td>${r.querySelector('.description').value||''}</td></tr>`; }); let w=window.open('','_blank'); w.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Entry</h2><p>Exhibitor: ${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>${rows}</table><p>Signature: ______________</p></body></html>`); w.document.close(); w.print(); };
+    document.getElementById('previewEntryBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'___'; let html=`<html><head><title>Entry</title><style>table,td,th{border:1px solid black;}</style></head><body><h2>Entry</h2><p>${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Desc</th></tr>`; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ html+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value}</td><td>${r.querySelector('.description').value}</td>`; }); html+=`</table><p>Signature: _______</p></body></html>`; let w=window.open('','_blank'); w.document.write(html); w.print(); };
+    document.getElementById('downloadPdfBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'______'; let rows=''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ rows+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||''}</td><td>${r.querySelector('.description').value||''}</td>`; }); let w=window.open('','_blank'); w.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Entry</h2><p>Exhibitor: ${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>${rows}</table><p>Signature: ______________</p></body></html>`); w.document.close(); w.print(); };
+    
+    // Printable Blank Entry Form (popup worksheet style)
+    document.getElementById('blankFormBtn').onclick = () => {
+        let blankHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Blank Entry Form - Gustavus Harvest Festival</title><style>body{font-family:'Times New Roman',serif; margin:0.6in;} h1,h2{text-align:center;} table{width:100%; border-collapse:collapse; margin:1rem 0;} th,td{border:1px solid black; padding:8px; vertical-align:top;} .info-line{margin:0.5rem 0;} .signature{margin-top:2rem; display:flex; justify-content:space-between;}</style></head><body><h1>🌾 GUSTAVUS HARVEST FESTIVAL 🌾</h1><h2>EXHIBITOR ENTRY FORM (Blank)</h2><p style="text-align:center">Saturday, September 19, 2026 • Drop-off 9–11am • Gustavus Community Center</p><hr><div class="info-line"><strong>Exhibitor Name:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Email:</strong> _________________________</div><div class="info-line"><strong>Phone:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Address:</strong> _________________________</div><div class="info-line"><strong>Emergency Contact:</strong> _________________________________</div><h3>Exhibits Entry List</h3><table><thead><tr><th>#</th><th>Dept (A/B/C)</th><th>Class #</th><th>Description of Exhibit</th><th>Judge Use</th></tr></thead><tbody>`;
+        for(let i=1;i<=8;i++) blankHtml += `<tr><td>${i}</td><td>______</td><td>______</td><td>_________________________</td><td>______</td></tr>`;
+        blankHtml += `</tbody></table><div class="signature"><span>Exhibitor Signature: _________________________</span><span>Date: ___________</span></div><p><em>I confirm that each entry follows festival rules (one entry per class per person; Cage Decor & Showmanship allowed once per animal). Animals must be registered by Sept 17.</em></p><p style="text-align:center; font-size:0.7rem;">Please bring this completed form to drop-off. Judges' decisions final.</p></body></html>`;
+        let win = window.open('', '_blank', 'width=850,height=1100,scrollbars=yes');
+        win.document.write(blankHtml);
+        win.document.close();
+        win.print();
+    };
 
-    // WORKSHEETS with 4-column layout (Criteria, Possible Pts, Earned, Notes) + Judge comments
-    function buildWorksheet(title, totalPts, criteriaList, extraNote='') {
+    // Worksheet builder with 4 columns: Criteria, Possible Pts, Earned Pts, Notes + Judge Comments
+    function buildWorksheet(title, totalPts, criteriaList) {
         let ptsMap = {25:"22-25 (Blue) / 20-21 (Red) / 16-19 (White) / ≤15 (Green)", 50:"45-50 (Blue) / 40-44 (Red) / 35-39 (White) / ≤34 (Green)", 100:"90-100 (Blue) / 80-89 (Red) / 70-79 (White) / ≤69 (Green)"};
         let stickerGuide = ptsMap[totalPts] || "per score rules";
         let html = `<h2>📋 ${title}</h2><p><strong>Total Points Possible: ${totalPts}</strong> &nbsp;| Sticker guide: ${stickerGuide}</p><table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead><tbody>`;
-        criteriaList.forEach(c => { let pts = c.match(/\d+$/)?.[0] || '—'; let name = c.replace(/\(\d+\)$/,'').trim(); html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>`; });
-        html += `</tbody></table><p><strong>Total Score Earned:</strong> ______ / ${totalPts}</p><p><strong>Judge Comments:</strong><br>_________________________________________<br>_________________________________________</p><p>Judge Signature: _________________ &nbsp;&nbsp; Date: ________</p>${extraNote}`;
+        criteriaList.forEach(c => { let ptsMatch = c.match(/(\d+)$/); let pts = ptsMatch ? ptsMatch[1] : '—'; let name = c.replace(/\s*\(\d+\)$/, '').trim(); html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>`; });
+        html += `</tbody></table><p><strong>Total Score Earned:</strong> ______ / ${totalPts}</p><p><strong>Judge Comments:</strong><br>_________________________________________<br>_________________________________________<br>_________________________________________</p><p>Judge Signature: _________________ &nbsp;&nbsp; Date: ________</p>`;
         return html;
     }
+    
     window.openWorksheet = (type) => {
         let data = {
             rabbit: {title:"Rabbit (Class 1)", pts:50, criteria:["Clear eye/nose (5)","Clean ears/shape (5)","Even teeth (5)","Clean vent (5)","Clean feet/fur (5)","Straight spine (5)","Clean brushed fur (5)","Fur pattern/even (5)","Body type (5)","Friendly temperament (5)"]},
             chicken:{title:"Chicken (Class 3)", pts:50, criteria:["Clear eyes (5)","Clean beak (5)","Wattles/combs (5)","Clean feet (5)","Clean vent (5)","Clean feathers (5)","Even wings (5)","Solid carriage (5)","Breed type (5)","Handled easily (5)"]},
             cavy:{title:"Cavy (Class 2)", pts:50, criteria:["Clear eyes (5)","Clean ears (5)","Even teeth (5)","Clean vent (5)","Straight spine (5)","Correct weight (5)","Clean feet (5)","Clean fur (5)","Body type (5)","Friendly (5)"]},
-            "other-poultry":{title:"Other Poultry", pts:50, criteria:["Clear eyes (5)","Clean beak (5)","Clean feet (5)","Clean vent (5)","Clean feathers (5)","Color (5)","Even wings (5)","Carriage (5)","Body type (5)","Handled (5)"]},
-            "other-livestock":{title:"Other Livestock", pts:50, criteria:["Clear eyes (5)","Clean nose (5)","Clean feet (5)","Clean vent (5)","Coat/feathers (5)","Color (5)","Carriage (5)","Condition (5)","Body type (5)","Handled (5)"]},
+            "other-poultry":{title:"Other Poultry (Class 5)", pts:50, criteria:["Clear eyes (5)","Clean beak (5)","Clean feet (5)","Clean vent (5)","Clean feathers (5)","Color (5)","Even wings (5)","Carriage (5)","Body type (5)","Handled (5)"]},
+            "other-livestock":{title:"Other Livestock (Class 6)", pts:50, criteria:["Clear eyes (5)","Clean nose (5)","Clean feet (5)","Clean vent (5)","Coat/feathers (5)","Color (5)","Carriage (5)","Condition (5)","Body type (5)","Handled (5)"]},
             eggs:{title:"Dozen Eggs (Class 7)", pts:50, criteria:["Even color (10)","Uniform shape (10)","Proper egg shape (10)","Uniform size (10)","Clean (10)"]},
             "cage-decor":{title:"Cage Decor (Class 9)", pts:25, criteria:["Animal safety (5)","Viewer safety (5)","Water available (5)","Creativity (5)","Recognizable theme (5)"]},
             showmanship:{title:"Showmanship (Class 8)", pts:25, criteria:["Question 1: handling knowledge (5)","Question 2: health/trivia (5)","Question 3: animal care (5)","Question 4: safety (5)","Question 5: overall presentation (5)"]},
@@ -527,7 +527,8 @@
             jams:{title:"Jams & Jellies (Class 27)", pts:25, criteria:["Set (5)","Color/clarity (5)","Flavor (10)","Label/seal (5)"]},
             canning:{title:"Canning (Class 28)", pts:25, criteria:["Seal integrity (5)","Color (5)","Flavor (10)","Cleanliness (5)"]},
             "still-life-default":{title:"Other Still Life (Class 29)", pts:25, criteria:["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"]},
-            race:{title:"Chicken & Rabbit Race", pts:25, criteria:["Fastest time (25)"]}
+            race:{title:"Chicken & Rabbit Race (Class 12)", pts:25, criteria:["Fastest time (25)"]},
+            quail:{title:"Quail (Class 4)", pts:50, criteria:["Clear eyes (5)","Clean beak (5)","Clean feet (5)","Clean vent (5)","Clean feathers (5)","Color (5)","Even wings (5)","Carriage (5)","Body type (5)","Handled (5)"]}
         };
         let d = data[type] || data["still-life-default"];
         if(type === 'cage-decor') d = data["cage-decor"];
