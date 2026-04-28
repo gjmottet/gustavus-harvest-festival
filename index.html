@@ -1,3 +1,7 @@
+You are absolutely right. I have completely rewritten the Flower Arrangement worksheet to be worth **50 points total**, with the scoring categories you requested: **10, 10, 10, and 20 points**. All point values are now clearly visible in the "Possible Pts" column, matching the format of all other judging sheets. I have also added a clear note that higher scores are better.
+
+Here is the fully corrected HTML code:
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -432,7 +436,7 @@
         <div class="class-card"><div class="class-title"><span class="class-name">Class 14 Best Carrot</span><span class="points">50 pts</span></div><div class="class-blurb">🥕 Size uniformity, color, flavor, greens.</div><button class="worksheet-btn" onclick="openWorksheet('carrot')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 15 Best Beets</span><span class="points">50 pts</span></div><div class="class-blurb">🍠 Uniform shape, color, trimmed, taste.</div><button class="worksheet-btn" onclick="openWorksheet('beet')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 16 Best Kale</span><span class="points">50 pts</span></div><div class="class-blurb">🥬 Freshness, crispness, pest-free, flavor.</div><button class="worksheet-btn" onclick="openWorksheet('kale')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 17 Flower Arrangement</span><span class="points">20 pts (4 criteria x 5)</span></div><div class="class-blurb">💐 Judges rate 1-5 on Variety, Condition, Difficulty/Unusual, Overall Presentation. Higher score = better.</div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('flower')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 17 Flower Arrangement</span><span class="points">50 pts</span></div><div class="class-blurb">💐 Judges rate: Variety (10), Condition (10), Difficulty/Unusual (10), Overall Presentation (20). Higher score = better.</div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('flower')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 18 Largest Cabbage</span><span class="points">25 pts</span></div><div class="class-blurb">⚖️ Heaviest cabbage wins. 1st place ribbon only (no sticker).</div><button class="worksheet-btn" onclick="openWorksheet('cabbage')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 19 Largest Potato</span><span class="points">25 pts</span></div><div class="class-blurb">🥔 Weight contest. 1st place ribbon only (no sticker).</div><button class="worksheet-btn" onclick="openWorksheet('potato')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 20 Zucchini 500</span><span class="points">25 pts</span></div><div class="class-blurb">🏎️ Roll down ramp — fastest time. 1st place ribbon only (no sticker).</div><button class="worksheet-btn" onclick="openWorksheet('zucchini')">📄 Worksheet</button></div>
@@ -456,10 +460,10 @@
 <div class="judging-rule-card">
     <h3>🏆 OFFICIAL JUDGING & STICKER THRESHOLDS</h3>
     <p><strong>Sticker Awards by Points (applies to all classes except Race, Largest Cabbage, Largest Potato, Zucchini 500):</strong><br>
-    🟦 <strong>Blue Sticker</strong> — 100pt classes: 90-100 pts | 50pt classes: 45-50 pts | 25pt classes: 22-25 pts | Flower Arrang (20pt): 18-20<br>
-    🟥 <strong>Red Sticker</strong> — 100pt: 80-89 | 50pt: 40-44 | 25pt: 20-21 | Flower: 16-17<br>
-    ⬜ <strong>White Sticker</strong> — 100pt: 70-79 | 50pt: 35-39 | 25pt: 16-19 | Flower: 14-15<br>
-    🟢 <strong>Green Sticker</strong> — 100pt: ≤69 | 50pt: ≤34 | 25pt: ≤15 | Flower: ≤13</p>
+    🟦 <strong>Blue Sticker</strong> — 100pt: 90-100 | 50pt: 45-50 | 25pt: 22-25<br>
+    🟥 <strong>Red Sticker</strong> — 100pt: 80-89 | 50pt: 40-44 | 25pt: 20-21<br>
+    ⬜ <strong>White Sticker</strong> — 100pt: 70-79 | 50pt: 35-39 | 25pt: 16-19<br>
+    🟢 <strong>Green Sticker</strong> — 100pt: ≤69 | 50pt: ≤34 | 25pt: ≤15</p>
     
     <p><strong>🏁 Race & Weight Classes (no stickers):</strong> Chicken & Rabbit Race: 1st, 2nd, 3rd place ribbons. Largest Cabbage, Largest Potato, Zucchini 500: 1st place ribbon only.</p>
     
@@ -484,27 +488,27 @@
     addBtn.onclick = () => { tbody.appendChild(newRow()); updateNumbers(); };
     document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach(r=>attachRemove(r));
     document.getElementById('previewEntryBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'___'; let html=`<html><head><title>Entry</title><style>table,td,th{border:1px solid black;}</style></head><body><h2>Entry</h2><p>${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Desc</th></tr>`; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ html+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value}</td><td>${r.querySelector('.description').value}</td></tr>`; }); html+=`</table><p>Signature: _______</p></body></html>`; let w=window.open('','_blank'); w.document.write(html); w.print(); };
-    document.getElementById('downloadPdfBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'______'; let rows=''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ rows+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||''}</td><td>${r.querySelector('.description').value||''}</td></tr>`; }); let w=window.open('','_blank'); w.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Entry</h2><p>Exhibitor: ${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>${rows}</table><p>Signature: ______________</p></body></html>`); w.document.close(); w.print(); };
+    document.getElementById('downloadPdfBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'______'; let rows=''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ rows+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||''}</td><td>${r.querySelector('.description').value||''}</td>`; }); let w=window.open('','_blank'); w.document.write(`<html><head><title>StaticForm</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Entry</h2><p>Exhibitor: ${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>${rows}</table><p>Signature: ______________</p></body></html>`); w.document.close(); w.print(); };
     
     // Printable Blank Entry Form
     document.getElementById('blankFormBtn').onclick = () => {
         let blankHtml = `<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Blank Entry Form - Gustavus Harvest Festival</title><style>body{font-family:'Times New Roman',serif; margin:0.6in;} h1,h2{text-align:center;} table{width:100%; border-collapse:collapse; margin:1rem 0;} th,td{border:1px solid black; padding:8px; vertical-align:top;} .info-line{margin:0.5rem 0;} .signature{margin-top:2rem; display:flex; justify-content:space-between;}</style></head><body><h1>🌾 GUSTAVUS HARVEST FESTIVAL 🌾</h1><h2>EXHIBITOR ENTRY FORM (Blank)</h2><p style="text-align:center">Saturday, September 19, 2026 • Drop-off 9–11am • Gustavus Community Center</p><hr><div class="info-line"><strong>Exhibitor Name:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Email:</strong> _________________________</div><div class="info-line"><strong>Phone:</strong> _________________________ &nbsp;&nbsp;&nbsp; <strong>Address:</strong> _________________________</div><div class="info-line"><strong>Emergency Contact:</strong> _________________________________</div><h3>Exhibits Entry List</h3><table><thead><tr><th>#</th><th>Dept (A/B/C)</th><th>Class #</th><th>Description of Exhibit</th><th>Judge Use</th></tr></thead><tbody>`;
-        for(let i=1;i<=8;i++) blankHtml += `<tr><td>${i}</td><td>______</td><td>______</td><td>_________________________</td><td>______</td></tr>`;
-        blankHtml += `</tbody></table><div class="signature"><span>Exhibitor Signature: _________________________</span><span>Date: ___________</span></div><p><em>I confirm that each entry follows festival rules (one entry per class per person; Cage Decor & Showmanship allowed once per animal).</em></p><p style="text-align:center; font-size:0.7rem;">Please bring this completed form to drop-off. Judges' decisions final.</p></body></html>`;
+        for(let i=1;i<=8;i++) blankHtml += `<tr><td>${i}</td><td>______</td><td>______</td><td>_________________________</td><td>______</td>`; 
+        blankHtml += `</tbody><td><div class="signature"><span>Exhibitor Signature: _________________________</span><span>Date: ___________</span></div><p><em>I confirm that each entry follows festival rules (one entry per class per person; Cage Decor & Showmanship allowed once per animal).</em></p><p style="text-align:center; font-size:0.7rem;">Please bring this completed form to drop-off. Judges' decisions final.</p></body></html>`;
         let win = window.open('', '_blank', 'width=850,height=1100,scrollbars=yes');
         win.document.write(blankHtml);
         win.document.close();
         win.print();
     };
 
-    // Build standard worksheet (points-based criteria)
+    // Standard worksheet builder (for point-based criteria)
     function buildStandardWorksheet(title, totalPts, criteriaList, hasBonus = false) {
         let html = `<h2>📋 ${title}</h2><p><strong>Total Points Possible: ${totalPts}</strong></p><div class="score-note">⭐ HIGHER SCORE = BETTER ⭐</div><table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead><tbody>`;
         criteriaList.forEach(c => { 
             let ptsMatch = c.match(/\((\d+)\)/); 
             let pts = ptsMatch ? ptsMatch[1] : '—'; 
             let name = c.replace(/\s*\(\d+\)/, '').trim(); 
-            html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>`; 
+            html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td>`; 
         });
         html += `</tbody></table>`;
         if(hasBonus) html += `<p><strong>Bonus (Harvest Festival Theme):</strong> +5 ______</p>`;
@@ -512,25 +516,25 @@
         return html;
     }
     
-    // Special flower arrangement worksheet (1-5 scale per criterion, max 20 pts)
+    // Flower arrangement worksheet (50 points: 10,10,10,20)
     function buildFlowerWorksheet() {
-        return `<h2>📋 Flower Arrangement (Class 17)</h2><p><strong>Total Points Possible: 20</strong> (4 criteria × 5 points each)</p><div class="score-note">⭐ HIGHER SCORE = BETTER — Rate each criterion 1 (Low) to 5 (High) ⭐</div>
+        return `<h2>📋 Flower Arrangement (Class 17)</h2><p><strong>Total Points Possible: 50</strong></p><div class="score-note">⭐ HIGHER SCORE = BETTER — Rate each category based on quality ⭐</div>
         <table border="1" cellpadding="6" style="border-collapse:collapse; width:100%">
-            <thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Description</th><th>Score (1-5)</th><th>Notes</th></tr></thead>
+            <thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Description</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead>
             <tbody>
-                <tr><td><strong>VARIETY</strong></td><td>Number of flower types, colors, textures</td><td style="text-align:center">_____</td><td>_________________</td></tr>
-                <tr><td><strong>CONDITION</strong></td><td>Fresh, free of blemishes, insect damage, wilting</td><td style="text-align:center">_____</td><td>_________________</td></tr>
-                <tr><td><strong>DIFFICULTY / UNUSUAL</strong></td><td>Are the flowers unusual for our area? Difficult to grow? Unusual bloom time?</td><td style="text-align:center">_____</td><td>_________________</td></tr>
-                <tr><td><strong>OVERALL PRESENTATION</strong></td><td>Judges Choice — visual impact, design, harmony</td><td style="text-align:center">_____</td><td>_________________</td></tr>
+                <tr><td><strong>VARIETY</strong></td><td>Number of flower types, colors, textures</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                <tr><td><strong>CONDITION</strong></td><td>Fresh, free of blemishes, insect damage, wilting</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                <tr><td><strong>DIFFICULTY / UNUSUAL</strong></td><td>Are the flowers unusual for our area? Difficult to grow? Unusual bloom time?</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                <tr><td><strong>OVERALL PRESENTATION</strong></td><td>Judge's Choice — visual impact, design, harmony, creativity</td><td style="text-align:center">20</td><td style="text-align:center">______</td><td>_________________</td></tr>
             </tbody>
         </table>
-        <p><strong>Total Score Earned:</strong> ______ / 20</p>
+        <p><strong>Total Score Earned:</strong> ______ / 50</p>
         <p><strong>Judge Comments:</strong><br>_________________________________________<br>_________________________________________<br>_________________________________________</p>
         <p>Judge Signature: _________________ &nbsp;&nbsp; Date: ________</p>`;
     }
     
     window.openWorksheet = (type) => {
-        // Special case for flower arrangement
+        // Special case for Flower Arrangement
         if(type === 'flower') {
             let win = window.open('','_blank','width=950,height=750,scrollbars=yes');
             win.document.write(`<html><head><title>Flower Arrangement Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} .score-note{background:#2c3e2f;color:#ffd700;padding:0.5rem;border-radius:20px;text-align:center;margin-bottom:1rem;font-weight:bold;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #ccc;padding:8px;vertical-align:top;} th{background:#e67e22;color:white;}</style></head><body>${buildFlowerWorksheet()}</body></html>`);
@@ -579,3 +583,4 @@
 </script>
 </body>
 </html>
+```
