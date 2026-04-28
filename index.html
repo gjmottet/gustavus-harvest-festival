@@ -321,6 +321,15 @@
             color: #ffd700;
             margin-bottom: 0.8rem;
         }
+        .score-note {
+            background: #2c3e2fdd;
+            color: #ffd700;
+            padding: 0.5rem;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
         @media (max-width: 900px) {
             .class-grid { grid-template-columns: repeat(2, 1fr); }
         }
@@ -385,13 +394,7 @@
         <table class="exhibits-table" id="exhibitsTable">
             <thead><tr><th>#</th><th>Department</th><th>Class #</th><th>Description / Exhibit Title</th><th>Judge Use</th><th></th></tr></thead>
             <tbody id="exhibitsTbody">
-                <tr class="exhibit-row"><td class="exhibit-number">1</td>
-                    <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td>
-                    <td><input type="text" class="classNum" placeholder="e.g., 12"></td>
-                    <td><input type="text" class="description" placeholder="Describe your entry"></td>
-                    <td>_________</td>
-                    <td><button type="button" class="removeRowBtn">✖ Remove</button></td>
-                </tr>
+                <tr class="exhibit-row"><td class="exhibit-number">1</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td><td><input type="text" class="classNum" placeholder="e.g., 12"></td><td><input type="text" class="description" placeholder="Describe your entry"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td></tr>
             </tbody>
         </table>
         <button type="button" class="add-row-btn" id="addExhibitBtn">➕ Add Another Exhibit</button>
@@ -429,7 +432,7 @@
         <div class="class-card"><div class="class-title"><span class="class-name">Class 14 Best Carrot</span><span class="points">50 pts</span></div><div class="class-blurb">🥕 Size uniformity, color, flavor, greens.</div><button class="worksheet-btn" onclick="openWorksheet('carrot')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 15 Best Beets</span><span class="points">50 pts</span></div><div class="class-blurb">🍠 Uniform shape, color, trimmed, taste.</div><button class="worksheet-btn" onclick="openWorksheet('beet')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 16 Best Kale</span><span class="points">50 pts</span></div><div class="class-blurb">🥬 Freshness, crispness, pest-free, flavor.</div><button class="worksheet-btn" onclick="openWorksheet('kale')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 17 Flower Arrangement</span><span class="points">50 pts</span></div><div class="class-blurb">💐 Freshness, design, creativity.</div><button class="worksheet-btn" onclick="openWorksheet('flower')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 17 Flower Arrangement</span><span class="points">20 pts (4 criteria x 5)</span></div><div class="class-blurb">💐 Judges rate 1-5 on Variety, Condition, Difficulty/Unusual, Overall Presentation. Higher score = better.</div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('flower')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 18 Largest Cabbage</span><span class="points">25 pts</span></div><div class="class-blurb">⚖️ Heaviest cabbage wins. 1st place ribbon only (no sticker).</div><button class="worksheet-btn" onclick="openWorksheet('cabbage')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 19 Largest Potato</span><span class="points">25 pts</span></div><div class="class-blurb">🥔 Weight contest. 1st place ribbon only (no sticker).</div><button class="worksheet-btn" onclick="openWorksheet('potato')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 20 Zucchini 500</span><span class="points">25 pts</span></div><div class="class-blurb">🏎️ Roll down ramp — fastest time. 1st place ribbon only (no sticker).</div><button class="worksheet-btn" onclick="openWorksheet('zucchini')">📄 Worksheet</button></div>
@@ -453,10 +456,10 @@
 <div class="judging-rule-card">
     <h3>🏆 OFFICIAL JUDGING & STICKER THRESHOLDS</h3>
     <p><strong>Sticker Awards by Points (applies to all classes except Race, Largest Cabbage, Largest Potato, Zucchini 500):</strong><br>
-    🟦 <strong>Blue Sticker</strong> — 100pt classes: 90-100 pts | 50pt classes: 45-50 pts | 25pt classes: 22-25 pts<br>
-    🟥 <strong>Red Sticker</strong> — 100pt: 80-89 | 50pt: 40-44 | 25pt: 20-21<br>
-    ⬜ <strong>White Sticker</strong> — 100pt: 70-79 | 50pt: 35-39 | 25pt: 16-19<br>
-    🟢 <strong>Green Sticker</strong> — 100pt: ≤69 | 50pt: ≤34 | 25pt: ≤15</p>
+    🟦 <strong>Blue Sticker</strong> — 100pt classes: 90-100 pts | 50pt classes: 45-50 pts | 25pt classes: 22-25 pts | Flower Arrang (20pt): 18-20<br>
+    🟥 <strong>Red Sticker</strong> — 100pt: 80-89 | 50pt: 40-44 | 25pt: 20-21 | Flower: 16-17<br>
+    ⬜ <strong>White Sticker</strong> — 100pt: 70-79 | 50pt: 35-39 | 25pt: 16-19 | Flower: 14-15<br>
+    🟢 <strong>Green Sticker</strong> — 100pt: ≤69 | 50pt: ≤34 | 25pt: ≤15 | Flower: ≤13</p>
     
     <p><strong>🏁 Race & Weight Classes (no stickers):</strong> Chicken & Rabbit Race: 1st, 2nd, 3rd place ribbons. Largest Cabbage, Largest Potato, Zucchini 500: 1st place ribbon only.</p>
     
@@ -468,6 +471,7 @@
     🌟 <strong>Best in Show Rosette</strong> — awarded to the exhibitor with the highest overall cumulative points across ALL their entries (any department).</p>
     
     <p><em>Note: Cage Decor and Showmanship can be entered once per animal. Cage Decor offers +5 bonus points for incorporating the Harvest Festival theme. Showmanship points add to exhibitor's total for Best in Show but not to species champion combos.</em></p>
+    <p><strong>⭐ Scoring Note:</strong> For all judging criteria, a higher score indicates better quality, health, creativity, or presentation. Judges assign points accordingly.</p>
 </div>
 
 <script>
@@ -493,9 +497,9 @@
         win.print();
     };
 
-    // WORKSHEET BUILDER — "Possible Pts" column now displays the numeric value from each criteria string
-    function buildWorksheet(title, totalPts, criteriaList, hasBonus = false) {
-        let html = `<h2>📋 ${title}</h2><p><strong>Total Points Possible: ${totalPts}</strong></p><table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead><tbody>`;
+    // Build standard worksheet (points-based criteria)
+    function buildStandardWorksheet(title, totalPts, criteriaList, hasBonus = false) {
+        let html = `<h2>📋 ${title}</h2><p><strong>Total Points Possible: ${totalPts}</strong></p><div class="score-note">⭐ HIGHER SCORE = BETTER ⭐</div><table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead><tbody>`;
         criteriaList.forEach(c => { 
             let ptsMatch = c.match(/\((\d+)\)/); 
             let pts = ptsMatch ? ptsMatch[1] : '—'; 
@@ -508,7 +512,32 @@
         return html;
     }
     
+    // Special flower arrangement worksheet (1-5 scale per criterion, max 20 pts)
+    function buildFlowerWorksheet() {
+        return `<h2>📋 Flower Arrangement (Class 17)</h2><p><strong>Total Points Possible: 20</strong> (4 criteria × 5 points each)</p><div class="score-note">⭐ HIGHER SCORE = BETTER — Rate each criterion 1 (Low) to 5 (High) ⭐</div>
+        <table border="1" cellpadding="6" style="border-collapse:collapse; width:100%">
+            <thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Description</th><th>Score (1-5)</th><th>Notes</th></tr></thead>
+            <tbody>
+                <tr><td><strong>VARIETY</strong></td><td>Number of flower types, colors, textures</td><td style="text-align:center">_____</td><td>_________________</td></tr>
+                <tr><td><strong>CONDITION</strong></td><td>Fresh, free of blemishes, insect damage, wilting</td><td style="text-align:center">_____</td><td>_________________</td></tr>
+                <tr><td><strong>DIFFICULTY / UNUSUAL</strong></td><td>Are the flowers unusual for our area? Difficult to grow? Unusual bloom time?</td><td style="text-align:center">_____</td><td>_________________</td></tr>
+                <tr><td><strong>OVERALL PRESENTATION</strong></td><td>Judges Choice — visual impact, design, harmony</td><td style="text-align:center">_____</td><td>_________________</td></tr>
+            </tbody>
+        </table>
+        <p><strong>Total Score Earned:</strong> ______ / 20</p>
+        <p><strong>Judge Comments:</strong><br>_________________________________________<br>_________________________________________<br>_________________________________________</p>
+        <p>Judge Signature: _________________ &nbsp;&nbsp; Date: ________</p>`;
+    }
+    
     window.openWorksheet = (type) => {
+        // Special case for flower arrangement
+        if(type === 'flower') {
+            let win = window.open('','_blank','width=950,height=750,scrollbars=yes');
+            win.document.write(`<html><head><title>Flower Arrangement Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} .score-note{background:#2c3e2f;color:#ffd700;padding:0.5rem;border-radius:20px;text-align:center;margin-bottom:1rem;font-weight:bold;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #ccc;padding:8px;vertical-align:top;} th{background:#e67e22;color:white;}</style></head><body>${buildFlowerWorksheet()}</body></html>`);
+            win.document.close();
+            return;
+        }
+        
         const data = {
             rabbit: {title:"Rabbit (Class 1)", pts:50, criteria:["Clear eye/nose (5)","Clean ears/shape (5)","Even teeth (5)","Clean vent (5)","Clean feet/fur (5)","Straight spine (5)","Clean brushed fur (5)","Fur pattern/even (5)","Body type (5)","Friendly temperament (5)"]},
             chicken:{title:"Chicken (Class 3)", pts:50, criteria:["Clear eyes (5)","Clean beak (5)","Wattles/combs (5)","Clean feet (5)","Clean vent (5)","Clean feathers (5)","Even wings (5)","Solid carriage (5)","Breed type (5)","Handled easily (5)"]},
@@ -524,7 +553,6 @@
             carrot:{title:"Best Carrot (Class 14)", pts:50, criteria:["Uniform size (10)","Uniform shape (10)","Color (5)","Clean/trimmed (10)","Greens attached (5)","Crunch (5)","Flavor (5)"]},
             beet:{title:"Best Beets (Class 15)", pts:50, criteria:["Uniform size (10)","Uniform shape (10)","Color (5)","Clean/trimmed (10)","Greens attached (5)","Texture (5)","Flavor (5)"]},
             kale:{title:"Best Kale (Class 16)", pts:50, criteria:["Color/freshness (10)","Crispness (10)","Uniform bunch (10)","Clean/pest-free (10)","Trimmed stems (5)","Texture/flavor (5)"]},
-            flower:{title:"Flower Arrangement (Class 17)", pts:50, criteria:["Trimmed neatly (10)","Freshness (10)","Centerpiece impact (10)","Size appropriate (10)","Creativity (10)"]},
             cabbage:{title:"Largest Cabbage (Class 18)", pts:25, criteria:["Weight (25)"]},
             potato:{title:"Largest Potato (Class 19)", pts:25, criteria:["Weight (25)"]},
             zucchini:{title:"Zucchini 500 (Class 20)", pts:25, criteria:["Speed (25)"]},
@@ -543,9 +571,9 @@
         let d = data[type] || data["still-life-default"];
         if(type === 'cage-decor') d = data["cage-decor"];
         if(type === 'showmanship') d = data.showmanship;
-        let htmlContent = buildWorksheet(d.title, d.pts, d.criteria, d.hasBonus || false);
+        let htmlContent = buildStandardWorksheet(d.title, d.pts, d.criteria, d.hasBonus || false);
         let win = window.open('','_blank','width=950,height=800,scrollbars=yes');
-        win.document.write(`<html><head><title>${d.title} Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} table{width:100%;} th,td{padding:8px;}</style></head><body>${htmlContent}</body></html>`);
+        win.document.write(`<html><head><title>${d.title} Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} .score-note{background:#2c3e2f;color:#ffd700;padding:0.5rem;border-radius:20px;text-align:center;margin-bottom:1rem;font-weight:bold;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #ccc;padding:8px;vertical-align:top;} th{background:#e67e22;color:white;}</style></head><body>${htmlContent}</body></html>`);
         win.document.close();
     };
 </script>
