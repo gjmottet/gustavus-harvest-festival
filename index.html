@@ -14,14 +14,14 @@
         .event-details { background: #2c3e2f; color: #ffd700; text-align: center; padding: 1rem; display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; font-weight: bold; }
         .event-details span { background: #e67e22; color: white; padding: 0.3rem 1rem; border-radius: 30px; font-size: 0.9rem; }
         
-        .health-deadline-section { max-width: 1300px; margin: 1rem auto; }
-        .health-notice { background: #fff1cc; padding: 0.8rem; border-radius: 18px; margin-bottom: 0.5rem; border-left: 6px solid #e67e22; }
-        .deadline-notice { background: #fff1e0; border-left: 6px solid #d9534f; padding: 0.8rem 1.2rem; border-radius: 20px; color: #a04030; font-weight: 500; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 0.5rem; }
-        .contact-btn { background: #2c3e2f; color: #ffd700; border: none; padding: 0.5rem 1.2rem; border-radius: 40px; font-weight: bold; cursor: pointer; font-size: 0.8rem; transition: 0.2s; }
-        .contact-btn:hover { background: #1a2a1f; transform: scale(1.02); }
-        .dog-note { background: #f7e9d7; border-left: 6px solid #b97f44; padding: 0.6rem 1rem; border-radius: 20px; margin-top: 0.5rem; font-size: 0.85rem; color: #b97f44; }
+        /* Animal section notices */
+        .animal-notices-group { background: #fff6ea; border-radius: 24px; padding: 1rem; margin: 1rem 0 1.5rem 0; border: 1px solid #e6cba0; }
+        .health-notice { background: #fff1cc; padding: 0.7rem; border-radius: 18px; margin-bottom: 0.7rem; border-left: 6px solid #e67e22; }
+        .deadline-notice { background: #fff1e0; border-left: 6px solid #d9534f; padding: 0.7rem 1rem; border-radius: 20px; color: #a04030; font-weight: 500; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.8rem; margin-bottom: 0.7rem; }
+        .contact-btn { background: #2c3e2f; color: #ffd700; border: none; padding: 0.4rem 1rem; border-radius: 40px; font-weight: bold; cursor: pointer; font-size: 0.8rem; transition: 0.2s; }
+        .contact-btn:hover { background: #1a2a1f; }
+        .dog-note { background: #f7e9d7; border-left: 6px solid #b97f44; padding: 0.6rem 1rem; border-radius: 20px; font-size: 0.85rem; color: #b97f44; }
 
-        /* Theme card with your image */
         .theme-card { 
             background: linear-gradient(rgba(255,250,240,0.85), rgba(255,250,240,0.85)), url('images/ShorelineHarvestPlaceHolder.png'); 
             background-size: cover; background-position: center; 
@@ -63,6 +63,11 @@
         .logo-placeholder { background: #f0e2ce; padding: 0.6rem 1.2rem; border-radius: 40px; font-weight: bold; color: #2c3e2f; }
         @media (max-width: 900px) { .class-grid { grid-template-columns: repeat(2, 1fr); } }
         @media (max-width: 600px) { .class-grid { grid-template-columns: 1fr; } .button-group { flex-direction: column; } }
+        /* grayscale print style for worksheets */
+        @media print {
+            body { background: white; }
+            .worksheet-printable { filter: grayscale(100%); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
     </style>
 </head>
 <body>
@@ -77,21 +82,7 @@
     <span>🕛 Noon – 5:00 PM</span>
 </div>
 
-<!-- Combined Health Notice + Deadline directly underneath -->
-<div class="health-deadline-section">
-    <div class="health-notice">
-        <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
-    </div>
-    <div class="deadline-notice">
-        <span>⏰ <strong>LIVE ANIMAL ENTRY DEADLINE:</strong> To ensure proper cage space & layout, please contact Geneva Mottet by <strong>Sept 17 at 5pm</strong> to enter live animals.</span>
-        <button class="contact-btn" id="contactGenevaBtn">📧 Contact Geneva (Email form)</button>
-    </div>
-    <div class="dog-note">
-        🚫 <strong>NO DOGS allowed</strong> around the backside of the Community Center to reduce stress on rabbits and poultry. Thank you for respecting our animal friends.
-    </div>
-</div>
-
-<!-- Schedule Card -->
+<!-- Schedule Card (moved above theme) -->
 <div class="schedule-card">
     <h3>📋 FESTIVAL SCHEDULE & ACTIVITIES</h3>
     <p><strong>9:00 – 11:00 AM</strong> — Exhibitor drop-off & Animal Health Check-In</p>
@@ -139,7 +130,13 @@
         <table class="exhibits-table" id="exhibitsTable">
             <thead><tr><th>#</th><th>Department</th><th>Class #</th><th>Description</th><th>Judge Use</th><th></th></tr></thead>
             <tbody id="exhibitsTbody">
-                <tr class="exhibit-row"><td class="exhibit-number">1</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td><td><input type="text" class="classNum" placeholder="e.g., 12"></td><td><input type="text" class="description" placeholder="Describe your entry"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td></tr>
+                <tr class="exhibit-row"><td class="exhibit-number">1</td>
+                    <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td>
+                    <td><input type="text" class="classNum" placeholder="e.g., 12"></td>
+                    <td><input type="text" class="description" placeholder="Describe your entry"></td>
+                    <td>_________</td>
+                    <td><button type="button" class="removeRowBtn">✖ Remove</button></td>
+                </tr>
             </tbody>
         </table>
         <button type="button" class="add-row-btn" id="addExhibitBtn">➕ Add Another Exhibit</button>
@@ -154,6 +151,20 @@
 <!-- DEPARTMENTS -->
 <div class="container">
     <div class="dept">🐓 DEPT A: ANIMALS</div>
+    <!-- Animal notices placed directly under DEPT A header -->
+    <div class="animal-notices-group">
+        <div class="health-notice">
+            <strong>🐾 Animal Health Notice:</strong> All animals will be health checked. Sick, injured, and pregnant animals will be turned away.
+        </div>
+        <div class="deadline-notice">
+            <span>⏰ <strong>LIVE ANIMAL ENTRY DEADLINE:</strong> To ensure proper cage space & layout, please contact Geneva Mottet by <strong>Sept 17 at 5pm</strong> to enter live animals.</span>
+            <button class="contact-btn" id="contactGenevaBtn">📧 Contact Geneva (Email form)</button>
+        </div>
+        <div class="dog-note">
+            🚫 <strong>NO DOGS allowed</strong> around the backside of the Community Center to reduce stress on rabbits and poultry. Thank you for respecting our animal friends.
+        </div>
+    </div>
+    
     <div class="class-grid">
         <div class="class-card"><div class="class-title"><span class="class-name">Class 1 Rabbit</span><span class="points">50 pts</span></div><div class="class-blurb">🐇 Breed conformation, fur, cleanliness, temperament. Grand Champion Rabbit rosette.</div><div class="awards">🏅 Ribbon | Rosette: Grand/Reserve Champion</div><button class="worksheet-btn" onclick="openWorksheet('rabbit')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 2 Cavy</span><span class="points">50 pts</span></div><div class="class-blurb">🐹 Guinea pig: body condition, coat, health, handling.</div><div class="awards">🏅 Ribbon & sticker</div><button class="worksheet-btn" onclick="openWorksheet('cavy')">📄 Worksheet</button></div>
@@ -162,11 +173,11 @@
         <div class="class-card"><div class="class-title"><span class="class-name">Class 5 Other Poultry</span><span class="points">50 pts</span></div><div class="class-blurb">Ducks, geese, turkeys: health, cleanliness, standard traits.</div><div class="awards">🏅 Ribbon</div><button class="worksheet-btn" onclick="openWorksheet('other-poultry')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 6 Other Livestock</span><span class="points">50 pts</span></div><div class="class-blurb">Goats, sheep, etc. Condition, handling, health check.</div><div class="awards">🏅 Ribbon</div><button class="worksheet-btn" onclick="openWorksheet('other-livestock')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 7 Dozen Eggs</span><span class="points">50 pts</span></div><div class="class-blurb">🥚 Uniformity, cleanliness, shell quality.</div><div class="awards">Counts toward Chicken Champion</div><button class="worksheet-btn" onclick="openWorksheet('eggs')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 8 Showmanship</span><span class="points">25 pts</span></div><div class="class-blurb">🎤 Answer 5 questions about animal handling, health, or trivia at time of showing.</div><div class="awards">Adds to total points</div><button class="worksheet-btn" onclick="openWorksheet('showmanship')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 8 Showmanship</span><span class="points">25 pts</span></div><div class="class-blurb">🎤 Answer 5 questions: breed/type, body part ID, health, care, general knowledge.</div><div class="awards">Adds to total points</div><button class="worksheet-btn" onclick="openWorksheet('showmanship')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 9 Cage Decor</span><span class="points">25 pts + 5 bonus</span></div><div class="class-blurb">Decorate animal's cage: safety, creativity, theme. +5 bonus for Harvest Festival theme.</div><div class="awards">🏅 Rosette qualifying</div><button class="worksheet-btn" onclick="openWorksheet('cage-decor')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 10 Tanned Rabbit Skin</span><span class="points">25 pts</span></div><div class="class-blurb">Softness, fur quality, tanning method.</div><div class="awards">Rabbit Champion component</div><button class="worksheet-btn" onclick="openWorksheet('rabbit-skin')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 11 Animal Products</span><span class="points">25 pts</span></div><div class="class-blurb">Wool, felt, feathers: crafted or raw material.</div><div class="awards">🏅 Ribbon</div><button class="worksheet-btn" onclick="openWorksheet('animal-products')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 12 Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="class-blurb">🏁 Fastest chicken / rabbit in two-circle race. 1st, 2nd, 3rd place ribbons.</div><div class="awards">🥇🥈🥉 Ribbons only</div><button class="worksheet-btn" onclick="openWorksheet('race')">📄 Race Info</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 12 Chicken & Rabbit Race</span><span class="points">25 pts</span></div><div class="class-blurb">🏁 Fastest time: 1st = 25pt, 2nd = 20pt, 3rd+ = 15pt.</div><div class="awards">🥇🥈🥉 Ribbons</div><button class="worksheet-btn" onclick="openWorksheet('race')">📄 Race Info</button></div>
     </div>
 
     <div class="dept">🥕 DEPT B: GARDEN</div>
@@ -175,10 +186,10 @@
         <div class="class-card"><div class="class-title"><span class="class-name">Class 14 Best Carrot</span><span class="points">50 pts</span></div><div class="class-blurb">🥕 Size uniformity, color, flavor, greens.</div><button class="worksheet-btn" onclick="openWorksheet('carrot')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 15 Best Beets</span><span class="points">50 pts</span></div><div class="class-blurb">🍠 Uniform shape, color, trimmed, taste.</div><button class="worksheet-btn" onclick="openWorksheet('beet')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 16 Best Kale</span><span class="points">50 pts</span></div><div class="class-blurb">🥬 Freshness, crispness, pest-free, flavor.</div><button class="worksheet-btn" onclick="openWorksheet('kale')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 17 Flower Arrangement</span><span class="points">50 pts</span></div><div class="class-blurb">💐 Judges rate: Variety (10), Condition (10), Difficulty/Unusual (10), Overall Presentation (20).</div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('flower')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 18 Largest Cabbage</span><span class="points">25 pts</span></div><div class="class-blurb">⚖️ Heaviest cabbage wins. 1st place ribbon only.</div><button class="worksheet-btn" onclick="openWorksheet('cabbage')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 19 Largest Potato</span><span class="points">25 pts</span></div><div class="class-blurb">🥔 Weight contest. 1st place ribbon only.</div><button class="worksheet-btn" onclick="openWorksheet('potato')">📄 Worksheet</button></div>
-        <div class="class-card"><div class="class-title"><span class="class-name">Class 20 Zucchini 500</span><span class="points">25 pts</span></div><div class="class-blurb">🏎️ Roll down ramp — fastest time. 1st place ribbon only.</div><button class="worksheet-btn" onclick="openWorksheet('zucchini')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 17 Flower Arrangement</span><span class="points">50 pts</span></div><div class="class-blurb">💐 Judges rate: Variety, Condition, Difficulty/Unusual, Overall Presentation.</div><div class="awards">🏅 Sticker & ribbon</div><button class="worksheet-btn" onclick="openWorksheet('flower')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 18 Largest Cabbage</span><span class="points">25 pts</span></div><div class="class-blurb">⚖️ Heaviest = 25pt, all other entries = 15pt participation. 1st place ribbon only.</div><button class="worksheet-btn" onclick="openWorksheet('cabbage')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 19 Largest Potato</span><span class="points">25 pts</span></div><div class="class-blurb">🥔 Heaviest = 25pt, all other entries = 15pt participation. 1st place ribbon.</div><button class="worksheet-btn" onclick="openWorksheet('potato')">📄 Worksheet</button></div>
+        <div class="class-card"><div class="class-title"><span class="class-name">Class 20 Zucchini 500</span><span class="points">25 pts</span></div><div class="class-blurb">🏎️ Fastest time: 1st=25pt, 2nd=20pt, 3rd+=15pt. 1st place ribbon.</div><button class="worksheet-btn" onclick="openWorksheet('zucchini')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 21 Most Unusual Vegetable</span><span class="points">25 pts</span></div><div class="class-blurb">👽 Odd shape, rare variety, curiosity.</div><button class="worksheet-btn" onclick="openWorksheet('unusual')">📄 Worksheet</button></div>
         <div class="class-card"><div class="class-title"><span class="class-name">Class 22 Vegetable Sculpture</span><span class="points">25 pts</span></div><div class="class-blurb">🗿 Creative veggie art.</div><button class="worksheet-btn" onclick="openWorksheet('sculpture')">📄 Worksheet</button></div>
     </div>
@@ -206,9 +217,8 @@
 <div class="sponsor-card">
     <h3>🤝 Generous Community Support From:</h3>
     <div class="sponsor-logos">
-        <div class="logo-placeholder">🌿 RuralCap Foundation</div>
-        <div class="logo-placeholder">🏔️ Gustavus Lions Club</div>
-        <div class="logo-placeholder">📚 Friends of the Library</div>
+        <div class="logo-placeholder">🌿 RurALCap Foundation</div>
+
     </div>
 </div>
 
@@ -230,25 +240,23 @@
     document.getElementById('downloadPdfBtn').onclick = () => { let name=document.getElementById('exhibitorName').value||'______'; let rows=''; document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach((r,i)=>{ rows+=`<tr><td>${i+1}</td><td>${r.querySelector('.deptSelect').value}</td><td>${r.querySelector('.classNum').value||''}</td><td>${r.querySelector('.description').value||''}</td></tr>`; }); let w=window.open('','_blank'); w.document.write(`<html><head><title>Form</title><style>body{margin:0.5in;} table,td,th{border:1px solid black;}</style></head><body><h2>Harvest Entry</h2><p>Exhibitor: ${name}</p><table border="1"><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>${rows}</table><p>Signature: ______________</p></body></html>`); w.document.close(); w.print(); };
     document.getElementById('blankFormBtn').onclick = () => { let blankHtml = `<!DOCTYPE html><html><head><title>Blank Entry</title><style>body{font-family:serif; margin:0.6in;} table,td,th{border:1px solid black;}</style></head><body><h1>GUSTAVUS HARVEST FESTIVAL</h1><h2>BLANK ENTRY FORM</h2><p>Exhibitor Name: _________________ Email: _______________</p><table border="1"><thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge Use</th></tr></thead><tbody>`; for(let i=1;i<=8;i++) blankHtml += `<tr><td>${i}</td><td>______</td><td>______</td><td>_______________</td><td>______</td></tr>`; blankHtml += `</tbody></table><p>Signature: _________________</p></body></html>`; let win = window.open('','_blank'); win.document.write(blankHtml); win.document.close(); win.print(); };
 
-    // WORKSHEET GENERATOR (full)
+    // GRAYSCALE WORKSHEET BUILDER (removed "...", grayscale friendly)
     function buildStandardWorksheet(title, totalPts, criteriaList, hasBonus) {
-        let html = `<h2>📋 ${title}</h2><p><strong>Total Points Possible: ${totalPts}</strong></p><div style="background:#2c3e2f;color:#ffd700;padding:0.5rem;border-radius:20px;text-align:center;margin-bottom:1rem;">⭐ HIGHER SCORE = BETTER ⭐</div><table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead><tbody>`;
-        criteriaList.forEach(c => { let ptsMatch = c.match(/\((\d+)\)/); let pts = ptsMatch ? ptsMatch[1] : '—'; let name = c.replace(/\s*\(\d+\)/, '').trim(); html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td>`; });
-        html += `</tbody>...</table>`;
+        let html = `<h2>📋 ${title}</h2><p><strong>Total Points Possible: ${totalPts}</strong></p><div style="background:#e0e0e0; color:#000; padding:0.5rem; border-radius:20px; text-align:center; margin-bottom:1rem; font-weight:bold;">⭐ HIGHER SCORE = BETTER ⭐</div><table border="1" cellpadding="6" style="border-collapse:collapse; width:100%; background:#fff;"><thead><tr style="background:#ccc; color:#000;"><th>Criteria</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead><tbody>`;
+        criteriaList.forEach(c => { let ptsMatch = c.match(/\((\d+)\)/); let pts = ptsMatch ? ptsMatch[1] : '—'; let name = c.replace(/\s*\(\d+\)/, '').trim(); html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>`; });
+        html += `</tbody></table>`;
         if(hasBonus) html += `<p><strong>Bonus (Harvest Festival Theme):</strong> +5 ______</p>`;
         html += `<p><strong>Total Score Earned:</strong> ______ / ${totalPts}</p><p><strong>Judge Comments:</strong><br>_________________________________________</p><p>Judge Signature: _________________ &nbsp;&nbsp; Date: ________</p>`;
         return html;
     }
     function buildFlowerWorksheet() {
-        return `<h2>📋 Flower Arrangement (Class 17)</h2><p><strong>Total Points Possible: 50</strong></p><div style="background:#2c3e2f;color:#ffd700;padding:0.5rem;border-radius:20px;text-align:center;margin-bottom:1rem;">⭐ HIGHER SCORE = BETTER ⭐</div>
-        <table border="1" cellpadding="6" style="border-collapse:collapse; width:100%"><thead><tr style="background:#e67e22;color:white;"><th>Criteria</th><th>Description</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead>
-        <tbody>
-            <tr><td><strong>VARIETY</strong></td><td>Number of flower types, colors, textures</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
-            <tr><td><strong>CONDITION</strong></td><td>Fresh, free of blemishes, insect damage</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
-            <tr><td><strong>DIFFICULTY / UNUSUAL</strong></td><td>Unusual for area, difficult to grow</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
-            <tr><td><strong>OVERALL PRESENTATION</strong></td><td>Visual impact, design, creativity</td><td style="text-align:center">20</td><td style="text-align:center">______</td><td>_________________</td></tr>
-        </tbody>
-        </table><p><strong>Total Score Earned:</strong> ______ / 50</p><p>Judge Signature: _________________</p>`;
+        return `<h2>📋 Flower Arrangement (Class 17)</h2><p><strong>Total Points Possible: 50</strong></p><div style="background:#e0e0e0; color:#000; padding:0.5rem; border-radius:20px; text-align:center; margin-bottom:1rem;">⭐ HIGHER SCORE = BETTER ⭐</div>
+        <table border="1" cellpadding="6" style="border-collapse:collapse; width:100%;"><thead><tr style="background:#ccc;"><th>Criteria</th><th>Description</th><th>Possible Pts</th><th>Earned Pts</th><th>Notes</th></tr></thead>
+        <tbody><tr><td><strong>VARIETY</strong></td><td>Number of flower types, colors, textures</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+        <tr><td><strong>CONDITION</strong></td><td>Fresh, free of blemishes, insect damage</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+        <tr><td><strong>DIFFICULTY / UNUSUAL</strong></td><td>Unusual for area, difficult to grow</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+        <tr><td><strong>OVERALL PRESENTATION</strong></td><td>Visual impact, design, creativity</td><td style="text-align:center">20</td><td style="text-align:center">______</td><td>_________________</td></tr>
+        </tbody></table><p><strong>Total Score Earned:</strong> ______ / 50</p><p>Judge Signature: _________________</p>`;
     }
     window.openWorksheet = (type) => {
         const data = {
@@ -260,16 +268,16 @@
             "other-livestock":{title:"Other Livestock (Class 6)", pts:50, criteria:["Clear eyes (5)","Clean nose (5)","Clean feet (5)","Clean vent (5)","Coat/feathers (5)","Color (5)","Carriage (5)","Condition (5)","Body type (5)","Handled (5)"]},
             eggs:{title:"Dozen Eggs (Class 7)", pts:50, criteria:["Even color (10)","Uniform shape (10)","Proper egg shape (10)","Uniform size (10)","Clean (10)"]},
             "cage-decor":{title:"Cage Decor (Class 9)", pts:25, criteria:["Animal safety (5)","Viewer safety (5)","Water available (5)","Creativity (5)","Recognizable theme (5)"], hasBonus:true},
-            showmanship:{title:"Showmanship (Class 8)", pts:25, criteria:["Question 1 (5)","Question 2 (5)","Question 3 (5)","Question 4 (5)","Question 5 (5)"]},
+            showmanship:{title:"Showmanship (Class 8)", pts:25, criteria:["Breed/type identification (5)","Point to a part of the animal's body (5)","Health question (5)","Care question (5)","General knowledge (5)"]},
             "rabbit-skin":{title:"Rabbit Skin (Class 10)", pts:25, criteria:["Clean fur (5)","Soft leather (5)","Tanning quality (5)","Whole pelt (5)","Thick/full fur (5)"]},
             "animal-products":{title:"Animal Products (Class 11)", pts:25, criteria:["Functional (5)","Made from animal parts (5)","Creativity (5)","Craftsmanship (5)","Originality (5)"]},
             basket:{title:"Bountiful Basket (Class 13)", pts:100, criteria:["Heaviest weight (25)","Number of varieties (25)","Decorative appeal (20)","Quality (10)","Trimming (10)","Creativity (10)"]},
             carrot:{title:"Best Carrot (Class 14)", pts:50, criteria:["Uniform size (10)","Uniform shape (10)","Color (5)","Clean/trimmed (10)","Greens attached (5)","Crunch (5)","Flavor (5)"]},
             beet:{title:"Best Beets (Class 15)", pts:50, criteria:["Uniform size (10)","Uniform shape (10)","Color (5)","Clean/trimmed (10)","Greens attached (5)","Texture (5)","Flavor (5)"]},
             kale:{title:"Best Kale (Class 16)", pts:50, criteria:["Color/freshness (10)","Crispness (10)","Uniform bunch (10)","Clean/pest-free (10)","Trimmed stems (5)","Texture/flavor (5)"]},
-            cabbage:{title:"Largest Cabbage (Class 18)", pts:25, criteria:["Weight (25)"]},
-            potato:{title:"Largest Potato (Class 19)", pts:25, criteria:["Weight (25)"]},
-            zucchini:{title:"Zucchini 500 (Class 20)", pts:25, criteria:["Speed (25)"]},
+            cabbage:{title:"Largest Cabbage (Class 18)", pts:25, criteria:["Weight: 1st place 25pt, all others 15pt participation (25)"]},
+            potato:{title:"Largest Potato (Class 19)", pts:25, criteria:["Weight: 1st place 25pt, all others 15pt participation (25)"]},
+            zucchini:{title:"Zucchini 500 (Class 20)", pts:25, criteria:["Speed: 1st=25pt, 2nd=20pt, 3rd+=15pt (25)"]},
             unusual:{title:"Most Unusual Vegetable (Class 21)", pts:25, criteria:["Unique shape/feature (5)","Rarity/variety (5)","Presentation (5)","Visual appeal (5)","Judge's wow factor (5)"]},
             sculpture:{title:"Vegetable Sculpture (Class 22)", pts:25, criteria:["Creativity (5)","Construction (5)","Use of vegetables (5)","Theme/design (5)","Artistry (5)"]},
             "fine-art":{title:"Fine Art (Class 23)", pts:25, criteria:["Presentation (5)","Technique (5)","Creativity (5)","Harvest Theme (5)","Impact (5)"], hasBonus:true},
@@ -279,11 +287,11 @@
             jams:{title:"Jams & Jellies (Class 27)", pts:25, criteria:["Set (5)","Color/clarity (5)","Flavor (10)","Label/seal (5)"]},
             canning:{title:"Canning (Class 28)", pts:25, criteria:["Seal integrity (5)","Color (5)","Flavor (10)","Cleanliness (5)"]},
             "still-life-default":{title:"Other Still Life (Class 29)", pts:25, criteria:["Presentation (5)","Technique (5)","Creativity (5)","Theme (5)","Impact (5)"]},
-            race:{title:"Chicken & Rabbit Race (Class 12)", pts:25, criteria:["Fastest time (25)"]}
+            race:{title:"Chicken & Rabbit Race (Class 12)", pts:25, criteria:["Race placement: 1st=25pt, 2nd=20pt, 3rd+=15pt (25)"]}
         };
-        if(type === 'flower') { let win=window.open('','_blank'); win.document.write(`<html><head><title>Flower Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #ccc;padding:8px;} th{background:#e67e22;color:white;}</style></head><body>${buildFlowerWorksheet()}</body></html>`); win.document.close(); return; }
+        if(type === 'flower') { let win=window.open('','_blank'); win.document.write(`<html><head><title>Flower Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #aaa;padding:8px;} th{background:#ccc;}</style></head><body>${buildFlowerWorksheet()}</body></html>`); win.document.close(); return; }
         let d = data[type] || data["still-life-default"];
-        let win = window.open('','_blank'); win.document.write(`<html><head><title>${d.title} Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #ccc;padding:8px;} th{background:#e67e22;color:white;}</style></head><body>${buildStandardWorksheet(d.title, d.pts, d.criteria, d.hasBonus || false)}</body></html>`); win.document.close();
+        let win = window.open('','_blank'); win.document.write(`<html><head><title>${d.title} Worksheet</title><style>body{font-family:sans-serif;padding:1.5rem;} table{width:100%;border-collapse:collapse;} th,td{border:1px solid #aaa;padding:8px;} th{background:#ccc;}</style></head><body>${buildStandardWorksheet(d.title, d.pts, d.criteria, d.hasBonus || false)}</body></html>`); win.document.close();
     };
 </script>
 </body>
