@@ -646,7 +646,7 @@
             <button class="worksheet-btn" data-worksheet="sculpture">📄 Printable Worksheet</button>
         </div>
     </div>
-    <!-- ====== DEPT C (STILL LIFE) – REMOVED per user request ====== -->
+    <!-- ====== DEPT C (STILL LIFE) – REMOVED ====== -->
 
 </div><!-- /.container -->
 
@@ -754,22 +754,22 @@
         w.print();
     };
 
-    // ── DOWNLOAD / PRINT BLANK FORM (UPDATED: phone + 18 rows, portrait) ──
+    // ── DOWNLOAD / PRINT BLANK FORM (PORTRAIT, 18 rows, phone included) ──
     document.getElementById('blankFormBtn').onclick = function() {
         var html = `<!DOCTYPE html>
 <html>
 <head>
 <title>Blank Entry Form</title>
 <style>
-  @page { size: portrait; margin: 0.4in; }
-  body { font-family: serif; margin: 0; padding: 0; }
-  h1 { font-size: 1.2rem; text-align: center; margin: 0.2rem 0; }
-  h2 { font-size: 1rem; text-align: center; margin: 0.2rem 0 0.5rem 0; }
-  .info { font-size: 0.85rem; margin: 0.3rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; }
-  table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 0.7rem; }
-  th, td { border: 1px solid #000; padding: 3px 4px; text-align: left; vertical-align: middle; }
+  @page { size: portrait; margin: 0.2in; }
+  body { font-family: 'Times New Roman', serif; margin: 0; padding: 0; }
+  h1 { font-size: 1.1rem; text-align: center; margin: 0.1rem 0; }
+  h2 { font-size: 0.9rem; text-align: center; margin: 0.1rem 0 0.3rem 0; }
+  .info { font-size: 0.65rem; margin: 0.2rem 0; display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: space-between; }
+  table { width: 100%; border-collapse: collapse; margin: 0.2rem 0; font-size: 0.55rem; }
+  th, td { border: 1px solid #000; padding: 1px 2px; text-align: left; vertical-align: middle; }
   th { background: #ccc; font-weight: bold; }
-  .signature { font-size: 0.85rem; margin-top: 0.5rem; display: flex; justify-content: space-between; }
+  .signature { font-size: 0.7rem; margin-top: 0.3rem; display: flex; justify-content: space-between; }
 </style>
 </head>
 <body>
@@ -780,7 +780,7 @@
 <thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge Use</th></tr></thead>
 <tbody>`;
         for (var i = 1; i <= 18; i++) {
-            html += `<tr><td>${i}</td><td>______</td><td>______</td><td>_______________</td><td>______</td></tr>`;
+            html += `<tr><td>${i}</td><td>______</td><td>______</td><td>________</td><td>______</td></tr>`;
         }
         html += `</tbody></table>
 <div class="signature"><span>Signature: _________________</span><span>Date: ________</span></div>
@@ -1008,30 +1008,7 @@
             ] },
         sculpture: { title: 'Vegetable Sculpture (Class 22)', pts: 25, criteria: ['Creativity (5)',
                 'Construction (5)', 'Use of vegetables (5)', 'Theme/design (5)', 'Artistry (5)'
-            ] },
-        'fine-art': { title: 'Fine Art (Class 23)', pts: 25, criteria: ['Presentation (5)', 'Technique (5)',
-                'Creativity (5)', 'Harvest Theme (5)', 'Impact (5)'
-            ], hasBonus: true },
-        'textile-art': { title: 'Textile Art (Class 24)', pts: 25, criteria: ['Presentation (5)', 'Technique (5)',
-                'Creativity (5)', 'Harvest Theme (5)', 'Impact (5)'
-            ], hasBonus: true },
-        'craft-art': { title: 'Craft (Class 25)', pts: 25, criteria: ['Presentation (5)', 'Technique (5)',
-                'Creativity (5)', 'Harvest Theme (5)', 'Impact (5)'
-            ], hasBonus: true },
-        baking: { title: 'Baking (Class 26)', pts: 25, criteria: ['Appearance (5)', 'Texture (5)', 'Flavor (10)',
-                'Technique (5)'
-            ] },
-        jams: { title: 'Jams & Jellies (Class 27)', pts: 25, criteria: ['Set (5)', 'Color/clarity (5)',
-                'Flavor (10)', 'Label/seal (5)'
-            ] },
-        canning: { title: 'Canning (Class 28)', pts: 25, criteria: ['Seal integrity (5)', 'Color (5)',
-                'Flavor (10)', 'Cleanliness (5)'
-            ] },
-        'still-life-default': { title: 'Other Still Life (Class 29)', pts: 25, criteria: ['Presentation (5)',
-                'Technique (5)', 'Creativity (5)', 'Theme (5)', 'Impact (5)'
-            ] },
-        race: { title: 'Chicken & Rabbit Race (Class 12)', pts: 25,
-            criteria: ['Race placement: 1st=25pt, 2nd=20pt, 3rd and below=15pt participation (25)'] }
+            ] }
     };
 
     // ---- open worksheet ----
@@ -1045,7 +1022,10 @@
 
         var d = worksheetData[type];
         if (!d) {
-            d = worksheetData['still-life-default'];
+            // fallback
+            d = { title: 'Worksheet', pts: 25, criteria: ['Presentation (5)', 'Technique (5)',
+                    'Creativity (5)', 'Theme (5)', 'Impact (5)'
+                ] };
         }
         var html = buildWorksheetHtml(d.title, d.pts, d.criteria, d.hasBonus || false, '');
         var win = window.open('', '_blank');
