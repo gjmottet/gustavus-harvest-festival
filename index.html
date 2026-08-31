@@ -753,22 +753,29 @@
         w.print();
     };
 
-    // ── DOWNLOAD / PRINT BLANK FORM (PORTRAIT, 14 rows, phone, fills page) ──
+    // ── REVISED PRINTABLE BLANK FORM (PORTRAIT, 12 rows, clean layout) ──
     document.getElementById('blankFormBtn').onclick = function() {
         var html = `<!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <title>Blank Entry Form</title>
 <style>
-  @page { size: portrait; margin: 0.3in 0.3in 0.2in 0.3in; }
-  body { font-family: 'Times New Roman', serif; margin: 0; padding: 0; }
-  h1 { font-size: 1.2rem; text-align: center; margin: 0.05rem 0; }
-  h2 { font-size: 0.95rem; text-align: center; margin: 0.05rem 0 0.2rem 0; }
-  .info { font-size: 0.7rem; margin: 0.15rem 0; display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: space-between; }
-  table { width: 100%; border-collapse: collapse; margin: 0.1rem 0; font-size: 0.6rem; }
-  th, td { border: 1px solid #000; padding: 1px 3px; text-align: left; vertical-align: middle; }
+  /* Force portrait, minimal margins */
+  @page { size: portrait; margin: 0.25in 0.3in 0.2in 0.3in; }
+  body { font-family: 'Times New Roman', Times, serif; margin: 0; padding: 0; }
+  h1 { font-size: 1.3rem; text-align: center; margin: 0.05rem 0; }
+  h2 { font-size: 1.0rem; text-align: center; margin: 0.05rem 0 0.15rem 0; }
+  .info { font-size: 0.7rem; margin: 0.1rem 0 0.2rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: space-between; }
+  table { width: 100%; border-collapse: collapse; margin: 0.1rem 0; font-size: 0.65rem; table-layout: fixed; }
+  th, td { border: 1px solid #000; padding: 2px 3px; text-align: left; vertical-align: middle; }
   th { background: #ccc; font-weight: bold; }
-  .signature { font-size: 0.7rem; margin-top: 0.25rem; display: flex; justify-content: space-between; }
+  .col-num { width: 6%; }
+  .col-dept { width: 16%; }
+  .col-class { width: 14%; }
+  .col-desc { width: 42%; }
+  .col-judge { width: 22%; }
+  .signature { font-size: 0.75rem; margin-top: 0.25rem; display: flex; justify-content: space-between; }
 </style>
 </head>
 <body>
@@ -776,11 +783,19 @@
 <h2>BLANK ENTRY FORM</h2>
 <div class="info"><span>Exhibitor: _________________</span><span>Phone: _________________</span><span>Email: _________________</span></div>
 <table>
-<thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge Use</th></tr></thead>
+<thead>
+  <tr>
+    <th class="col-num">#</th>
+    <th class="col-dept">Dept</th>
+    <th class="col-class">Class#</th>
+    <th class="col-desc">Description</th>
+    <th class="col-judge">Judge Use</th>
+  </tr>
+</thead>
 <tbody>`;
-        // 14 rows – fills the page nicely in portrait
-        for (var i = 1; i <= 14; i++) {
-            html += `<tr><td>${i}</td><td>______</td><td>______</td><td>________</td><td>______</td></tr>`;
+        // 12 rows – comfortable fit, fills page vertically
+        for (var i = 1; i <= 12; i++) {
+            html += `<tr><td>${i}</td><td>______</td><td>______</td><td>________________</td><td>______</td></tr>`;
         }
         html += `</tbody></table>
 <div class="signature"><span>Signature: _________________</span><span>Date: ________</span></div>
@@ -1044,4 +1059,4 @@
 </script>
 
 </body>
-</html> 
+</html>
