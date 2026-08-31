@@ -646,7 +646,6 @@
             <button class="worksheet-btn" data-worksheet="sculpture">📄 Printable Worksheet</button>
         </div>
     </div>
-    <!-- ====== DEPT C (STILL LIFE) – REMOVED ====== -->
 
 </div><!-- /.container -->
 
@@ -754,22 +753,22 @@
         w.print();
     };
 
-    // ── DOWNLOAD / PRINT BLANK FORM (PORTRAIT, 18 rows, phone included) ──
+    // ── DOWNLOAD / PRINT BLANK FORM (PORTRAIT, 14 rows, phone, fills page) ──
     document.getElementById('blankFormBtn').onclick = function() {
         var html = `<!DOCTYPE html>
 <html>
 <head>
 <title>Blank Entry Form</title>
 <style>
-  @page { size: portrait; margin: 0.2in; }
+  @page { size: portrait; margin: 0.3in 0.3in 0.2in 0.3in; }
   body { font-family: 'Times New Roman', serif; margin: 0; padding: 0; }
-  h1 { font-size: 1.1rem; text-align: center; margin: 0.1rem 0; }
-  h2 { font-size: 0.9rem; text-align: center; margin: 0.1rem 0 0.3rem 0; }
-  .info { font-size: 0.65rem; margin: 0.2rem 0; display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: space-between; }
-  table { width: 100%; border-collapse: collapse; margin: 0.2rem 0; font-size: 0.55rem; }
-  th, td { border: 1px solid #000; padding: 1px 2px; text-align: left; vertical-align: middle; }
+  h1 { font-size: 1.2rem; text-align: center; margin: 0.05rem 0; }
+  h2 { font-size: 0.95rem; text-align: center; margin: 0.05rem 0 0.2rem 0; }
+  .info { font-size: 0.7rem; margin: 0.15rem 0; display: flex; flex-wrap: wrap; gap: 0.3rem; justify-content: space-between; }
+  table { width: 100%; border-collapse: collapse; margin: 0.1rem 0; font-size: 0.6rem; }
+  th, td { border: 1px solid #000; padding: 1px 3px; text-align: left; vertical-align: middle; }
   th { background: #ccc; font-weight: bold; }
-  .signature { font-size: 0.7rem; margin-top: 0.3rem; display: flex; justify-content: space-between; }
+  .signature { font-size: 0.7rem; margin-top: 0.25rem; display: flex; justify-content: space-between; }
 </style>
 </head>
 <body>
@@ -779,7 +778,8 @@
 <table>
 <thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge Use</th></tr></thead>
 <tbody>`;
-        for (var i = 1; i <= 18; i++) {
+        // 14 rows – fills the page nicely in portrait
+        for (var i = 1; i <= 14; i++) {
             html += `<tr><td>${i}</td><td>______</td><td>______</td><td>________</td><td>______</td></tr>`;
         }
         html += `</tbody></table>
@@ -1022,7 +1022,6 @@
 
         var d = worksheetData[type];
         if (!d) {
-            // fallback
             d = { title: 'Worksheet', pts: 25, criteria: ['Presentation (5)', 'Technique (5)',
                     'Creativity (5)', 'Theme (5)', 'Impact (5)'
                 ] };
