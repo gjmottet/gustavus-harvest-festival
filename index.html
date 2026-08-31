@@ -258,7 +258,8 @@
         }
         .pdf-download-btn,
         .blank-form-btn,
-        .submit-entry {
+        .submit-entry,
+        .entry-book-btn {
             background: #2c3e2f;
             color: #ffd700;
             border: 2px solid #ffd700;
@@ -276,6 +277,16 @@
         }
         .submit-entry:hover {
             background: #d35400;
+        }
+        .entry-book-btn {
+            background: #1a5f1a;
+            border-color: #ffd700;
+            color: #ffd700;
+            margin: 1rem auto;
+            display: inline-block;
+        }
+        .entry-book-btn:hover {
+            background: #2d7a2d;
         }
 
         /* ── departments ── */
@@ -384,6 +395,11 @@
             max-width: 250px;
             height: auto;
             object-fit: contain;
+        }
+
+        .center-btn {
+            text-align: center;
+            margin: 1.5rem 0;
         }
 
         /* ── responsive ── */
@@ -647,6 +663,11 @@
         </div>
     </div>
 
+    <!-- ====== ENTRY BOOK BUTTON (between last class and sponsors) ====== -->
+    <div class="center-btn">
+        <button class="entry-book-btn" id="entryBookBtn">📖 Printable Entry Book (All Classes &amp; Judging Forms)</button>
+    </div>
+
 </div><!-- /.container -->
 
 <!-- ====== JUDGING RULES ====== -->
@@ -753,7 +774,7 @@
         w.print();
     };
 
-    // ── BLANK FORM – FULL PAGE, TALL ROWS (20pt), PORTRAIT ──
+    // ── REVISED BLANK FORM – STACKED INFO, FULL HEIGHT TABLE ──
     document.getElementById('blankFormBtn').onclick = function() {
         var html = `<!DOCTYPE html>
 <html>
@@ -761,100 +782,27 @@
 <meta charset="UTF-8">
 <title>Blank Entry Form</title>
 <style>
-  /* Force portrait, zero extra margins */
-  @page { size: portrait; margin: 0.15in 0.2in 0.15in 0.2in; }
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    font-family: 'Times New Roman', Times, serif;
-    background: #fff;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    width: 100%;
-    box-sizing: border-box;
-  }
-  .header {
-    text-align: center;
-    flex-shrink: 0;
-    padding-bottom: 1px;
-  }
-  .header h1 {
-    font-size: 1.3rem;
-    margin: 0;
-    letter-spacing: 1px;
-  }
-  .header h2 {
-    font-size: 1.0rem;
-    margin: 0.05rem 0 0.05rem 0;
-  }
-  .info {
-    font-size: 0.75rem;
-    display: flex;
-    justify-content: space-between;
-    flex-shrink: 0;
-    padding: 2px 0;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    flex: 1 1 auto;
-    height: 100%;  /* fill remaining space */
-    min-height: 0;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 4px 6px;
-    text-align: left;
-    vertical-align: middle;
-    font-size: 1.0rem;  /* ~16pt base, but we'll make rows tall */
-  }
-  th {
-    background: #ccc;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-  /* fixed column widths */
-  .col-num { width: 6%; }
-  .col-dept { width: 14%; }
+  @page { size: portrait; margin: 0.2in 0.3in 0.2in 0.3in; }
+  html, body { margin: 0; padding: 0; height: 100%; font-family: 'Times New Roman', Times, serif; background: #fff; }
+  body { display: flex; flex-direction: column; height: 100vh; box-sizing: border-box; }
+  .header { text-align: center; flex-shrink: 0; }
+  .header h1 { font-size: 1.4rem; margin: 0; letter-spacing: 1px; }
+  .header h2 { font-size: 1.0rem; margin: 0.05rem 0; }
+  .info { flex-shrink: 0; margin: 0.1rem 0 0.2rem 0; font-size: 0.9rem; }
+  .info div { margin-bottom: 0.1rem; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; flex: 1 1 auto; height: 100%; min-height: 0; }
+  th, td { border: 1px solid #000; padding: 6px 8px; text-align: left; vertical-align: middle; font-size: 1.0rem; }
+  th { background: #ccc; font-weight: bold; font-size: 0.9rem; }
+  .col-num { width: 7%; }
+  .col-dept { width: 15%; }
   .col-class { width: 12%; }
-  .col-desc { width: 42%; }
+  .col-desc { width: 40%; }
   .col-judge { width: 26%; }
-
-  /* make data rows tall and evenly spaced */
-  tbody {
-    display: table-row-group;
-    height: 100%;
-  }
-  tr {
-    height: 1fr;
-  }
-  td {
-    font-size: 1.0rem;
-    padding: 6px 8px;
-  }
-  /* ensure the table body rows stretch */
-  .signature {
-    font-size: 0.8rem;
-    display: flex;
-    justify-content: space-between;
-    flex-shrink: 0;
-    padding-top: 2px;
-    border-top: 1px solid #000;
-    margin-top: 2px;
-  }
-  /* improve print */
-  @media print {
-    body { margin: 0; padding: 0; }
-    .header h1 { font-size: 1.2rem; }
-    .header h2 { font-size: 0.9rem; }
-    td { font-size: 1.0rem; padding: 8px 8px; }
-    th { font-size: 0.8rem; }
-  }
+  tbody { display: table-row-group; height: 100%; }
+  tr { height: 1fr; }
+  td { font-size: 1.0rem; padding: 8px 8px; }
+  .signature { font-size: 0.85rem; display: flex; justify-content: space-between; flex-shrink: 0; padding-top: 0.1rem; border-top: 1px solid #000; margin-top: 0.1rem; }
+  @media print { body { margin: 0; padding: 0; } }
 </style>
 </head>
 <body>
@@ -863,9 +811,9 @@
   <h2>BLANK ENTRY FORM</h2>
 </div>
 <div class="info">
-  <span>Exhibitor: _________________</span>
-  <span>Phone: _________________</span>
-  <span>Email: _________________</span>
+  <div>Exhibitor: _________________</div>
+  <div>Phone: _________________</div>
+  <div>Email: _________________</div>
 </div>
 <table>
   <thead>
@@ -878,7 +826,7 @@
     </tr>
   </thead>
   <tbody>`;
-        // 10 rows with generous height – each will stretch to fill the page
+        // 10 rows – each will stretch to fill available space
         for (var i = 1; i <= 10; i++) {
             html += `<tr><td>${i}</td><td>______</td><td>______</td><td>________________</td><td>______</td></tr>`;
         }
@@ -904,6 +852,126 @@
         var html = '<html><head><title>Form</title><style>body{margin:0.5in;font-family:sans-serif;}table,td,th{border:1px solid #000;border-collapse:collapse;padding:8px;}th{background:#e67e22;color:#fff;}</style></head><body><h2>Harvest Entry</h2><p><strong>Exhibitor:</strong> ' +
             name + '</p><table><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>' + rows +
             '</table><p>Signature: _________________</p></body></html>';
+        var w = window.open('', '_blank');
+        w.document.write(html);
+        w.document.close();
+        w.print();
+    };
+
+    // ── ENTRY BOOK – ALL CLASSES WITH JUDGING FORMS ──
+    document.getElementById('entryBookBtn').onclick = function() {
+        // Define the master class list matching the page
+        var classes = [
+            { num: 1, name: 'Rabbit', key: 'rabbit', dept: 'A' },
+            { num: 2, name: 'Cavy', key: 'cavy', dept: 'A' },
+            { num: 3, name: 'Chicken', key: 'chicken', dept: 'A' },
+            { num: 4, name: 'Quail', key: 'quail', dept: 'A' },
+            { num: 5, name: 'Other Poultry', key: 'other-poultry', dept: 'A' },
+            { num: 6, name: 'Other Livestock', key: 'other-livestock', dept: 'A' },
+            { num: 7, name: 'Dozen Eggs', key: 'eggs', dept: 'A' },
+            { num: 8, name: 'Showmanship', key: 'showmanship', dept: 'A' },
+            { num: 9, name: 'Cage Decor', key: 'cage-decor', dept: 'A' },
+            { num: 10, name: 'Tanned Rabbit Skin', key: 'rabbit-skin', dept: 'A' },
+            { num: 11, name: 'Animal Products', key: 'animal-products', dept: 'A' },
+            { num: 12, name: 'Chicken & Rabbit Race', key: 'race', dept: 'A' },
+            { num: 13, name: 'Bountiful Basket', key: 'basket', dept: 'B' },
+            { num: 14, name: 'Best Carrot', key: 'carrot', dept: 'B' },
+            { num: 15, name: 'Best Beets', key: 'beet', dept: 'B' },
+            { num: 16, name: 'Best Kale', key: 'kale', dept: 'B' },
+            { num: 17, name: 'Flower Arrangement', key: 'flower', dept: 'B' },
+            { num: 18, name: 'Largest Cabbage', key: 'cabbage', dept: 'B' },
+            { num: 19, name: 'Largest Potato', key: 'potato', dept: 'B' },
+            { num: 20, name: 'Zucchini 500', key: 'zucchini', dept: 'B' },
+            { num: 21, name: 'Most Unusual Vegetable', key: 'unusual', dept: 'B' },
+            { num: 22, name: 'Vegetable Sculpture', key: 'sculpture', dept: 'B' }
+        ];
+
+        var html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Master Entry Book</title>
+<style>
+  @page { size: portrait; margin: 0.3in 0.3in 0.3in 0.3in; }
+  body { font-family: 'Times New Roman', Times, serif; background: #fff; color: #000; padding: 0.2in; }
+  h1 { text-align: center; font-size: 1.8rem; border-bottom: 3px double #000; padding-bottom: 0.2rem; }
+  h2 { font-size: 1.4rem; margin-top: 1.5rem; background: #eee; padding: 0.2rem 0.5rem; border-left: 6px solid #1a5f1a; }
+  .class-block { margin-bottom: 1.5rem; border: 1px solid #ccc; padding: 0.5rem 1rem; border-radius: 8px; page-break-inside: avoid; }
+  .class-header { display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: bold; border-bottom: 1px solid #aaa; padding-bottom: 0.2rem; margin-bottom: 0.5rem; }
+  table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+  th, td { border: 1px solid #000; padding: 4px 8px; text-align: left; vertical-align: top; }
+  th { background: #ddd; font-weight: bold; }
+  .pts { font-weight: normal; font-size: 1.0rem; }
+  .bonus { font-style: italic; margin-top: 0.2rem; }
+  .signature-line { margin-top: 0.5rem; display: flex; justify-content: space-between; border-top: 1px solid #000; padding-top: 0.2rem; }
+  .section-break { page-break-before: always; }
+  @media print { body { margin: 0; padding: 0.2in; } }
+</style>
+</head>
+<body>
+<h1>📖 GUSTAVUS HARVEST FESTIVAL</h1>
+<h2 style="text-align:center; border:none; background:none;">MASTER ENTRY BOOK &amp; JUDGING FORMS</h2>
+<p style="text-align:center; margin-bottom:1rem;">All Classes &amp; Official Judging Criteria</p>`;
+
+        var currentDept = '';
+        classes.forEach(function(cls) {
+            var deptLabel = (cls.dept === 'A') ? 'DEPT A: ANIMALS' : 'DEPT B: GARDEN';
+            if (currentDept !== deptLabel) {
+                if (currentDept !== '') html += `<div class="section-break"></div>`;
+                currentDept = deptLabel;
+                html += `<h2>${deptLabel}</h2>`;
+            }
+
+            var data = worksheetData[cls.key];
+            if (!data) {
+                // Fallback if somehow missing
+                data = { title: cls.name + ' (Class ' + cls.num + ')', pts: 25, criteria: ['Criteria 1 (5)', 'Criteria 2 (5)',
+                        'Criteria 3 (5)', 'Criteria 4 (5)', 'Criteria 5 (5)'
+                    ] };
+            }
+            var totalPts = data.pts || 25;
+            var criteria = data.criteria || [];
+            var hasBonus = data.hasBonus || false;
+
+            html += `<div class="class-block">`;
+            html += `<div class="class-header"><span>Class ${cls.num}: ${cls.name}</span><span class="pts">${totalPts} pts</span></div>`;
+
+            if (cls.key === 'flower') {
+                // Special flower table
+                html += `<table>
+                  <thead><tr><th>Criteria</th><th>Description</th><th>Possible</th><th>Earned</th><th>Notes</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>VARIETY</strong></td><td>Number of flower types, colors, textures</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                    <tr><td><strong>CONDITION</strong></td><td>Fresh, free of blemishes, insect damage</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                    <tr><td><strong>DIFFICULTY / UNUSUAL</strong></td><td>Unusual for area, difficult to grow</td><td style="text-align:center">10</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                    <tr><td><strong>OVERALL PRESENTATION</strong></td><td>Visual impact, design, creativity</td><td style="text-align:center">20</td><td style="text-align:center">______</td><td>_________________</td></tr>
+                  </tbody>
+                </table>`;
+            } else {
+                // Standard table
+                html += `<table>
+                  <thead><tr><th>Criteria</th><th>Possible</th><th>Earned</th><th>Notes</th></tr></thead>
+                  <tbody>`;
+                criteria.forEach(function(c) {
+                    var ptsMatch = c.match(/\((\d+)\)/);
+                    var pts = ptsMatch ? ptsMatch[1] : '—';
+                    var name = c.replace(/\s*\(\d+\)/, '').trim();
+                    html += `<tr><td>${name}</td><td style="text-align:center">${pts}</td><td style="text-align:center">______</td><td>_________________</td></tr>`;
+                });
+                html += `</tbody></table>`;
+                if (hasBonus) {
+                    html += `<div class="bonus">🎯 Bonus (Harvest Festival Theme): +5 ______</div>`;
+                }
+            }
+
+            html += `<div style="margin-top:0.5rem;"><strong>Total Score:</strong> ______ / ${totalPts}</div>`;
+            html += `<div class="signature-line"><span>Judge Signature: _________________</span><span>Date: ________</span></div>`;
+            html += `</div>`;
+        });
+
+        html += `<p style="text-align:center; margin-top:2rem; font-size:0.8rem;">— End of Entry Book —</p>`;
+        html += `</body></html>`;
+
         var w = window.open('', '_blank');
         w.document.write(html);
         w.document.close();
@@ -1108,7 +1176,9 @@
             ] },
         sculpture: { title: 'Vegetable Sculpture (Class 22)', pts: 25, criteria: ['Creativity (5)',
                 'Construction (5)', 'Use of vegetables (5)', 'Theme/design (5)', 'Artistry (5)'
-            ] }
+            ] },
+        race: { title: 'Chicken & Rabbit Race (Class 12)', pts: 25,
+            criteria: ['Race placement: 1st=25pt, 2nd=20pt, 3rd and below=15pt participation (25)'] }
     };
 
     // ---- open worksheet ----
