@@ -753,7 +753,7 @@
         w.print();
     };
 
-    // ── REVISED PRINTABLE BLANK FORM (PORTRAIT, 12 rows, clean layout) ──
+    // ── REVISED BLANK FORM – FULL PAGE, TALL ROWS, PORTRAIT ──
     document.getElementById('blankFormBtn').onclick = function() {
         var html = `<!DOCTYPE html>
 <html>
@@ -761,40 +761,101 @@
 <meta charset="UTF-8">
 <title>Blank Entry Form</title>
 <style>
-  /* Force portrait, minimal margins */
-  @page { size: portrait; margin: 0.25in 0.3in 0.2in 0.3in; }
-  body { font-family: 'Times New Roman', Times, serif; margin: 0; padding: 0; }
-  h1 { font-size: 1.3rem; text-align: center; margin: 0.05rem 0; }
-  h2 { font-size: 1.0rem; text-align: center; margin: 0.05rem 0 0.15rem 0; }
-  .info { font-size: 0.7rem; margin: 0.1rem 0 0.2rem 0; display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: space-between; }
-  table { width: 100%; border-collapse: collapse; margin: 0.1rem 0; font-size: 0.65rem; table-layout: fixed; }
-  th, td { border: 1px solid #000; padding: 2px 3px; text-align: left; vertical-align: middle; }
-  th { background: #ccc; font-weight: bold; }
+  /* Force portrait and set minimal margins so table fills page */
+  @page { size: portrait; margin: 0.3in 0.3in 0.2in 0.3in; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 0.1rem;
+  }
+  .header h1 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+  .header h2 {
+    font-size: 1.1rem;
+    margin: 0.05rem 0 0.1rem 0;
+  }
+  .info {
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.05rem 0 0.1rem 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    /* table will stretch to fill remaining height */
+    height: 100%;
+    flex: 1;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 2px 4px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 0.7rem;
+  }
+  th {
+    background: #ccc;
+    font-weight: bold;
+  }
   .col-num { width: 6%; }
   .col-dept { width: 16%; }
   .col-class { width: 14%; }
-  .col-desc { width: 42%; }
-  .col-judge { width: 22%; }
-  .signature { font-size: 0.75rem; margin-top: 0.25rem; display: flex; justify-content: space-between; }
+  .col-desc { width: 40%; }
+  .col-judge { width: 24%; }
+  /* make all data rows equal height */
+  tbody {
+    height: 100%;
+  }
+  tr {
+    height: 1fr; /* will distribute equally */
+  }
+  .signature {
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.15rem;
+    padding-top: 0.1rem;
+    border-top: 1px solid #000;
+  }
 </style>
 </head>
 <body>
-<h1>GUSTAVUS HARVEST FESTIVAL</h1>
-<h2>BLANK ENTRY FORM</h2>
-<div class="info"><span>Exhibitor: _________________</span><span>Phone: _________________</span><span>Email: _________________</span></div>
+<div class="header">
+  <h1>GUSTAVUS HARVEST FESTIVAL</h1>
+  <h2>BLANK ENTRY FORM</h2>
+</div>
+<div class="info">
+  <span>Exhibitor: _________________</span>
+  <span>Phone: _________________</span>
+  <span>Email: _________________</span>
+</div>
 <table>
-<thead>
-  <tr>
-    <th class="col-num">#</th>
-    <th class="col-dept">Dept</th>
-    <th class="col-class">Class#</th>
-    <th class="col-desc">Description</th>
-    <th class="col-judge">Judge Use</th>
-  </tr>
-</thead>
-<tbody>`;
-        // 12 rows – comfortable fit, fills page vertically
-        for (var i = 1; i <= 12; i++) {
+  <thead>
+    <tr>
+      <th class="col-num">#</th>
+      <th class="col-dept">Dept</th>
+      <th class="col-class">Class#</th>
+      <th class="col-desc">Description</th>
+      <th class="col-judge">Judge Use</th>
+    </tr>
+  </thead>
+  <tbody>`;
+        // 10 rows – each will stretch to fill available height
+        for (var i = 1; i <= 10; i++) {
             html += `<tr><td>${i}</td><td>______</td><td>______</td><td>________________</td><td>______</td></tr>`;
         }
         html += `</tbody></table>
