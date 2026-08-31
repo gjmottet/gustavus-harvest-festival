@@ -335,11 +335,6 @@
             padding: 6px;
             border-radius: 12px;
         }
-        .awards {
-            font-size: 0.7rem;
-            color: #6b4c2c;
-            margin: 6px 0;
-        }
         .worksheet-btn {
             background: #e67e22;
             color: white;
@@ -651,46 +646,7 @@
             <button class="worksheet-btn" data-worksheet="sculpture">📄 Printable Worksheet</button>
         </div>
     </div>
-
-    <!-- DEPT C (Still Life) – added extra classes -->
-    <div class="dept">🎨 DEPT C: STILL LIFE</div>
-    <div class="class-grid">
-        <div class="class-card">
-            <div class="class-title"><span class="class-name">Class 23 Fine Art</span><span class="points">25 pts</span></div>
-            <div class="class-blurb">🖼️ Painting, drawing, photography – Harvest theme.</div>
-            <button class="worksheet-btn" data-worksheet="fine-art">📄 Printable Worksheet</button>
-        </div>
-        <div class="class-card">
-            <div class="class-title"><span class="class-name">Class 24 Textile Art</span><span class="points">25 pts</span></div>
-            <div class="class-blurb">🧵 Quilting, weaving, embroidery – Harvest theme.</div>
-            <button class="worksheet-btn" data-worksheet="textile-art">📄 Printable Worksheet</button>
-        </div>
-        <div class="class-card">
-            <div class="class-title"><span class="class-name">Class 25 Craft</span><span class="points">25 pts</span></div>
-            <div class="class-blurb">🧶 Woodwork, pottery, jewelry – Harvest theme.</div>
-            <button class="worksheet-btn" data-worksheet="craft-art">📄 Printable Worksheet</button>
-        </div>
-        <div class="class-card">
-            <div class="class-title"><span class="class-name">Class 26 Baking</span><span class="points">25 pts</span></div>
-            <div class="class-blurb">🍞 Breads, pies, pastries – appearance, texture, flavor.</div>
-            <button class="worksheet-btn" data-worksheet="baking">📄 Printable Worksheet</button>
-        </div>
-        <div class="class-card">
-            <div class="class-title"><span class="class-name">Class 27 Jams &amp; Jellies</span><span class="points">25 pts</span></div>
-            <div class="class-blurb">🍓 Set, color/clarity, flavor, label/seal.</div>
-            <button class="worksheet-btn" data-worksheet="jams">📄 Printable Worksheet</button>
-        </div>
-        <div class="class-card">
-            <div class="class-title"><span class="class-name">Class 28 Canning</span><span class="points">25 pts</span></div>
-            <div class="class-blurb">🥫 Seal integrity, color, flavor, cleanliness.</div>
-            <button class="worksheet-btn" data-worksheet="canning">📄 Printable Worksheet</button>
-        </div>
-        <div class="class-card">
-            <div class="class-title"><span class="class-name">Class 29 Other Still Life</span><span class="points">25 pts</span></div>
-            <div class="class-blurb">📦 Any other crafted or preserved item.</div>
-            <button class="worksheet-btn" data-worksheet="still-life-default">📄 Printable Worksheet</button>
-        </div>
-    </div>
+    <!-- ====== DEPT C (STILL LIFE) – REMOVED per user request ====== -->
 
 </div><!-- /.container -->
 
@@ -798,13 +754,38 @@
         w.print();
     };
 
-    // ── DOWNLOAD / PRINT BLANK FORM ──
+    // ── DOWNLOAD / PRINT BLANK FORM (UPDATED: phone + 18 rows, portrait) ──
     document.getElementById('blankFormBtn').onclick = function() {
-        var html = '<!DOCTYPE html><html><head><title>Blank Entry</title><style>body{font-family:serif;margin:0.6in;}table,td,th{border:1px solid #000;border-collapse:collapse;padding:8px;}th{background:#e67e22;color:#fff;}</style></head><body><h1>GUSTAVUS HARVEST FESTIVAL</h1><h2>BLANK ENTRY FORM</h2><p>Exhibitor Name: _________________ &nbsp;&nbsp; Email: _________________</p><table><thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge Use</th></tr></thead><tbody>';
-        for (var i = 1; i <= 10; i++) {
-            html += '<tr><td>' + i + '</td><td>______</td><td>______</td><td>_______________</td><td>______</td></tr>';
+        var html = `<!DOCTYPE html>
+<html>
+<head>
+<title>Blank Entry Form</title>
+<style>
+  @page { size: portrait; margin: 0.4in; }
+  body { font-family: serif; margin: 0; padding: 0; }
+  h1 { font-size: 1.2rem; text-align: center; margin: 0.2rem 0; }
+  h2 { font-size: 1rem; text-align: center; margin: 0.2rem 0 0.5rem 0; }
+  .info { font-size: 0.85rem; margin: 0.3rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: space-between; }
+  table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 0.7rem; }
+  th, td { border: 1px solid #000; padding: 3px 4px; text-align: left; vertical-align: middle; }
+  th { background: #ccc; font-weight: bold; }
+  .signature { font-size: 0.85rem; margin-top: 0.5rem; display: flex; justify-content: space-between; }
+</style>
+</head>
+<body>
+<h1>GUSTAVUS HARVEST FESTIVAL</h1>
+<h2>BLANK ENTRY FORM</h2>
+<div class="info"><span>Exhibitor: _________________</span><span>Phone: _________________</span><span>Email: _________________</span></div>
+<table>
+<thead><tr><th>#</th><th>Dept</th><th>Class#</th><th>Description</th><th>Judge Use</th></tr></thead>
+<tbody>`;
+        for (var i = 1; i <= 18; i++) {
+            html += `<tr><td>${i}</td><td>______</td><td>______</td><td>_______________</td><td>______</td></tr>`;
         }
-        html += '</tbody></table><p>Signature: _________________ &nbsp;&nbsp; Date: ________</p></body></html>';
+        html += `</tbody></table>
+<div class="signature"><span>Signature: _________________</span><span>Date: ________</span></div>
+</body>
+</html>`;
         var w = window.open('', '_blank');
         w.document.write(html);
         w.document.close();
@@ -833,7 +814,6 @@
     //  WORKSHEET SYSTEM – all worksheets are PRINTABLE
     // ════════════════════════════════════════════════════════════
 
-    // ---- helper: build a complete printable worksheet ----
     function buildWorksheetHtml(title, totalPts, criteriaList, hasBonus, extraNote) {
         var rows = '';
         criteriaList.forEach(function(c) {
@@ -869,7 +849,6 @@
             '  .total-line { font-size:1.1rem; font-weight:bold; margin-top:0.8rem; padding:0.4rem 1rem; background:#f0e6d8; border-radius:30px; display:inline-block; }\n' +
             '  .print-btn { background:#2c3e2f; color:#ffd700; border:none; padding:0.5rem 1.8rem; border-radius:40px; font-weight:bold; font-size:0.9rem; cursor:pointer; transition:0.2s; margin-bottom:1rem; }\n' +
             '  .print-btn:hover { background:#1a2a1f; }\n' +
-            '  /* hide print button and extra UI when printing */\n' +
             '  @media print {\n' +
             '    body { background:#fff; padding:0.4in; }\n' +
             '    .worksheet { box-shadow:none; border:1px solid #aaa; padding:1.2rem; border-radius:12px; }\n' +
@@ -906,7 +885,6 @@
             '</body>\n</html>';
     }
 
-    // ---- special: Flower Arrangement (4 criteria, 50 pts) ----
     function buildFlowerWorksheetHtml() {
         return '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="UTF-8">\n<title>Flower Arrangement – Worksheet</title>\n<style>\n' +
             '  * { box-sizing:border-box; margin:0; padding:0; }\n' +
@@ -1058,7 +1036,6 @@
 
     // ---- open worksheet ----
     window.openWorksheet = function(type) {
-        // special case: flower
         if (type === 'flower') {
             var w = window.open('', '_blank');
             w.document.write(buildFlowerWorksheetHtml());
@@ -1068,7 +1045,6 @@
 
         var d = worksheetData[type];
         if (!d) {
-            // fallback
             d = worksheetData['still-life-default'];
         }
         var html = buildWorksheetHtml(d.title, d.pts, d.criteria, d.hasBonus || false, '');
@@ -1085,10 +1061,6 @@
         });
     });
 
-    // ---- (legacy) keep old onclick attributes working too ----
-    // The buttons already have onclick="openWorksheet('...')" in the HTML,
-    // but we also added data-worksheet for a cleaner approach.
-    // Both will work.
     console.log('🌾 Gustavus Harvest Festival ready — all worksheets are printable!');
 </script>
 
