@@ -774,7 +774,7 @@
         w.print();
     };
 
-    // ── REVISED BLANK FORM – STACKED INFO, FULL HEIGHT TABLE ──
+    // ── REVISED BLANK FORM – 16 ROWS, NO UNDERSCORES INSIDE TABLE ──
     document.getElementById('blankFormBtn').onclick = function() {
         var html = `<!DOCTYPE html>
 <html>
@@ -826,9 +826,9 @@
     </tr>
   </thead>
   <tbody>`;
-        // 10 rows – each will stretch to fill available space
-        for (var i = 1; i <= 10; i++) {
-            html += `<tr><td>${i}</td><td>______</td><td>______</td><td>________________</td><td>______</td></tr>`;
+        // 16 rows – fills the page nicely with tall, writable boxes
+        for (var i = 1; i <= 16; i++) {
+            html += `<tr><td>${i}</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>`;
         }
         html += `</tbody></table>
 <div class="signature"><span>Signature: _________________</span><span>Date: ________</span></div>
@@ -860,7 +860,6 @@
 
     // ── ENTRY BOOK – ALL CLASSES WITH JUDGING FORMS ──
     document.getElementById('entryBookBtn').onclick = function() {
-        // Define the master class list matching the page
         var classes = [
             { num: 1, name: 'Rabbit', key: 'rabbit', dept: 'A' },
             { num: 2, name: 'Cavy', key: 'cavy', dept: 'A' },
@@ -924,7 +923,6 @@
 
             var data = worksheetData[cls.key];
             if (!data) {
-                // Fallback if somehow missing
                 data = { title: cls.name + ' (Class ' + cls.num + ')', pts: 25, criteria: ['Criteria 1 (5)', 'Criteria 2 (5)',
                         'Criteria 3 (5)', 'Criteria 4 (5)', 'Criteria 5 (5)'
                     ] };
@@ -937,7 +935,6 @@
             html += `<div class="class-header"><span>Class ${cls.num}: ${cls.name}</span><span class="pts">${totalPts} pts</span></div>`;
 
             if (cls.key === 'flower') {
-                // Special flower table
                 html += `<table>
                   <thead><tr><th>Criteria</th><th>Description</th><th>Possible</th><th>Earned</th><th>Notes</th></tr></thead>
                   <tbody>
@@ -948,7 +945,6 @@
                   </tbody>
                 </table>`;
             } else {
-                // Standard table
                 html += `<table>
                   <thead><tr><th>Criteria</th><th>Possible</th><th>Earned</th><th>Notes</th></tr></thead>
                   <tbody>`;
