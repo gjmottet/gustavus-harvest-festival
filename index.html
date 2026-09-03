@@ -473,7 +473,7 @@
 <div class="entry-card">
     <div class="entry-header">
         <h2>📝 2026 HARVEST FESTIVAL EXHIBITOR ENTRY FORM</h2>
-        <p style="margin-top:5px;">Drop-off: Sept 19, 9–11am • Gustavus Community Center</p>
+        <p style="margin-top:5px;">Drop-off: Sept 19, 8am–noon • Gustavus Community Center</p>
     </div>
     <div class="form-panel">
         <div class="form-row">
@@ -491,7 +491,7 @@
             <tbody id="exhibitsTbody">
                 <tr class="exhibit-row">
                     <td class="exhibit-number">1</td>
-                    <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td>
+                    <td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option></select></td>
                     <td><input type="text" class="classNum" placeholder="e.g., 12"></td>
                     <td><input type="text" class="description" placeholder="Describe your entry"></td>
                     <td>_________</td>
@@ -746,7 +746,7 @@
         var tr = document.createElement('tr');
         tr.className = 'exhibit-row';
         tr.innerHTML = '<td class="exhibit-number">' + (tbody.children.length + 1) +
-            '</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option><option value="C: Still Life">C: Still Life</option></select></td><td><input type="text" class="classNum" placeholder="Class #"></td><td><input type="text" class="description" placeholder="Exhibit description"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td>';
+            '</td><td><select class="deptSelect"><option value="A: Animals">A: Animals</option><option value="B: Garden">B: Garden</option></select></td><td><input type="text" class="classNum" placeholder="Class #"></td><td><input type="text" class="description" placeholder="Exhibit description"></td><td>_________</td><td><button type="button" class="removeRowBtn">✖ Remove</button></td>';
         attachRemove(tr);
         return tr;
     }
@@ -761,12 +761,18 @@
     // ── PREVIEW / PRINT ENTRY ──
     document.getElementById('previewEntryBtn').onclick = function() {
         var name = document.getElementById('exhibitorName').value || '___';
-        var html = '<html><head><title>Entry</title><style>body{font-family:sans-serif;padding:1.5rem;}table,td,th{border:1px solid #000;border-collapse:collapse;padding:8px;}th{background:#e67e22;color:#fff;}</style></head><body><h2>GUSTAVUS HARVEST FESTIVAL – ENTRY FORM</h2><p><strong>Exhibitor:</strong> ' +
-            name + '</p><table><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>';
+        var email = document.getElementById('exhibitorEmail').value || '___';
+        var phone = document.getElementById('exhibitorPhone').value || '___';
+        var emergency = document.getElementById('emergencyContact').value || '___';
+        var html = '<html><head><title>Entry</title><style>body{font-family:sans-serif;padding:1.5rem;}table,td,th{border:1px solid #000;border-collapse:collapse;padding:8px;}th{background:#e67e22;color:#fff;}</style></head><body><h2>GUSTAVUS HARVEST FESTIVAL – ENTRY FORM</h2>' +
+            '<p><strong>Exhibitor:</strong> ' + name + '</p>' +
+            '<p><strong>Email:</strong> ' + email + ' &nbsp;|&nbsp; <strong>Phone:</strong> ' + phone + '</p>' +
+            '<p><strong>Emergency Contact:</strong> ' + emergency + '</p>' +
+            '<table><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th><th>Judge Use</th></tr>';
         document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach(function(r, i) {
             html += '<tr><td>' + (i + 1) + '</td><td>' + r.querySelector('.deptSelect').value +
                 '</td><td>' + r.querySelector('.classNum').value + '</td><td>' + r.querySelector('.description')
-                .value + '</td></tr>';
+                .value + '</td><td>&nbsp;</td></tr>';
         });
         html += '</table><p>Signature: _________________ &nbsp;&nbsp; Date: ________</p></body></html>';
         var w = window.open('', '_blank');
@@ -844,14 +850,20 @@
     // ── SAVE AS PDF (print dialog) ──
     document.getElementById('downloadPdfBtn').onclick = function() {
         var name = document.getElementById('exhibitorName').value || '______';
+        var email = document.getElementById('exhibitorEmail').value || '______';
+        var phone = document.getElementById('exhibitorPhone').value || '______';
+        var emergency = document.getElementById('emergencyContact').value || '______';
         var rows = '';
         document.querySelectorAll('#exhibitsTbody .exhibit-row').forEach(function(r, i) {
             rows += '<tr><td>' + (i + 1) + '</td><td>' + r.querySelector('.deptSelect').value +
                 '</td><td>' + (r.querySelector('.classNum').value || '') + '</td><td>' + (r.querySelector(
-                    '.description').value || '') + '</td></tr>';
+                    '.description').value || '') + '</td><td>&nbsp;</td></tr>';
         });
-        var html = '<html><head><title>Form</title><style>body{margin:0.5in;font-family:sans-serif;}table,td,th{border:1px solid #000;border-collapse:collapse;padding:8px;}th{background:#e67e22;color:#fff;}</style></head><body><h2>Harvest Entry</h2><p><strong>Exhibitor:</strong> ' +
-            name + '</p><table><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th></tr>' + rows +
+        var html = '<html><head><title>Form</title><style>body{margin:0.5in;font-family:sans-serif;}table,td,th{border:1px solid #000;border-collapse:collapse;padding:8px;}th{background:#e67e22;color:#fff;}</style></head><body><h2>Harvest Entry</h2>' +
+            '<p><strong>Exhibitor:</strong> ' + name + '</p>' +
+            '<p><strong>Email:</strong> ' + email + ' &nbsp;|&nbsp; <strong>Phone:</strong> ' + phone + '</p>' +
+            '<p><strong>Emergency Contact:</strong> ' + emergency + '</p>' +
+            '<table><tr><th>#</th><th>Dept</th><th>Class</th><th>Description</th><th>Judge Use</th></tr>' + rows +
             '</table><p>Signature: _________________</p></body></html>';
         var w = window.open('', '_blank');
         w.document.write(html);
