@@ -402,7 +402,7 @@
             margin: 1.5rem 0;
         }
 
-        /* ── BAKED POTATO FUNDRAISER CARD ── */
+        /* ── BAKED POTATO FUNDRAISER CARD (updated) ── */
         .potato-card {
             background: linear-gradient(rgba(255, 248, 235, 0.92), rgba(255, 248, 235, 0.92)), url('BakedPotatoPlaceHolder.png');
             background-size: cover;
@@ -462,139 +462,56 @@
             display: inline-block;
             margin-bottom: 1rem;
         }
-        .potato-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 0.5rem;
-        }
-        .potato-left {
-            flex: 2;
-            min-width: 260px;
-        }
-        .potato-right {
-            flex: 1;
-            min-width: 200px;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(4px);
-            border-radius: 20px;
-            padding: 1.2rem 1.5rem;
-            border: 1px solid #d4a373;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-        }
-        .potato-right h4 {
+        .potato-description {
             font-size: 1rem;
-            color: #2c3e2f;
-            border-bottom: 2px solid #d4a373;
-            padding-bottom: 0.3rem;
-            margin-bottom: 0.8rem;
+            line-height: 1.6;
+            margin: 0.5rem 0 1.2rem 0;
         }
-        .potato-desc {
-            font-size: 0.95rem;
-            color: #3d2c1b;
-            margin-bottom: 1rem;
-            line-height: 1.5;
+        .potato-description strong {
+            color: #1a5f1a;
         }
-        .topping-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem 1.2rem;
-            margin: 0.5rem 0 1rem 0;
-        }
-        .topping-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.9rem;
-            color: #2c3e2f;
-            cursor: pointer;
-        }
-        .topping-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #e67e22;
-            cursor: pointer;
-            flex-shrink: 0;
-        }
-        .topping-item label {
-            cursor: pointer;
-            padding: 0.1rem 0;
-        }
-        .topping-item .new-badge {
+        .potato-description .new-badge {
             background: #1a5f1a;
             color: #ffd700;
-            font-size: 0.55rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            padding: 0.1rem 0.5rem;
+            padding: 0.1rem 0.6rem;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-left: 0.2rem;
         }
-        .potato-order-summary {
-            font-size: 0.9rem;
-        }
-        .potato-order-summary .summary-line {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.2rem 0;
-            border-bottom: 1px dashed #d4a37330;
-        }
-        .potato-order-summary .total-line {
-            font-weight: 700;
-            font-size: 1.05rem;
-            border-top: 2px solid #d4a373;
-            padding-top: 0.4rem;
-            margin-top: 0.2rem;
-        }
-        .potato-order-summary .empty-summary {
-            color: #8a7a6a;
-            font-style: italic;
-        }
         .potato-btn {
             background: #2c3e2f;
             color: #ffd700;
             border: 2px solid #ffd700;
-            padding: 0.5rem 1.8rem;
+            padding: 0.6rem 2.2rem;
             border-radius: 40px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: 0.2s;
-            margin-top: 0.8rem;
-            width: 100%;
+            display: inline-block;
         }
         .potato-btn:hover {
             background: #1a2a1f;
-            transform: scale(1.01);
+            transform: scale(1.02);
         }
-        .potato-crew-note {
-            margin-top: 1.2rem;
+        .potato-note {
+            margin-top: 1rem;
             font-size: 0.85rem;
             color: #4d3a28;
-            background: rgba(255, 215, 0, 0.15);
+            background: rgba(255, 215, 0, 0.12);
             padding: 0.5rem 1rem;
             border-radius: 30px;
             border-left: 4px solid #d4a373;
             display: inline-block;
-        }
-        .potato-crew-note strong {
-            color: #a04030;
         }
 
         /* ── responsive ── */
         @media (max-width: 900px) {
             .class-grid {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            .topping-grid {
-                grid-template-columns: 1fr;
-            }
-            .potato-grid {
-                flex-direction: column;
-            }
-            .potato-right {
-                flex: 1 1 auto;
             }
         }
         @media (max-width: 600px) {
@@ -892,8 +809,8 @@
     <p><strong>⭐ Scoring Note:</strong> For all judging criteria, a higher score indicates better quality, health, creativity, or presentation. Judges assign points accordingly.</p>
 </div>
 
-<!-- ====== BAKED POTATO FUNDRAISER CARD ====== -->
-<div class="potato-card" id="potatoFundraiser">
+<!-- ====== BAKED POTATO FUNDRAISER CARD (updated) ====== -->
+<div class="potato-card">
     <div class="potato-header">
         <h2>🥔 Baked Potato Fundraiser</h2>
         <span class="fundraiser-badge">🔥 Support GCC</span>
@@ -903,69 +820,17 @@
         ❤️ Love events like this? Support us by ordering your baked potato!
     </div>
 
-    <div class="potato-grid">
-        <!-- LEFT: Toppings selection -->
-        <div class="potato-left">
-            <div class="potato-desc">
-                <strong>All proceeds support the Gustavus Community Center</strong> — helping us keep events like the Harvest Festival alive year after year. The <strong>Harvest Festival Crew</strong> will load up your baked potato with exactly what you choose below. Pick your favorites!
-            </div>
+    <div class="potato-description">
+        <p>We'll have a variety of delicious toppings – including our <strong>new Smoked Salmon <span class="new-badge">NEW!</span></strong>! Ask at the GCC booth to place your order.</p>
+        <p style="margin-top:0.3rem; color:#4d3a28;">All proceeds help keep the Harvest Festival and other community events running.</p>
+    </div>
 
-            <div style="font-weight:600; font-size:1rem; margin-bottom:0.2rem;">🧅 Choose your toppings:</div>
-            <div class="topping-grid" id="toppingGrid">
-                <div class="topping-item">
-                    <input type="checkbox" id="topButter" value="Butter" checked>
-                    <label for="topButter">🧈 Butter</label>
-                </div>
-                <div class="topping-item">
-                    <input type="checkbox" id="topSourCream" value="Sour Cream">
-                    <label for="topSourCream">🥛 Sour Cream</label>
-                </div>
-                <div class="topping-item">
-                    <input type="checkbox" id="topBacon" value="Bacon Bits">
-                    <label for="topBacon">🥓 Bacon Bits</label>
-                </div>
-                <div class="topping-item">
-                    <input type="checkbox" id="topCheese" value="Cheddar Cheese">
-                    <label for="topCheese">🧀 Cheddar Cheese</label>
-                </div>
-                <div class="topping-item">
-                    <input type="checkbox" id="topChives" value="Chives">
-                    <label for="topChives">🌿 Chives</label>
-                </div>
-                <div class="topping-item">
-                    <input type="checkbox" id="topJalapeno" value="Jalapeños">
-                    <label for="topJalapeno">🌶️ Jalapeños</label>
-                </div>
-                <div class="topping-item">
-                    <input type="checkbox" id="topSmokedSalmon" value="Smoked Salmon">
-                    <label for="topSmokedSalmon">🐟 Smoked Salmon <span class="new-badge">NEW!</span></label>
-                </div>
-                <div class="topping-item">
-                    <input type="checkbox" id="topExtra" value="Extra everything!">
-                    <label for="topExtra">✨ Extra everything!</label>
-                </div>
-            </div>
+    <div style="text-align:center;">
+        <button class="potato-btn" id="potatoOrderBtn">📝 Print Order Form</button>
+    </div>
 
-            <div class="potato-crew-note">
-                🧑‍🍳 <strong>Harvest Festival Crew</strong> — we'll load up your potato with the toppings you check!
-            </div>
-        </div>
-
-        <!-- RIGHT: Order summary -->
-        <div class="potato-right">
-            <h4>📋 Your Order</h4>
-            <div class="potato-order-summary" id="potatoSummary">
-                <div class="summary-line"><span>🥔 Baked Potato</span><span>$8.00</span></div>
-                <div id="toppingSummaryList">
-                    <div class="summary-line"><span>🧈 Butter</span><span>included</span></div>
-                </div>
-                <div class="summary-line total-line"><span>Total</span><span><strong>$8.00</strong></span></div>
-                <div style="font-size:0.75rem; color:#6a5a4a; margin-top:0.3rem; text-align:center;">
-                    Pay at the GCC booth — cash or card accepted.
-                </div>
-            </div>
-            <button class="potato-btn" id="potatoOrderBtn">📝 Preview &amp; Print Order</button>
-        </div>
+    <div class="potato-note">
+        🧑‍🍳 The <strong>Harvest Festival Crew</strong> will load up your potato with your chosen toppings – stop by and see us!
     </div>
 </div>
 
@@ -1497,54 +1362,10 @@
     });
 
     // ════════════════════════════════════════════════════════════
-    //  BAKED POTATO – live summary + print
+    //  BAKED POTATO – simplified print order (no prices, no toppings list)
     // ════════════════════════════════════════════════════════════
 
-    var toppingCheckboxes = document.querySelectorAll('#toppingGrid input[type="checkbox"]');
-    var summaryList = document.getElementById('toppingSummaryList');
-
-    function updatePotatoSummary() {
-        var selected = [];
-        toppingCheckboxes.forEach(function(cb) {
-            if (cb.checked) {
-                var label = document.querySelector('label[for="' + cb.id + '"]');
-                var text = label ? label.textContent.replace('NEW!', '').trim() : cb.value;
-                selected.push(text);
-            }
-        });
-        // Always show at least "Butter" if checked (it's checked by default)
-        var html = '';
-        if (selected.length === 0) {
-            html = '<div class="summary-line empty-summary"><span>No toppings selected</span><span>—</span></div>';
-        } else {
-            selected.forEach(function(item) {
-                var isNew = item.includes('Smoked Salmon');
-                var display = item + (isNew ? ' 🆕' : '');
-                html += '<div class="summary-line"><span>' + display + '</span><span>included</span></div>';
-            });
-        }
-        summaryList.innerHTML = html;
-    }
-
-    toppingCheckboxes.forEach(function(cb) {
-        cb.addEventListener('change', updatePotatoSummary);
-    });
-
-    // initial update
-    updatePotatoSummary();
-
-    // Print order
     document.getElementById('potatoOrderBtn').addEventListener('click', function() {
-        var selected = [];
-        toppingCheckboxes.forEach(function(cb) {
-            if (cb.checked) {
-                var label = document.querySelector('label[for="' + cb.id + '"]');
-                var text = label ? label.textContent.replace('NEW!', '').trim() : cb.value;
-                selected.push(text);
-            }
-        });
-        var toppingList = selected.length ? selected.join(', ') : 'No toppings selected';
-
         var html = `<!DOCTYPE html>
 <html>
 <head><meta charset="UTF-8"><title>Baked Potato Order</title>
@@ -1553,24 +1374,21 @@
   h1 { font-size: 1.6rem; border-bottom: 3px double #1a5f1a; padding-bottom: 0.2rem; }
   .order-box { border: 2px solid #d4a373; border-radius: 20px; padding: 1.5rem; margin-top: 1.2rem; background: #fefaf5; }
   .order-item { display: flex; justify-content: space-between; padding: 0.2rem 0; border-bottom: 1px dashed #d4a37330; }
-  .total { font-weight: 700; font-size: 1.2rem; border-top: 2px solid #d4a373; padding-top: 0.4rem; margin-top: 0.4rem; }
-  .note { margin-top: 1rem; font-size: 0.85rem; color: #4d3a28; border-left: 4px solid #d4a373; padding-left: 0.8rem; }
+  .note { margin-top: 1rem; font-size: 0.9rem; color: #4d3a28; border-left: 4px solid #d4a373; padding-left: 0.8rem; }
   .footer { margin-top: 1.5rem; font-size: 0.8rem; text-align: center; color: #6a5a4a; }
-  .badge { background: #1a5f1a; color: #ffd700; padding: 0.1rem 0.6rem; border-radius: 20px; font-size: 0.6rem; font-weight: 700; text-transform: uppercase; margin-left: 0.3rem; }
 </style>
 </head>
 <body>
 <h1>🥔 Baked Potato Order</h1>
 <p><strong>Gustavus Harvest Festival — Community Center</strong></p>
 <div class="order-box">
-  <div class="order-item"><span>🥔 Baked Potato</span><span>$8.00</span></div>
-  <div style="margin-top:0.3rem;"><strong>Toppings:</strong> ${toppingList}</div>
-  <div class="order-item total"><span>Total</span><span><strong>$8.00</strong></span></div>
+  <div class="order-item"><span>🥔 Baked Potato</span><span>—</span></div>
+  <p style="margin: 0.5rem 0 0 0; font-style: italic;">Toppings available at the booth – including our new <strong>Smoked Salmon</strong>!</p>
 </div>
 <div class="note">
-  🧑‍🍳 <strong>Harvest Festival Crew</strong> — we'll load up your potato with the toppings you checked!
+  🧑‍🍳 <strong>Harvest Festival Crew</strong> — we'll load up your potato with your chosen toppings. Stop by and see us!
 </div>
-<div class="footer">Pay at the GCC booth — cash or card accepted. Thank you for supporting the Gustavus Community Center!</div>
+<div class="footer">Thank you for supporting the Gustavus Community Center!</div>
 </body>
 </html>`;
         var w = window.open('', '_blank');
@@ -1580,7 +1398,7 @@
     });
 
     console.log('🌾 Gustavus Harvest Festival ready — all worksheets are printable!');
-    console.log('🥔 Baked Potato Fundraiser active — Smoked Salmon is on the menu!');
+    console.log('🥔 Baked Potato Fundraiser active (simplified) — Smoked Salmon is the highlight!');
 </script>
 
 </body>
