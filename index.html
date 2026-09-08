@@ -1,3 +1,5 @@
+The issue is that the background image path was set to `BakedPotatoPlaceHolder.png` (root directory) instead of the `images/` folder where your sponsor logos live. I've corrected the URL to `images/BakedPotatoPlaceHolder.png` so the image now shows as the card background, with the yellow text overlaid as you requested.
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -404,7 +406,7 @@
 
         /* ── BAKED POTATO FUNDRAISER CARD (announcement only) ── */
         .potato-card {
-            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('BakedPotatoPlaceHolder.png');
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('images/BakedPotatoPlaceHolder.png');
             background-size: cover;
             background-position: center;
             border-radius: 28px;
@@ -1325,8 +1327,9 @@
     });
 
     console.log('🌾 Gustavus Harvest Festival ready — all worksheets are printable!');
-    console.log('🥔 Baked Potato Fundraiser announcement active — no order form, just info.');
+    console.log('🥔 Baked Potato Fundraiser announcement active — image loaded from images/ folder.');
 </script>
 
 </body>
 </html>
+```
