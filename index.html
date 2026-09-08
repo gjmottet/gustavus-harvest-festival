@@ -402,110 +402,85 @@
             margin: 1.5rem 0;
         }
 
-        /* ── BAKED POTATO FUNDRAISER CARD (updated) ── */
+        /* ── BAKED POTATO FUNDRAISER CARD (announcement only) ── */
         .potato-card {
-            background: linear-gradient(rgba(255, 248, 235, 0.92), rgba(255, 248, 235, 0.92)), url('BakedPotatoPlaceHolder.png');
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('BakedPotatoPlaceHolder.png');
             background-size: cover;
             background-position: center;
             border-radius: 28px;
-            padding: 2rem 2rem 2.2rem;
+            padding: 2.5rem 2rem;
             margin: 2rem auto;
             max-width: 1200px;
-            border: 2px solid #d4a373;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border: 3px solid #ffd700;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            text-align: center;
+            color: #ffd700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
-        .potato-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 248, 235, 0.15);
-            border-radius: 28px;
-            pointer-events: none;
+        .potato-card h2 {
+            font-size: 2.4rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #ffd700;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.9);
         }
-        .potato-card>* {
-            position: relative;
-            z-index: 1;
-        }
-        .potato-header {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 3px solid #d4a373;
-            padding-bottom: 0.6rem;
-            margin-bottom: 1.2rem;
-        }
-        .potato-header h2 {
-            font-size: 1.8rem;
-            color: #2c3e2f;
-            letter-spacing: 1px;
-        }
-        .potato-header .fundraiser-badge {
+        .potato-card .fundraiser-badge {
+            display: inline-block;
             background: #d9534f;
             color: #fff;
             font-weight: bold;
-            padding: 0.2rem 1.2rem;
+            padding: 0.2rem 1.5rem;
             border-radius: 40px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-        }
-        .potato-tagline {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #2c3e2f;
-            background: rgba(255, 215, 0, 0.25);
-            padding: 0.3rem 1.2rem;
-            border-radius: 40px;
-            display: inline-block;
             margin-bottom: 1rem;
+            text-shadow: none;
         }
-        .potato-description {
-            font-size: 1rem;
+        .potato-card .tagline {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffd700;
+            margin-bottom: 0.8rem;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+        }
+        .potato-card .message {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0.5rem auto;
+            color: #fff9e6;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
             line-height: 1.6;
-            margin: 0.5rem 0 1.2rem 0;
         }
-        .potato-description strong {
-            color: #1a5f1a;
+        .potato-card .message strong {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
-        .potato-description .new-badge {
+        .potato-card .new-badge {
             background: #1a5f1a;
             color: #ffd700;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             font-weight: 700;
-            padding: 0.1rem 0.6rem;
+            padding: 0.1rem 0.8rem;
             border-radius: 20px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-left: 0.2rem;
+            margin-left: 0.3rem;
+            text-shadow: none;
         }
-        .potato-btn {
-            background: #2c3e2f;
-            color: #ffd700;
-            border: 2px solid #ffd700;
-            padding: 0.6rem 2.2rem;
-            border-radius: 40px;
-            font-weight: bold;
+        .potato-card .crew-note {
+            margin-top: 1.2rem;
             font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
+            color: #ffd700;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
             display: inline-block;
-        }
-        .potato-btn:hover {
-            background: #1a2a1f;
-            transform: scale(1.02);
-        }
-        .potato-note {
-            margin-top: 1rem;
-            font-size: 0.85rem;
-            color: #4d3a28;
-            background: rgba(255, 215, 0, 0.12);
-            padding: 0.5rem 1rem;
-            border-radius: 30px;
-            border-left: 4px solid #d4a373;
-            display: inline-block;
+            border: 1px solid #ffd70080;
+            backdrop-filter: blur(2px);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
         }
 
         /* ── responsive ── */
@@ -521,14 +496,13 @@
             .button-group {
                 flex-direction: column;
             }
-            .potato-header h2 {
-                font-size: 1.4rem;
+            .potato-card h2 {
+                font-size: 1.8rem;
             }
-            .potato-header .fundraiser-badge {
-                font-size: 0.7rem;
-                padding: 0.1rem 0.8rem;
+            .potato-card .tagline {
+                font-size: 1.2rem;
             }
-            .potato-tagline {
+            .potato-card .message {
                 font-size: 1rem;
             }
         }
@@ -809,28 +783,17 @@
     <p><strong>⭐ Scoring Note:</strong> For all judging criteria, a higher score indicates better quality, health, creativity, or presentation. Judges assign points accordingly.</p>
 </div>
 
-<!-- ====== BAKED POTATO FUNDRAISER CARD (updated) ====== -->
+<!-- ====== BAKED POTATO FUNDRAISER CARD (announcement only) ====== -->
 <div class="potato-card">
-    <div class="potato-header">
-        <h2>🥔 Baked Potato Fundraiser</h2>
-        <span class="fundraiser-badge">🔥 Support GCC</span>
+    <div class="fundraiser-badge">🔥 Support GCC</div>
+    <h2>🥔 Baked Potato Fundraiser</h2>
+    <div class="tagline">❤️ Love events like this? Support us by ordering your baked potato!</div>
+    <div class="message">
+        We'll have a variety of delicious toppings – including our <strong>new Smoked Salmon <span class="new-badge">NEW!</span></strong>!<br />
+        All proceeds help keep the Harvest Festival and other community events running.
     </div>
-
-    <div class="potato-tagline">
-        ❤️ Love events like this? Support us by ordering your baked potato!
-    </div>
-
-    <div class="potato-description">
-        <p>We'll have a variety of delicious toppings – including our <strong>new Smoked Salmon <span class="new-badge">NEW!</span></strong>! Ask at the GCC booth to place your order.</p>
-        <p style="margin-top:0.3rem; color:#4d3a28;">All proceeds help keep the Harvest Festival and other community events running.</p>
-    </div>
-
-    <div style="text-align:center;">
-        <button class="potato-btn" id="potatoOrderBtn">📝 Print Order Form</button>
-    </div>
-
-    <div class="potato-note">
-        🧑‍🍳 The <strong>Harvest Festival Crew</strong> will load up your potato with your chosen toppings – stop by and see us!
+    <div class="crew-note">
+        🧑‍🍳 The <strong>Harvest Festival Crew</strong> will load up your potato with your chosen toppings – stop by and see us at the GCC booth!
     </div>
 </div>
 
@@ -1361,44 +1324,8 @@
         });
     });
 
-    // ════════════════════════════════════════════════════════════
-    //  BAKED POTATO – simplified print order (no prices, no toppings list)
-    // ════════════════════════════════════════════════════════════
-
-    document.getElementById('potatoOrderBtn').addEventListener('click', function() {
-        var html = `<!DOCTYPE html>
-<html>
-<head><meta charset="UTF-8"><title>Baked Potato Order</title>
-<style>
-  body { font-family: 'Times New Roman', Times, serif; padding: 0.5in; background: #fff; color: #000; }
-  h1 { font-size: 1.6rem; border-bottom: 3px double #1a5f1a; padding-bottom: 0.2rem; }
-  .order-box { border: 2px solid #d4a373; border-radius: 20px; padding: 1.5rem; margin-top: 1.2rem; background: #fefaf5; }
-  .order-item { display: flex; justify-content: space-between; padding: 0.2rem 0; border-bottom: 1px dashed #d4a37330; }
-  .note { margin-top: 1rem; font-size: 0.9rem; color: #4d3a28; border-left: 4px solid #d4a373; padding-left: 0.8rem; }
-  .footer { margin-top: 1.5rem; font-size: 0.8rem; text-align: center; color: #6a5a4a; }
-</style>
-</head>
-<body>
-<h1>🥔 Baked Potato Order</h1>
-<p><strong>Gustavus Harvest Festival — Community Center</strong></p>
-<div class="order-box">
-  <div class="order-item"><span>🥔 Baked Potato</span><span>—</span></div>
-  <p style="margin: 0.5rem 0 0 0; font-style: italic;">Toppings available at the booth – including our new <strong>Smoked Salmon</strong>!</p>
-</div>
-<div class="note">
-  🧑‍🍳 <strong>Harvest Festival Crew</strong> — we'll load up your potato with your chosen toppings. Stop by and see us!
-</div>
-<div class="footer">Thank you for supporting the Gustavus Community Center!</div>
-</body>
-</html>`;
-        var w = window.open('', '_blank');
-        w.document.write(html);
-        w.document.close();
-        w.print();
-    });
-
     console.log('🌾 Gustavus Harvest Festival ready — all worksheets are printable!');
-    console.log('🥔 Baked Potato Fundraiser active (simplified) — Smoked Salmon is the highlight!');
+    console.log('🥔 Baked Potato Fundraiser announcement active — no order form, just info.');
 </script>
 
 </body>
