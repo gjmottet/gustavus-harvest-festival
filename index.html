@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1097,7 +1096,7 @@
     //  WORKSHEET SYSTEM – all worksheets are PRINTABLE
     // ════════════════════════════════════════════════════════════
 
-    function buildWorksheetHtml(title, totalPts, criteriaList, hasBonus, extraNote) {
+    function buildWorksheetHtml(title, totalPts, criteriaList, hasBonus, extraNote, noSignature) {
         var rows = '';
         criteriaList.forEach(function(c) {
             var ptsMatch = c.match(/\((\d+)\)/);
@@ -1112,6 +1111,15 @@
             bonusHtml = '<p><strong>🎯 Bonus (Harvest Festival Theme):</strong> +5 ______</p>';
         }
         var noteHtml = extraNote ? '<p><em>' + extraNote + '</em></p>' : '';
+
+        var signatureHtml = '';
+        if (!noSignature) {
+            signatureHtml = '  <div class="signature-area">\n' +
+                '    <div><strong>Judge Comments:</strong><div class="line" style="height:3rem;"></div></div>\n' +
+                '    <div><strong>Judge Signature:</strong><div class="line"></div></div>\n' +
+                '    <div><strong>Date:</strong><div class="line"></div></div>\n' +
+                '  </div>\n';
+        }
 
         return '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="UTF-8">\n<title>' + title +
             ' – Worksheet</title>\n<style>\n' +
@@ -1159,11 +1167,7 @@
             bonusHtml +
             noteHtml +
             '  <div class="total-line">🏆 Total Score Earned: ______ / ' + totalPts + '</div>\n' +
-            '  <div class="signature-area">\n' +
-            '    <div><strong>Judge Comments:</strong><div class="line" style="height:3rem;"></div></div>\n' +
-            '    <div><strong>Judge Signature:</strong><div class="line"></div></div>\n' +
-            '    <div><strong>Date:</strong><div class="line"></div></div>\n' +
-            '  </div>\n' +
+            signatureHtml +
             '</div>\n' +
             '</body>\n</html>';
     }
@@ -1285,7 +1289,8 @@
         potato: { title: 'Largest Potato (Class 19)', pts: 25,
             criteria: ['Weight: 1st place 25pt, all others 15pt participation (25)'] },
         zucchini: { title: 'Zucchini 500 (Class 20)', pts: 25,
-            criteria: ['Speed: 1st=25pt, 2nd=20pt, 3rd and below=15pt participation (25)'] },
+            criteria: ['Speed: 1st=25pt, 2nd=20pt, 3rd and below=15pt participation (25)'],
+            noSignature: true },
         unusual: { title: 'Most Unusual Vegetable (Class 21)', pts: 25, criteria: ['Unique shape/feature (5)',
                 'Rarity/variety (5)', 'Presentation (5)', 'Visual appeal (5)', 'Judge\'s wow factor (5)'
             ] },
@@ -1293,7 +1298,8 @@
                 'Construction (5)', 'Use of vegetables (5)', 'Theme/design (5)', 'Artistry (5)'
             ] },
         race: { title: 'Chicken & Rabbit Race (Class 12)', pts: 25,
-            criteria: ['Race placement: 1st=25pt, 2nd=20pt, 3rd and below=15pt participation (25)'] }
+            criteria: ['Race placement: 1st=25pt, 2nd=20pt, 3rd and below=15pt participation (25)'],
+            noSignature: true }
     };
 
     // ---- open worksheet ----
@@ -1311,7 +1317,7 @@
                     'Creativity (5)', 'Theme (5)', 'Impact (5)'
                 ] };
         }
-        var html = buildWorksheetHtml(d.title, d.pts, d.criteria, d.hasBonus || false, '');
+        var html = buildWorksheetHtml(d.title, d.pts, d.criteria, d.hasBonus || false, '', d.noSignature || false);
         var win = window.open('', '_blank');
         win.document.write(html);
         win.document.close();
@@ -1331,4 +1337,4 @@
 
 </body>
 </html>
-```
+
